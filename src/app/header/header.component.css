@@ -1,5 +1,13 @@
 .img-icon img { 
     width: 70px;
-    height: 75px;
+    height: 70px;
 }
-
+.container{
+    display: flex;
+    justify-items: center;
+}
+@media (max-width: 395px) {
+    .right-content {
+      display: none; /* Hide right-side content below 390px */
+    }
+}

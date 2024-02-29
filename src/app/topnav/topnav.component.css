@@ -6,3 +6,7 @@ color: aliceblue;
     color: black;
 
 }
+.container-fluid{
+    margin: 0px;
+    padding: 0px;
+}
