@@ -2,12 +2,28 @@
     width: 70px;
     height: 70px;
 }
+.img-icon{
+    display: flex;
+    justify-items: center;
+}
+
 .container{
     display: flex;
     justify-items: center;
 }
+
 @media (max-width: 395px) {
     .right-content {
       display: none; /* Hide right-side content below 390px */
     }
 }
+@media (max-width: 770px) {
+    .right-content {
+      display: none; /* Hide right-side content below 390px */
+    }
+}
+
+/* @media (max-width: 395px) {
+.gov-logo{
+    display: none; }
+} */
