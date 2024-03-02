@@ -1,42 +1,46 @@
 <div class="container-flude bg-light border border-top  border-bottom border-1">
   <div class="container">
     
-    <nav class="navbar navbar-expand-lg ">
-
+    <nav class="navbar navbar-expand-lg">
       <!-- Home icon -->
-    <a href="/"  rel="noopener noreferrer">  <fa-icon style="font-size:large; color: white;border: solid aquamarine; border-radius: 7px;padding:11px;background-color: coral;" [icon]="faHouse"></fa-icon></a>  
-      <button class="navbar-toggler border border-2 btn bg-white ms-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a routerLink="home" href="#"  rel="noopener noreferrer">  <fa-icon style="font-size:large; color: white;border: solid aquamarine; border-radius: 7px;padding:11px;background-color: coral;" [icon]="faHouse"></fa-icon></a>  
+     <!-- Home icon -->
+      <button class="navbar-toggler border border-2  bg-white ms-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon color-dark"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0"> 
-          <li class="nav-item">
-            <a class="nav-link" href="/">About-Us</a>
+      <div class="collapse navbar-collapse nav-manu" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-3 mb-lg-0">
+         
+          <li class="nav-item " id="homebtn">                  
+            <a class="nav-link btn" routerLink="/home">Home</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link btn " routerLink="/about-us">About-Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="#">Link</a>
+            <a class="nav-link btn " routerLink="/contact-us">Contact-Us</a>
           </li>
+
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+            <a class="nav-link btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
               Dropdown
             </a>
             <ul class="dropdown-menu navbarNavDarkDropdown">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item btn">Action</a></li>
+              <li><a class="dropdown-item btn" >Another action</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item btn">Something else here</a></li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-disabled="true">Disabled</a>
+            <a class="nav-link btn">Disabled</a>
           </li>
         </ul>
         <div class="d-flex RightBtn">
           <abbr title=" If You Already Registed So Click To Login">
-             <a class="btn border-2 border-white" id="regbtn" type="submit" href="#">Register</a>
-          </abbr>
-          
-          <a  class=" btn border-2 border-white ms-3" id="loginbtn" type="submit" href="#">Login</a>
+             <a routerLink="/register" class="btn border-2 border-white" id="regbtn" type="submit">Register</a>
+          </abbr>         
+          <a routerLink="/login" class=" btn border-2 border-white ms-3" id="loginbtn" type="submit">Login</a>
         </div>
       </div>
 

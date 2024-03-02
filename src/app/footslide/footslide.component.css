@@ -17,21 +17,19 @@
 .logos:after {
     position: absolute;
     top: 0;
-    width: 200px;
+    width: 70px;
     height: 100%;
     content:"";
     z-index: 2;
 }
-
 .logos:before{
     left: 0;
-    /* background: linear-gradient(to left,rgba(255,255,255,0),white); */
-
+    background: linear-gradient(to left,rgba(255, 255, 255, 0.123),rgba(82, 80, 80, 0.184));
 }
 
 .logos:after{
     right: 0;
-    /* background: linear-gradient(to right,rgba(255,255,255,0),white); */
+    background: linear-gradient(to right,rgba(255, 255, 255, 0.123),rgba(82, 80, 80, 0.184));
 
 }
 
@@ -42,7 +40,7 @@
 
 .logos-slide{
 display: inline-block;
-animation: 35s slide infinite linear;
+animation: 21s slide infinite linear;
 }
 
 .logos-slide img{
@@ -56,7 +54,3 @@ border-radius: 10px;
     transform: scale(1.1);
 }
 
-.container{
-    display: flex;
-    justify-content: center;
-}

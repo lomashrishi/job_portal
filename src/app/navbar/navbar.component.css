@@ -25,3 +25,15 @@ margin-left:15px;
 .dropdown-item {
     font-weight: bold;
 }
+
+@media (max-width: 395px) {
+    .nav-manu .btn {
+            text-align:left;
+      }
+}
+@media (max-width: 770px) {
+    .nav-manu .btn {
+     text-align:left;
+    }
+}
+
