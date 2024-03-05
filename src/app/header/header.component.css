@@ -17,7 +17,7 @@
       display: none; /* Hide right-side content below 390px */
     }
 }
-@media (max-width: 770px) {
+@media (max-width: 768px) {
     .right-content {
       display: none; /* Hide right-side content below 390px */
     }
