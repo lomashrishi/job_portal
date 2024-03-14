@@ -3,48 +3,112 @@
         <h3 class="p-2 bg-primary text-light border-bottom border-1 rounded"><strong>Contact-Us Page</strong></h3>
     </div>  
   
-    <div class="container rounded fw-bold mb-3 pt-3 pb-3" style="background-color:#34495e;">
+    <div class="container rounded fw-bold" >
  
-        <form id="contact_form" name="contact_form" method="post" class="cform" >
-            <div class="mb-3">
-              <label class="ms-1 text-light"  for="email_addr">Email Address :</label>
-              <input type="email" required maxlength="50" class="form-control" 
-              id="email_addr" name="email" placeholder="name@example.com">
+      <section class="text-gray-600 body-font relative">
+        <div class="container px-5 mx-auto flex flex-wrap">
+          <form
+           
+          
+            class="bg-white flex flex-col w-full mt-8"
+          >
+            <h1
+              class="text-gray-900 text-3xl mb-4 font-medium title-font text-red-500"
+            >
+              Angular Contact Form
+            </h1>
+            <div class="relative mb-4">
+              <label for="name" class="leading-7 text-sm text-gray-600">Name</label>
+              <input
+                formControlName="name"
+                type="text"
+                id="name"
+                name="name"
+                class="
+                  w-full
+                  bg-white
+                  rounded
+                  border border-gray-300
+                  text-base
+                  outline-none
+                  text-gray-700
+                  py-1
+                  px-3
+                  leading-8
+                "
+              />
             </div>
-            <div class="mb-3">
-              <label class="ms-1 text-light" for="name_input">Name :</label>
-              <input type="text" required maxlength="50" class="form-control" 
-              id="name_input" name="name" placeholder="Name">
-            </div>            
-            <div class="mb-3">
-                <label class="ms-1 text-light"  for="phone_input">Phone :</label>
-                <input type="tel" required maxlength="50" class="form-control" 
-                id="phone_input" name="Phone" placeholder="Phone">
-              </div> 
-            <div class="mb-3">
-              <label class="ms-1 text-light"  for="message">Message :</label>
-              <textarea class="form-control" id="message" name="message" rows="3" placeholder="Any Query ?.."></textarea>
+            <div class="relative mb-4">
+              <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
+              <input
+                formControlName="email"
+                type="email"
+                id="email"
+                name="email"
+                class="
+                  w-full
+                  bg-white
+                  rounded
+                  border border-gray-300
+                  text-base
+                  outline-none
+                  text-gray-700
+                  py-1
+                  px-3
+                  leading-8
+                "
+              />
             </div>
-          <div class="my-4">
-          <div class="text-captcha">
-            <div class="mb-3 d-flex align-items-center">
-                <canvas id="captcha" width="200" height="80"></canvas>
-                <button type="button" class="btn btn-secondary" id="refresh-captcha">
-                  <i class="fa fa-refresh"></i>
-                </button>
-              </div>
-    
-              <div class="mb-3">
-                <label class="ms-1 text-light" for="captcha-input">Enter Captcha :</label>
-                <input type="text" class="form-control" id="captcha-input" required>
-              </div>
-              <button type="submit" class="btn btn-primary ms-1 text-light">Submit</button>
-          </div>
-          </div>
-          <hr/>
-            <button type="submit" class="btn btn-primary px-5 fw-bold ">Send</button>
+            <div class="relative mb-4">
+              <label for="message" class="leading-7 text-sm text-gray-600"
+                >Message</label
+              >
+              <textarea
+                formControlName="message"
+                id="message"
+                name="message"
+                class="
+                  w-full
+                  bg-white
+                  rounded
+                  border border-gray-300
+                  h-32
+                  text-base
+                  outline-none
+                  text-gray-700
+                  py-1
+                  px-3
+                  resize-none
+                  leading-6
+                  transition-colors
+                  duration-200
+                  ease-in-out
+                "
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="
+                text-white
+                bg-red-500
+                border-0
+                py-2
+                px-6
+                focus:outline-none
+                hover:bg-red-600
+                rounded
+                text-lg
+              "
+            >
+              Send
+            </button>
           </form>
+        </div>
+      </section>
+      
     </div>    
 
 
 </div>
+
+

@@ -1,11 +1,53 @@
-<div class="container-flude mt-3 p-1">
-    <div class="container page-heading text-center">
-        <h3 class="p-2 bg-success text-light border-bottom border-1 rounded"><strong>User Login Page</strong></h3>
-    </div>  
-  
-    <div class="container bg-light rounded  border-dark">
-        <p> Wel Code Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati illum repudiandae ipsa culpa. Adipisci ea maiores cupiditate alias aliquam nam laudantium deserunt repellat unde, totam sapiente dolorum inventore tempora eveniet? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi id eaque nobis quae atque ullam quibusdam laboriosam neque. Natus sunt consequatur excepturi eius iusto doloremque commodi eum velit dolores quis. Lorem ipsum, dolor sit amet consectetur adipisicing </p>
-    </div>    
+<div class="container-flude mt-2 p-1 mb-3">
+    <div
+        class="container page-heading text-center p-0 bg-white rounded shadow">
+        <h3 style="background-color: #44bd9e" class="card-header p-2 text-light  rounded border border-end-0 border-bottom-0 border-start-0 border-5 border-danger">
+            <strong>User Login Page</strong>
+        </h3>
 
-
+        <div class="container mt-3 pb-5">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card rounded border border-end-0 border-bottom-0 border-start-0 border-5 border-success">
+                        <div class="card-header border border-dark">
+                            <span class="text-justify text-danger">
+                                <p class="text-justify">
+                                    <small><b>लॉग इन और आवेदन पत्र भरने से पहले 'कांकेर भर्ती पोर्टल' - Kanker Recruitment Portal पर पंजीकरण करना अनिवार्य है। कृपया सुनिश्चित करें कि आप पंजीकृत हैं, क्योंकि केवल पंजीकृत आवेदक ही इस पोर्टल के माध्यम से आयोजित भर्तियों के लिए आवेदन कर सकते हैं।</b></small>
+                                </p>
+                            </span>
+                        </div>
+                        <div class="card-body border border-dark border-bottom-0">
+                            <form>
+                                <div class="form-group">
+                                    <label for="email" class=""><b>Email ID:</b></label>
+                                    <input type="email" class="form-control shadow p-2 border border-1 border-success" id="email" placeholder="Enter Your Email ID" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="mobile" class=""><b>Mobile No:</b></label>
+                                    <input type="mobile" class="form-control shadow p-2 border border-1 border-success" id="mobile" placeholder="Enter Your Mobile Or Phone No " required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="password" class="text-left"><b>Password:</b></label>
+                                    <input type="password" class="form-control shadow p-2 border border-1 border-success" id="password" placeholder="Enter Your Password" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="captcha" class="text-left d-block"><b>CAPTCHA:</b></label>
+                                    <!-- Add your CAPTCHA implementation here -->
+                                    <input type="text" class="form-control shadow p-2 border border-1 border-success" id="captcha" placeholder="Enter Captcha Code" required />
+                                </div>
+                                <hr/>
+                                <div class="mt-3 d-flex justify-content-evenly">
+                <button type="submit" class="btn btn-primary btn-outline-success text-light"><b>Login</b></button>              <button type="submit" class="btn btn-danger btn-outline-success text-light"><b>Reset</b></button>                                  <button type="submit" class="btn btn-warning btn-outline-success text-light"><b>Forget Password</b></button>
+               
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card-header rounded-bottom border border-dark border-1 border-top-0 p-1 bg-secondary text-light fw-bold ">                           
+                           <a class="text-light" href="#">User Manual</a> || <a class="text-light" href="#">User Instruction</a> ||   <a class="text-warning" routerLink="/register" href="#"><b>Register</b></a> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
