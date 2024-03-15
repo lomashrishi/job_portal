@@ -1,5 +1,6 @@
 .card-body{
 text-align: left;
+
 }
 input{
     font-size:large;
@@ -20,5 +21,10 @@ float: right;
 margin-top:-30px;
 margin-right: 11px;
 border: 1px;
+
+}
+
+.login-con{
+  background-color:#e8f0fe;
 
 }

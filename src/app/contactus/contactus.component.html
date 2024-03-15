@@ -1,114 +1,63 @@
-<div class="container-flude mt-3 p-1">
-    <div class="container page-heading text-center">
-        <h3 class="p-2 bg-primary text-light border-bottom border-1 rounded"><strong>Contact-Us Page</strong></h3>
-    </div>  
-  
-    <div class="container rounded fw-bold" >
- 
-      <section class="text-gray-600 body-font relative">
-        <div class="container px-5 mx-auto flex flex-wrap">
-          <form
+<div class="container-flude mt-2 p-1 mb-3">
+  <div class="container page-heading text-center p-0 bg-white rounded shadow">
+      <h3 style="background-color: #ea5a0c"
+          class="card-header p-2 text-light rounded border border-end-0 border-bottom-0 border-start-0 border-5 border-primary">
+          <strong>Contact Us</strong>
+      </h3>
+
+<div class="container mt-2">
+  <div class="row d-flex contact-row p-1 rounded  shadow ">
+      <div class="col-md-8 con-form shadow pb-3">
+          <form class="con-form">
+            <div class="mb-3">
+              <label for="formGroupExampleInput" class="form-label ms-3"><b><i class="fa-solid fa-user-tie"></i> Name :</b></label>
+              <input type="text" class="form-control rounded" id="name" placeholder="Enter your name">
+            </div>
+            <div class="mb-3">
+              <label for="formGroupExampleInput2" class="form-label ms-3"> <b><i class="fa-solid fa-envelope-open-text"></i> Email :</b> </label>
+              <input type="email" class="form-control rounded" id="email" placeholder="Enter your email">
+            </div>
+            <div class="mb-3">
+              <label for="formGroupExampleInput2" class="form-label ms-3"><b><i class="fa-solid fa-tty"></i> Phone : </b></label>
+              <input type="text" class="form-control rounded" id="formGroupExampleInput2" placeholder="Enter your number">
+            </div>
+            <div class="mb-3">
+              <label for="formGroupExampleInput2" class="form-label ms-3"> <b> <i class="fa-regular fa-message"></i> Message : </b></label>
+              <textarea  class="col-12 textarea rounded" id="exampleFormControlTextarea1" placeholder=" Write Your Query ?.." rows="5"></textarea>
+            </div >
+            <div class="mb-3 text-center">
+            <button class="btn btn-primary "><b class="fs-5">Send<i class="bi bi-send"></i></b></button>  
+          </div>
+        </form>
+      </div>
+      <div class="col-md-4 pb-3 rounded">
+        <h4 class="pt-2">Reach Us</h4><hr>
+        <div class="Address ms-0">  
            
+              <p ><i class="bi bi-geo-alt-fill"></i> <b> Address:- Collector Office, Near Bus Stand, Kanker, Chhattisgarh, Pin 494334</b> </p>
+           <hr>
+ 
+           
+              <p>    <i class="bi bi-telephone-fill"> </i><b> Phone:- </b> <a class="text-white " href="tel:07868-241222"><b>07868-241222</b> </a> </p>
+          <hr>
           
-            class="bg-white flex flex-col w-full mt-8"
-          >
-            <h1
-              class="text-gray-900 text-3xl mb-4 font-medium title-font text-red-500"
-            >
-              Angular Contact Form
-            </h1>
-            <div class="relative mb-4">
-              <label for="name" class="leading-7 text-sm text-gray-600">Name</label>
-              <input
-                formControlName="name"
-                type="text"
-                id="name"
-                name="name"
-                class="
-                  w-full
-                  bg-white
-                  rounded
-                  border border-gray-300
-                  text-base
-                  outline-none
-                  text-gray-700
-                  py-1
-                  px-3
-                  leading-8
-                "
-              />
+             
+              <p><i class="bi bi-envelope-fill"></i> <b> Email:- </b> <a class="text-white " href="mailto:Kanker@gmail.com"><b>Kanker{{"@"}}gmail.com</b></a></p>
+         <hr>
+       
+           
+              <p>   <i class="bi bi-browser-chrome"></i> <b> Website:- </b> <a class="text-white" href="https://kanker.gov.in" target="_blank" rel="noopener noreferrer"><b>https://kanker.gov.in</b></a> </p>
+              <hr><h5> <i class="fa-solid fa-map-location-dot"></i> Office Location</h5><hr>
+              <div class="map mb-0 p-0 mt-3">
+                
+                <iframe class="rounded p-0 border border-1 border-white" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14971.240497231402!2d81.498843!3d20.266708!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a2efd9e0518cda5%3A0xe947c615bc016b!2sCollectorate!5e0!3m2!1sen!2sin!4v1710466122920!5m2!1sen!2sin" ></iframe>
+              </div>
             </div>
-            <div class="relative mb-4">
-              <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
-              <input
-                formControlName="email"
-                type="email"
-                id="email"
-                name="email"
-                class="
-                  w-full
-                  bg-white
-                  rounded
-                  border border-gray-300
-                  text-base
-                  outline-none
-                  text-gray-700
-                  py-1
-                  px-3
-                  leading-8
-                "
-              />
-            </div>
-            <div class="relative mb-4">
-              <label for="message" class="leading-7 text-sm text-gray-600"
-                >Message</label
-              >
-              <textarea
-                formControlName="message"
-                id="message"
-                name="message"
-                class="
-                  w-full
-                  bg-white
-                  rounded
-                  border border-gray-300
-                  h-32
-                  text-base
-                  outline-none
-                  text-gray-700
-                  py-1
-                  px-3
-                  resize-none
-                  leading-6
-                  transition-colors
-                  duration-200
-                  ease-in-out
-                "
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              class="
-                text-white
-                bg-red-500
-                border-0
-                py-2
-                px-6
-                focus:outline-none
-                hover:bg-red-600
-                rounded
-                text-lg
-              "
-            >
-              Send
-            </button>
-          </form>
-        </div>
-      </section>
-      
-    </div>    
 
-
+          </div>
+       
 </div>
 
-
+    </div>
+  </div>
+</div>

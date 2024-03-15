@@ -5,6 +5,7 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ForgetComponent } from './forget/forget.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 export const routes: Routes = [
     {'path': 'home', redirectTo: '', pathMatch: 'full' },
@@ -17,7 +18,10 @@ export const routes: Routes = [
     {'path':'login','title':'User-Login | Kanker Recruitment Portal', component:LoginComponent},
     {'path': 'forget', redirectTo: 'ForgetPassword', pathMatch: 'full' },
     {'path': 'forgetpassword', redirectTo: 'ForgetPassword', pathMatch: 'full' },
-    {'path':'ForgetPassword','title':'Forget User ID & Password | Kanker Recruitment Portal', component:ForgetComponent}
+    {'path':'ForgetPassword','title':'Forget User ID & Password | Kanker Recruitment Portal', component:ForgetComponent},
+    {'path':'notification',redirectTo:'notifications',pathMatch:'full'},
+    {'path':'notifications','title':'Recruitment Notifications | Kanker Recruitment Portal', component:NotificationsComponent}
+
 
 
 ];
