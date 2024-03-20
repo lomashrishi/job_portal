@@ -17,17 +17,32 @@
                             </span>
                         </div>
                         <div class="card-body border border-dark border-bottom-0">
-                            <form class="pb-5 fw-bold  option-form" id="option-form">
-                               <div class="form-group mb-5">
-                                <label for="option" class=""><b>Trouble Logging In</b></label>
-                                <select class="form-control shadow p-2 border border-1 border-success form-select mb-3" id="option" required>
-                                    <option class="text-center bg-info text-light fw-bold" value="" disabled selected>Please Select An Forget Option</option>
-                                    <option value="forgetPassword">Forget Login Password (Only)</option>
-                                    <option value="forgetUserIdPassword">Forgot User ID & Login Password (Both)</option>
-                                </select>
+                            <form class="form" >
+                                <div class="form-group mb-5">
+                                  <label for="option" class="mt-0"><b>Trouble Logging In</b></label>
+                                  <select  class="form-control shadow p-2 border border-1 border-success form-select mb-3" id="select">
+                                    <option class="text-center bg-info text-light fw-bold"  disabled value="" selected >Please Select An Forget Option</option>
+                                    <option value="forgetPassword"  formControlName="forgetPassword" id="1">Forget Login Password (Only)</option>
+                                    <option value="forgetUserIdPassword" formControlName="forgetUserIdPassword" id="2">Forgot User ID & Login Password (Both)</option>
+                                  </select>
+
+                                            <button type="submit" onclick="show()">OK</button>
+
+                                </div>                    
+                              </form>
+
+<!--                               
+                              @if (userForm === 'forgetPassword') {
+                                <app-forgetpassword></app-forgetpassword>
+                            }                               
+                   
+                            @if (userForm === 'forgetUserIdPassword') {
+                                <app-forgetidpassword></app-forgetidpassword>
+
+                            } -->
+
                             </div>
-                            </form>
-                        </div>
+                            
                         <div class="card-header rounded-bottom border border-dark border-1 border-top-0 p-1 bg-dark text-light fw-bold ">                           
                            <a class="text-light" href="#">User Manual</a> || <a class="text-light" href="#">User Instruction</a> || <small class="text-primary register-text">Don't have an account ? </small>   <a class="text-warning" routerLink="/register" href="#"><b>Register</b></a> 
                         </div>

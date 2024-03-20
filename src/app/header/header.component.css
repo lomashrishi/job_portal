@@ -10,6 +10,8 @@
 .container{
     display: flex;
     justify-items: center;
+
+
 }
 
 @media (max-width: 395px) {

@@ -13,8 +13,11 @@
         <span class="navbar-toggler-icon color-dark"></span>
       </button>
       <div class="collapse navbar-collapse nav-manu" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-3 mb-lg-0">
-          <li class="nav-item" id="homebtn">
+     
+        <ul class="navbar-nav nav-ul me-auto  mb-3 mb-lg-0 d-flex justify-content-between">
+       
+          <li class="nav-item" id="homebtn">   
+        
             <a class="nav-link btn" routerLink="/home" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Home</a>
           </li>
           <li class="nav-item">
@@ -38,11 +41,11 @@
             <a class="nav-link btn" routerLink="/notifications" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Notification</a>
           </li>
         </ul>
-        <div class="d-flex RightBtn">
+        <div class="d-flex justify-content-end RightBtn">
           <abbr title=" If You Already Registered So Click To Login">
-            <a routerLink="/register" class="btn border-2 border-white" id="regbtn" type="submit" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Register</a>
+            <a routerLink="/register" class="btn border-2 border-white" id="regbtn" type="submit" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"><i class="fa-solid fa-user-plus"></i>Register</a>
           </abbr>
-          <a routerLink="/login" class=" btn border-2 border-white ms-3" id="loginbtn" type="submit" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Login</a>
+          <a routerLink="/login" class=" btn border-2 border-white ms-3" id="loginbtn" type="submit" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"><i class="fa-solid fa-user-graduate"></i>Login</a>
         </div>
       </div>
     </nav>

@@ -1,10 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
 /* styles.css */
 
+
+/* Bootstrap 5 Css Framework */
 @import "bootstrap/dist/css/bootstrap.min.css";
 
+/* Bootstrap Icon  Css Framework */
+@import "bootstrap-icons/font/bootstrap-icons.min.css";
 
-
+/* Font awesome Free Icon Css Link */
 @import "@fortawesome/fontawesome-free/css/all.min.css";
 
 
+.mainbody{
+    background-image: url("/assets/body/bodyimg.jpg");
+
+    /* Add the blur effect */
+    filter: blur(0.1);
+     -webkit-filter: blur(0.1);
+  
+    /* Full height */
+    height: 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter: brightness(99%);
+}

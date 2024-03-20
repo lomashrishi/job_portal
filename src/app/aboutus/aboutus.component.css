@@ -1,0 +1,37 @@
+.add-office{
+    background: #cb0166;
+    color: white;
+
+}
+.about-data{
+    text-align: left;
+    text-align: justify;
+}
+
+
+.bi{
+    font-size: 20px;
+}
+
+.about-row{
+    background-color:#e8f0fe;
+}
+
+.map{
+    position:relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+
+}
+
+.about-jila{
+    background-color:#f9fdff;
+}
+.line{
+    background-color:red;
+}
+.about-text{
+    text-align: justify;
+}

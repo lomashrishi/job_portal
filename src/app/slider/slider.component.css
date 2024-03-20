@@ -24,12 +24,12 @@ float: right;
 }
 
 .news-ticker{
-    background-color:whitesmoke;
+    background-color:#e9f0ff;
     border: solid black;
 
 }
 .heading-news-ticker{
-    width: 100px;
+    width:80px;
     background-color:#ff5252;
     border-radius: 5px;
 }
@@ -65,11 +65,22 @@ float: right;
     .carousel-item img{
         width: 100%;
         height: 100%;
-        height:200px;
+        height:190px;
         object-fit:fill;
     }
     .slide{
 
-        height:200px;
+        height:190px;
     }
+}
+
+.container{
+    background-color:#ffff;
+}
+
+.slidebutton-icon{
+        background-color:#44bd9e;
+        border-radius: 5px;
+        border: solid 1px;
+        border-color: #e9f0ff;
 }
