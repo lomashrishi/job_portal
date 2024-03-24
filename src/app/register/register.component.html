@@ -1,58 +1,68 @@
-<div class="container-flude mt-2 p-1 mb-3">
+<div class="container-flude mt-2 mb-3 p-0">
     <div class="container page-heading text-center p-0 bg-white rounded shadow">
         <h3 style="background-color: #00d290"
             class="card-header p-2 text-light rounded border border-end-0 border-bottom-0 border-start-0 border-5 border-dark">
             <strong>User Registration</strong>
-        </h3></div>
-  
-  <div class="container main-con mt-2">
-
-    <div class="row  basic-row p-1 rounded  shadow ">
-
-        <div class="col-md-10">info
-           
-        </div>
-        <div class="col-md-2">
-
-        </div>
-                
+        </h3>
     </div>
-<!-- row1 -->
-
-
-
-
-
-
-<!-- maain  -->
-</div>
-</div>
-  <!-- close -->
-
-
-  <div id="ContentPlaceHolder1_pnlForm" class="w-100">
-	
-                           
-    <div class="col-lg-12">
-        <div class="row">
-            <div class="col-lg-9">
-                <div class="panel panel-success">
-                    <div class="panel-header">
-                        <h3 class="panel-title text-muted">Basic Information / मूलभूत जानकारी</h3>
+  
+  <div class="container main-con mt-2 bg-white p-2 rounded">
+    <div class="row basic-row ">
+            <div class="col-lg-9 mb-3 ">
+                <div class="card">
+                    <div class="card-header bg-warning p-1">
+                        <h5 class="ms-1 mt-1"><b>Basic Information / मूलभूत जानकारी</b></h5>
                     </div>
-                    <div class="panel-body">
+                    <div class="card-body">
                         <div class="row">
-                            <div class="col-lg-6">
+                            <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>
-                                        Candidate's Name / उम्मीदवार का नाम</label>
+                                        <b>Candidate's Name / उम्मीदवार का नाम</b></label>
                                     <input name="ctl00$ContentPlaceHolder1$txtName" type="text" value="LOMASH RISHI" id="ContentPlaceHolder1_txtName" disabled="disabled" class="aspNetDisabled form-control">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>
-                                        Relative's Type (रिश्तेदार का प्रकार)</label>
+                                        <b>Date of Birth / जन्म की तारीख</b></label>
+                                    <input name="ctl00$ContentPlaceHolder1$txtDOB" type="text" value="28-Feb-2001" id="ContentPlaceHolder1_txtDOB" disabled="disabled" class="aspNetDisabled form-control">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>
+                                        <b>Gender / लिंग</b></label>
+                                    <input name="ctl00$ContentPlaceHolder1$txtGender" type="text" value="Male" id="ContentPlaceHolder1_txtGender" disabled="disabled" class="aspNetDisabled form-control">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>
+                                       <b>Category / वर्ग</b></label>
+                                    <input name="ctl00$ContentPlaceHolder1$txtCast" type="text" value="OBC (NON CREAMY LAYER)" id="ContentPlaceHolder1_txtCast" disabled="disabled" class="aspNetDisabled form-control">
+                                    
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>
+                                        <b>Marital Status / वैवाहिक स्थिति </b>
+                                    </label>
+                                    <input name="ctl00$ContentPlaceHolder1$txtPayAmt" type="text" value="0" id="ContentPlaceHolder1_txtPayAmt" disabled="disabled" class="aspNetDisabled form-control">      
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>
+                                        <b>Age / उम्र</b>
+                                    </label>
+                                    <input name="ctl00$ContentPlaceHolder1$txtPayAmt" type="text" value="0" id="ContentPlaceHolder1_txtPayAmt" disabled="disabled" class="aspNetDisabled form-control">      
+                                </div>
+                            </div>            
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label><b>Relative's Type / रिश्तेदार का प्रकार</b> </label>
                                     <label class="lbl-req">
                                         *</label>
                                     <input name="ctl00$ContentPlaceHolder1$txtRelative" type="text" value="Father" id="ContentPlaceHolder1_txtRelative" disabled="disabled" class="aspNetDisabled form-control">
@@ -60,381 +70,111 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label>
-                                        Relative Name (रिश्तेदार का नाम)</label>
+                                    <label><b>Relative Name / रिश्तेदार का नाम</b></label>
                                     <input name="ctl00$ContentPlaceHolder1$txtFather" type="text" value="VIKAS SINHA " id="ContentPlaceHolder1_txtFather" disabled="disabled" class="aspNetDisabled form-control">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label>
-                                        Mother's Name / माता का नाम</label>
+                                    <label><b>Mother's Name / माता का नाम</b></label>
                                     <input name="ctl00$ContentPlaceHolder1$txtMother" type="text" value="KUNTI" id="ContentPlaceHolder1_txtMother" disabled="disabled" class="aspNetDisabled form-control">
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+
+                            <div id="ContentPlaceHolder1_divNationality" class="col-lg-6">
                                 <div class="form-group">
-                                    <label>
-                                        Gender / लिंग</label>
-                                    <input name="ctl00$ContentPlaceHolder1$txtGender" type="text" value="Male" id="ContentPlaceHolder1_txtGender" disabled="disabled" class="aspNetDisabled form-control">
+                                    <label><b>Nationality / नागरिकता</b></label>
+                                    <input name="ctl00$ContentPlaceHolder1$txtNationality" type="text" value="Indian" id="ContentPlaceHolder1_txtNationality" disabled="disabled" class="aspNetDisabled form-control">
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+ 
+                            <div id="ContentPlaceHolder1_divDomicileCG" class="col-lg-6">
                                 <div class="form-group">
-                                    <label>
-                                        Date of Birth / जन्म की तारीख</label>
-                                    <input name="ctl00$ContentPlaceHolder1$txtDOB" type="text" value="28-Feb-2001" id="ContentPlaceHolder1_txtDOB" disabled="disabled" class="aspNetDisabled form-control">
-                                </div>
-                            </div>
-                            <div class="col-lg-6" style="display:none">
-                                <div class="form-group">
-                                    <label>
-                                        Age / उम्र</label>
-                                    <input name="ctl00$ContentPlaceHolder1$txtAge" type="text" value="23 Years" id="ContentPlaceHolder1_txtAge" disabled="disabled" class="aspNetDisabled form-control">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>
-                                        Category / वर्ग</label>
-                                    <input name="ctl00$ContentPlaceHolder1$txtCast" type="text" value="OBC (NON CREAMY LAYER)" id="ContentPlaceHolder1_txtCast" disabled="disabled" class="aspNetDisabled form-control">
+                                    <label><b>Domicile of Chhatisgarh / छत्तीसगढ़ के निवासी</b></label>
+                                    <input name="ctl00$ContentPlaceHolder1$txtDomisileCG" type="text" value="Yes" id="ContentPlaceHolder1_txtDomisileCG" disabled="disabled" class="aspNetDisabled form-control">
                                 </div>
                             </div>
 
+                            <div id="ContentPlaceHolder1_divDomicileDist" class="col-lg-6">
+                                <div class="form-group">
+                                    <label><b>District Domicile</b></label>
+                                    <input name="ctl00$ContentPlaceHolder1$txtDistrictDomecile" type="text" value="Dhamtari" id="ContentPlaceHolder1_txtDistrictDomecile" disabled="disabled" class="aspNetDisabled form-control">
+                                </div>
+                            </div>
                             
-
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>
+                                       <b>Email ID / ईमेल</b>
+                                    </label>
+                                    <input name="ctl00$ContentPlaceHolder1$txtEmail" type="text" value="lomashrishisinha@gmail.com" id="ContentPlaceHolder1_txtEmail" disabled="disabled" class="aspNetDisabled form-control">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label><b>Mobile No / मोबाइल नंबर</b></label>
+                                    <input name="ctl00$ContentPlaceHolder1$txtMob" type="text" value="9977679866" id="ContentPlaceHolder1_txtMob" disabled="disabled" class="aspNetDisabled form-control">
+                                </div>
+                            </div>
                             
-
-                              <div id="ContentPlaceHolder1_divDomicileCG" class="col-lg-6">
-                        <div class="form-group">
-                            <label>
-                                Domicile of Chhatisgarh / छत्तीसगढ़ के निवासी</label>
-                            <input name="ctl00$ContentPlaceHolder1$txtDomisileCG" type="text" value="Yes" id="ContentPlaceHolder1_txtDomisileCG" disabled="disabled" class="aspNetDisabled form-control">
-                        </div>
-                    </div>
-                    <div id="ContentPlaceHolder1_divDomicileDist" class="col-lg-6">
-                        <div class="form-group">
-                            <label>
-                                District Domicile</label>
-                            <input name="ctl00$ContentPlaceHolder1$txtDistrictDomecile" type="text" value="Dhamtari" id="ContentPlaceHolder1_txtDistrictDomecile" disabled="disabled" class="aspNetDisabled form-control">
-                        </div>
-                    </div>
 
                             
                            
-                            
-                            
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>
-                                        Payable Amount / भुगतान राशि
-                                    </label>
-                                    <input name="ctl00$ContentPlaceHolder1$txtPayAmt" type="text" value="0" id="ContentPlaceHolder1_txtPayAmt" disabled="disabled" class="aspNetDisabled form-control">
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3">
-                <div class="panel panel-success" style="height: 96.5%">
-                    <div class="panel-header">
-                        <h3 class="panel-title text-muted">Uploads / अपलोड
-                        </h3>
+                <div class="card">
+                    <div class="card-header bg-danger p-1 ">
+                        <h5 class="ms-1 mt-1 text-white">Img+Sign Uploads / अपलोड
+                        </h5>
                     </div>
-                    <div class="panel-body">
+                    <div class="card-body ">
                         <div class="row">
-                            <div class="col-lg-12">
-                                <div class="item-center" style="width: 150px">
-                                    <img id="ContentPlaceHolder1_imgUpload" class="img-thumbnail" src="https:\\vyapamonline.cgstate.gov.in\GlobalSanPath\Vyapam\Candidate/Photo/2023/05/11/9977679866_20230511190631427_099251.jpg" style="height:200px;width:150px;">
+                            <div class="col-lg-12 d-flex justify-content-center">
+                                <div class=" rounded shadow" style="width: 200px">
+                                    <img id="imgUpload" class="img-thumbnail " src="https:\\vyapamonline.cgstate.gov.in\GlobalSanPath\Vyapam\Candidate/Photo/2023/05/11/9977679866_20230511190631427_099251.jpg" style="height:220px;width:200px;">
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                      <div class="panel-body">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="item-center" style="width: 150px">
-                                    <img id="ContentPlaceHolder1_ImgUploadSign" class="img-thumbnail" src="https:\\vyapamonline.cgstate.gov.in\GlobalSanPath\Vyapam\Candidate/Sign/2023/05/11/9977679866_20230511190708508_047882.jpg" style="height:80px;width:150px;">
+                            <hr class="brline p-0 m-0 mt-1"/>
+                          <div class="col-lg-12 d-flex justify-content-center mt-1">
+                                <div class="rounded shadow" style="width: 200px">
+                                    <img id="ContentPlaceHolder1_ImgUploadSign" class="img-thumbnail" src="https:\\vyapamonline.cgstate.gov.in\GlobalSanPath\Vyapam\Candidate/Sign/2023/05/11/9977679866_20230511190708508_047882.jpg" style="height:80px;width:200px;">
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-12">
-        <div class="panel panel-info">
-            <div class="panel-header">
-                <h3 class="panel-title">Other Information / अन्य जानकारी</h3>
-            </div>
-            <div class="panel-body">
-                <div class="row">
-                    
-                    <div id="ContentPlaceHolder1_divMaritalStatus" class="col-lg-6">
-                        <div class="form-group">
-                            <label>
-                                Marital Status / वैवाहिक स्थिति
-                            </label>
-                            <input name="ctl00$ContentPlaceHolder1$txtMaritalStatus" type="text" value="Unmarried" id="ContentPlaceHolder1_txtMaritalStatus" disabled="disabled" class="aspNetDisabled form-control">
-                        </div>
-                    </div>
-                    <div id="ContentPlaceHolder1_divNationality" class="col-lg-6">
-                        <div class="form-group">
-                            <label>
-                                Nationality / नागरिकता</label>
-                            <input name="ctl00$ContentPlaceHolder1$txtNationality" type="text" value="Indian" id="ContentPlaceHolder1_txtNationality" disabled="disabled" class="aspNetDisabled form-control">
-                        </div>
-                    </div>
-                   
-                    
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label>
-                                Email ID / ईमेल
-                            </label>
-                            <input name="ctl00$ContentPlaceHolder1$txtEmail" type="text" value="lomashrishisinha@gmail.com" id="ContentPlaceHolder1_txtEmail" disabled="disabled" class="aspNetDisabled form-control">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label>
-                                Mobile No (मोबाइल नंबर)</label>
-                            <input name="ctl00$ContentPlaceHolder1$txtMob" type="text" value="9977679866" id="ContentPlaceHolder1_txtMob" disabled="disabled" class="aspNetDisabled form-control">
-                        </div>
-                    </div>
-                    
-                   
-                    <div id="ContentPlaceHolder1_divCGEmpNo" class="col-lg-6" style="display:none">
-                        <div class="form-group">
-                            <label>
-                                CG Employment Registration No.</label>
-                            <input name="ctl00$ContentPlaceHolder1$txtCGEmpNo" type="text" id="ContentPlaceHolder1_txtCGEmpNo" disabled="disabled" class="aspNetDisabled form-control">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-12">
-        <div class="panel panel-info">
-            <div class="panel-header">
-                <h3 class="panel-title text-muted">Present Address / वर्तमान पता</h3>
-            </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label>
-                                House No / मकान नंबर</label>
-                            <input name="ctl00$ContentPlaceHolder1$txtvpHouseNo" type="text" id="ContentPlaceHolder1_txtvpHouseNo" disabled="disabled" class="aspNetDisabled form-control">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label>
-                                Street / स्ट्रीट</label>
-                            <input name="ctl00$ContentPlaceHolder1$txtvpStreet" type="text" value="LOHASI ROAD MUJGAHAN" id="ContentPlaceHolder1_txtvpStreet" disabled="disabled" class="aspNetDisabled form-control">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label>
-                                City/Village / शहर / गांव</label>
-                            <input name="ctl00$ContentPlaceHolder1$txtvpCity" type="text" value="MUJGAHAN DHAMTARI" id="ContentPlaceHolder1_txtvpCity" disabled="disabled" class="aspNetDisabled form-control">
-                        </div>
-                    </div>
-                    <div class="col-lg-6" style="Display:None">
-                        <div class="form-group">
-                            <label>
-                                Post Office / पोस्ट ऑफिस</label>
-                            <input name="ctl00$ContentPlaceHolder1$txtvpPost" type="text" id="ContentPlaceHolder1_txtvpPost" disabled="disabled" class="aspNetDisabled form-control">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label>
-                                State / राज्य</label>
-                            <input name="ctl00$ContentPlaceHolder1$txtvpState" type="text" value="Chhattisgarh" id="ContentPlaceHolder1_txtvpState" disabled="disabled" class="aspNetDisabled form-control">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label>
-                                District / जिला</label>
-                            <input name="ctl00$ContentPlaceHolder1$txtvpDist" type="text" value="Dhamtari" id="ContentPlaceHolder1_txtvpDist" disabled="disabled" class="aspNetDisabled form-control">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label>
-                                Pin Code / पिनकोड</label>
-                            <input name="ctl00$ContentPlaceHolder1$txtvpPin" type="text" value="493773" id="ContentPlaceHolder1_txtvpPin" disabled="disabled" class="aspNetDisabled form-control">
-                        </div>
-                    </div>
-                    <div class="col-lg-6" style="Display:None">
-                        <div class="form-group">
-                            <label>
-                                Region / छेत्र</label>
-                            <input name="ctl00$ContentPlaceHolder1$txtRegion" type="text" id="ContentPlaceHolder1_txtRegion" disabled="disabled" class="aspNetDisabled form-control">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-lg-12">
-        <div class="panel panel-danger">
-            <div class="panel-header">
-                <h3 class="panel-title text-muted">Application Applied for Exam City
-                </h3>
-            </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                            <label>
-                               Exam City
-                            </label>
-                            <label class="lbl-req">
-                                *</label>
-                            <select name="ctl00$ContentPlaceHolder1$ddlExamPreferDistrict" id="ContentPlaceHolder1_ddlExamPreferDistrict" class="form-control">
-<option selected="selected" value="0">--Select--</option>
-<option value="1896">Balod</option>
-<option value="1909">Baloda Bazar</option>
-<option value="1888">Balrampur</option>
-<option value="1900">Bastar</option>
-<option value="1905">Bemetara</option>
-<option value="1892">Bijapur</option>
-<option value="1895">Bilaspur</option>
-<option value="1915">Dantewada</option>
-<option value="1886">Dhamtari</option>
-<option value="1899">Durg</option>
-<option value="1911">Gariaband</option>
-<option value="1912">Gaurela-Pendra-Marwahi</option>
-<option value="1904">Janjgir-Champa</option>
-<option value="1891">Jashpur</option>
-<option value="1898">Kabirdham</option>
-<option value="1910">Kanker</option>
-<option value="1914">Kondagaon</option>
-<option value="1887">Korba</option>
-<option value="1907">Koriya</option>
-<option value="1901">Mahasamund</option>
-<option value="1903">Manendragarh-Chirmiri-Bharatpur</option>
-<option value="1916">Mohla-Manpur-Ambagarh Chowki</option>
-<option value="1913">Mungeli</option>
-<option value="1894">Narayanpur</option>
-<option value="1906">Raigarh</option>
-<option value="1897">Raipur</option>
-<option value="1885">Rajnandgaon</option>
-<option value="1889">Sakti</option>
-<option value="1908">Sarangarh-Bilaigarh</option>
-<option value="1890">Sukma</option>
-<option value="1902">Surajpur</option>
-<option value="1893">Surguja</option>
+                            <hr class="brline p-0 m-0 mt-1"/>
 
-</select>
+                            <div class="upload-option1 mt-1">
+                                <label for="files"><i class="fa-solid fa-user-graduate"></i> <b> Select Profile Image File</b></label>
+                                <input class="form-control form-control-sm" id="ProImgFile" type="file" title ="Please Choose User Profile Image" />
+                               </div>
+                               <hr class="brline p-0 m-0 mt-1"/>
+                               <div class="upload-option2 mt-1">
+                                <label for="files"><i class="fa-solid fa-signature"></i> <b> Select Signature Image File</b></label>
+                                <input class="form-control form-control-sm" id="SignImgFile" type="file" title ="Please Choose User Signature Image"  />
+                               </div>
                         </div>
                     </div>
-                    
-                      <div id="ContentPlaceHolder1_divNeedScriber" class="col-lg-12" style="visibility:hidden;">
-                                <div class="form-group">
-                                     
-                                       For Physically Handicapped Candidate: Do You need to Scribe(Writer) ? ( क्या आपको सहलेखक की आवश्यकता है? ) 
-                                    <label class="lbl-req">
-                                        *</label>
-                                    <select name="ctl00$ContentPlaceHolder1$ddlNeedScriber" onchange="javascript:setTimeout('__doPostBack(\'ctl00$ContentPlaceHolder1$ddlNeedScriber\',\'\')', 0)" id="ContentPlaceHolder1_ddlNeedScriber" class="form-control">
-<option selected="selected" value="0">No</option>
-<option value="1">Yes</option>
-
-</select>
-                                </div>
-                            </div>
-                            
 
 
-                    
-
-                     
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="ContentPlaceHolder1_divClassShow" class="col-lg-12">
-        <div class="panel panel-danger">
-            <div class="panel-header">
-                <h3 class="panel-title text-muted">Class / श्रेणी
-                </h3>
-            </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                             <label>
-                                  Do you belong to any class?/ क्या आप किसी वर्ग (Eg. भूतपूर्व सैनिक) (थल सेना / नौ सेना / वायुसेना)  में कार्यरत थे तथा जिला सैनिक कल्याण कार्यालय द्वारा आपको पहचान पत्र जारी किया गया है)।
-                            </label>
-                             <label class="lbl-req">
-                                *</label>
-                            <table id="ContentPlaceHolder1_rblExServicemen" class="form-control-radiolist">
-<tbody><tr>
-<td><input id="ContentPlaceHolder1_rblExServicemen_0" type="radio" name="ctl00$ContentPlaceHolder1$rblExServicemen" value="1" onclick="javascript:setTimeout('__doPostBack(\'ctl00$ContentPlaceHolder1$rblExServicemen$0\',\'\')', 0)"><label for="ContentPlaceHolder1_rblExServicemen_0">Yes</label></td><td><input id="ContentPlaceHolder1_rblExServicemen_1" type="radio" name="ctl00$ContentPlaceHolder1$rblExServicemen" value="0" onclick="javascript:setTimeout('__doPostBack(\'ctl00$ContentPlaceHolder1$rblExServicemen$1\',\'\')', 0)"><label for="ContentPlaceHolder1_rblExServicemen_1">No</label></td><td></td>
-</tr>
-</tbody></table>
-                        </div>
-                    </div>
-                    
 
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-lg-12">
-        <div class="panel panel-primary">
-            <div class="panel-header">
-                <h3 class="panel-title text-muted">Declaration / घोषणा</h3>
-            </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                            <label>
-                                Declaration / घोषणा
-                                <label class="lbl-req">
-                                    *</label>
-                            </label>
-                            <textarea name="ctl00$ContentPlaceHolder1$txtDeclaration" rows="6" cols="20" id="ContentPlaceHolder1_txtDeclaration" disabled="disabled" class="aspNetDisabled form-control" onkeypress="cannot_Type(evt)">मैं यह घोषणा करता/करती हॅू कि, मेरे द्वारा आॅनलाइन आवेदन पत्र में स्वयं के नाम, श्रेणी, वर्ग, जन्मतिथि, डाक पता एवं अन्य दी गई सूचना मेरी जानकारी एवं विश्वास में सही है, जिसके सत्यतापूर्वक और सही होने की मैं घोषणा करता/करती हॅू । मैंने विभाग द्वारा जारी प्रवेश नियमों एवं व्यापम के नियमों को पढ़ा है एवं समझा है । यदि ऊपर दी गई कोई भी जानकारी असत्य पायी जाती है तो चयन प्रक्रिया के किसी भी स्तर पर मुझे पूर्व सूचना दिये बिना मेरी अभ्यर्थिता समाप्त की जा सकती है ।                     
-I do hereby declare, that the information given above related to my Name, Category, Gender, Date of Birth, Address and all other information given above are correct and I truthfully declare it to be correct. I have gone through the rules and other information related to the entrance exam notified by the department and CGVyapam and understood the same .If any information given above is found to be incorrect at any stage, my candidature may summarily be terminated without any prior notice or information to me.
-</textarea>
-                        </div>
-                        <div class="form-group">
-                            <input id="ContentPlaceHolder1_chkAgreed" type="checkbox" name="ctl00$ContentPlaceHolder1$chkAgreed"><label for="ContentPlaceHolder1_chkAgreed">I Agree (मैं सहमत हूँ)</label>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="form-group">
-                                    <label onclick="test();">
-                                        Captcha / कृपया कैप्चा को दर्ज करें
-                                        <label class="lbl-req">
-                                            *</label>
-                                    </label>
-                                    <input name="ctl00$ContentPlaceHolder1$txtCaptcha" type="text" maxlength="6" id="ContentPlaceHolder1_txtCaptcha" class="form-control" onpaste="return IsSpecialCharContained(this,event);" onkeypress="return IsSpecialChar(event);">
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="form-group captcha pt-4">
-                                    <img id="ContentPlaceHolder1_imgCaptcha" src="../GenerateCaptcha.aspx?638463984473123162">
-                                    <input type="image" name="ctl00$ContentPlaceHolder1$imgCaptchaRefresh" id="ContentPlaceHolder1_imgCaptchaRefresh" class="pl-1 pt-1" src="../App_Themes/Images/Ref.png">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        <!--  Basic + Img row1 -->
+ 
 
+
+
+<!-- main-con maain  -->
 </div>
+</div>
+  <!-- close -->
+
+
+
+
+
+
+

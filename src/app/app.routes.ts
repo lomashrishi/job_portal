@@ -6,6 +6,8 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ForgetComponent } from './forget/forget.component';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 export const routes: Routes = [
     {'path': 'home', redirectTo: '', pathMatch: 'full' },
@@ -20,7 +22,9 @@ export const routes: Routes = [
     {'path': 'forgetpassword', redirectTo: 'ForgetPassword', pathMatch: 'full' },
     {'path':'ForgetPassword','title':'Forget User ID & Password | Kanker Recruitment Portal', component:ForgetComponent},
     {'path':'notification',redirectTo:'notifications',pathMatch:'full'},
-    {'path':'notifications','title':'Recruitment Notifications | Kanker Recruitment Portal', component:NotificationsComponent}
+    {'path':'notifications','title':'Recruitment Notifications | Kanker Recruitment Portal', component:NotificationsComponent},
+    {'path':'gallery','title':'Gallery | Kanker Recruitment Portal', component:GalleryComponent},
+    { path: '**',title:'Erorr 404 | Page Not Found !..', pathMatch: 'full', component: PageNotFoundComponent}
 
 
 
