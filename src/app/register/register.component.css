@@ -1,0 +1,5 @@
+@media (max-width: 992px) {
+    .register-text {
+      display: none; /* Hide right-side content below 390px */
+    }
+}

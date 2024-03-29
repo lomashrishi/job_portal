@@ -1,4 +1,4 @@
-<div class="container-flude mt-2 mb-3 p-0">
+<div class="container-flude mt-2 mb-3 p-0 user-select-none">
     <div class="container page-heading text-center p-0 bg-white rounded shadow">
         <h3 style="background-color: #00d290"
             class="card-header p-2 text-light rounded border border-end-0 border-bottom-0 border-start-0 border-5 border-dark">
@@ -6,12 +6,13 @@
         </h3>
     </div>
   
-  <div class="container main-con mt-2 bg-white p-2 rounded">
+  <div class="container main-con mt-2 bg-white-subtle p-1  rounded">
+    <form class="form">
     <div class="row basic-row ">
-            <div class="col-lg-9 mb-3 ">
+            <div class="col-lg-9 mb-2 ">
                 <div class="card">
                     <div class="card-header bg-warning p-1">
-                        <h5 class="ms-1 mt-1"><b>Basic Information / मूलभूत जानकारी</b></h5>
+                        <h5 class="ms-1 mt-1 text-black"><b>Basic Information / मूलभूत जानकारी</b></h5>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -19,28 +20,28 @@
                                 <div class="form-group">
                                     <label>
                                         <b>Candidate's Name / उम्मीदवार का नाम</b></label>
-                                    <input name="ctl00$ContentPlaceHolder1$txtName" type="text" value="LOMASH RISHI" id="ContentPlaceHolder1_txtName" disabled="disabled" class="aspNetDisabled form-control">
+                                    <input name="name" type="text" value="LOMASH RISHI" id="CanName"  class=" form-control shadow rounded border-1 border-dark"/>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>
                                         <b>Date of Birth / जन्म की तारीख</b></label>
-                                    <input name="ctl00$ContentPlaceHolder1$txtDOB" type="text" value="28-Feb-2001" id="ContentPlaceHolder1_txtDOB" disabled="disabled" class="aspNetDisabled form-control">
+                                    <input name="dob" type="date" value="28-Feb-2001" id="ConDob"  class="form-control shadow rounded border-1 border-dark">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>
                                         <b>Gender / लिंग</b></label>
-                                    <input name="ctl00$ContentPlaceHolder1$txtGender" type="text" value="Male" id="ContentPlaceHolder1_txtGender" disabled="disabled" class="aspNetDisabled form-control">
+                                    <input name="gender" type="text" value="Male" id="CanGender"  class=" form-control shadow rounded border-1 border-dark">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>
                                        <b>Category / वर्ग</b></label>
-                                    <input name="ctl00$ContentPlaceHolder1$txtCast" type="text" value="OBC (NON CREAMY LAYER)" id="ContentPlaceHolder1_txtCast" disabled="disabled" class="aspNetDisabled form-control">
+                                    <input name="category" type="text" value="OBC (NON CREAMY LAYER)" id="CanCast"  class=" form-control shadow rounded border-1 border-dark">
                                     
                                 </div>
                             </div>
@@ -49,7 +50,7 @@
                                     <label>
                                         <b>Marital Status / वैवाहिक स्थिति </b>
                                     </label>
-                                    <input name="ctl00$ContentPlaceHolder1$txtPayAmt" type="text" value="0" id="ContentPlaceHolder1_txtPayAmt" disabled="disabled" class="aspNetDisabled form-control">      
+                                    <input name="mstatus" type="text" value="0" id="CanMarital" class=" form-control shadow rounded border-1 border-dark">      
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -57,7 +58,7 @@
                                     <label>
                                         <b>Age / उम्र</b>
                                     </label>
-                                    <input name="ctl00$ContentPlaceHolder1$txtPayAmt" type="text" value="0" id="ContentPlaceHolder1_txtPayAmt" disabled="disabled" class="aspNetDisabled form-control">      
+                                    <input name="ag" type="text" value="0" id="CanAge"  class=" form-control shadow rounded border-1 border-dark">      
                                 </div>
                             </div>            
                             <div class="col-lg-6">
@@ -65,40 +66,40 @@
                                     <label><b>Relative's Type / रिश्तेदार का प्रकार</b> </label>
                                     <label class="lbl-req">
                                         *</label>
-                                    <input name="ctl00$ContentPlaceHolder1$txtRelative" type="text" value="Father" id="ContentPlaceHolder1_txtRelative" disabled="disabled" class="aspNetDisabled form-control">
+                                    <input name="relative" type="text" value="Father" id="CanRelativeType"  class=" form-control shadow rounded border-1 border-dark">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label><b>Relative Name / रिश्तेदार का नाम</b></label>
-                                    <input name="ctl00$ContentPlaceHolder1$txtFather" type="text" value="VIKAS SINHA " id="ContentPlaceHolder1_txtFather" disabled="disabled" class="aspNetDisabled form-control">
+                                    <input name="RName" type="text" value="VIKAS SINHA " id="CanRelativeName"  class=" form-control shadow rounded border-1 border-dark">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label><b>Mother's Name / माता का नाम</b></label>
-                                    <input name="ctl00$ContentPlaceHolder1$txtMother" type="text" value="KUNTI" id="ContentPlaceHolder1_txtMother" disabled="disabled" class="aspNetDisabled form-control">
+                                    <input name="mname" type="text" value="KUNTI" id="CanMother"  class=" form-control shadow rounded border-1 border-dark">
                                 </div>
                             </div>
 
                             <div id="ContentPlaceHolder1_divNationality" class="col-lg-6">
                                 <div class="form-group">
                                     <label><b>Nationality / नागरिकता</b></label>
-                                    <input name="ctl00$ContentPlaceHolder1$txtNationality" type="text" value="Indian" id="ContentPlaceHolder1_txtNationality" disabled="disabled" class="aspNetDisabled form-control">
+                                    <input name="Nationality" type="text" value="Indian" id="CanNationality"  class="form-control shadow rounded border-1 border-dark">
                                 </div>
                             </div>
  
                             <div id="ContentPlaceHolder1_divDomicileCG" class="col-lg-6">
                                 <div class="form-group">
                                     <label><b>Domicile of Chhatisgarh / छत्तीसगढ़ के निवासी</b></label>
-                                    <input name="ctl00$ContentPlaceHolder1$txtDomisileCG" type="text" value="Yes" id="ContentPlaceHolder1_txtDomisileCG" disabled="disabled" class="aspNetDisabled form-control">
+                                    <input name="DomisileCG" type="text" value="Yes" id="CanDomisileCG" class=" form-control shadow rounded border-1 border-dark">
                                 </div>
                             </div>
 
                             <div id="ContentPlaceHolder1_divDomicileDist" class="col-lg-6">
                                 <div class="form-group">
                                     <label><b>District Domicile</b></label>
-                                    <input name="ctl00$ContentPlaceHolder1$txtDistrictDomecile" type="text" value="Dhamtari" id="ContentPlaceHolder1_txtDistrictDomecile" disabled="disabled" class="aspNetDisabled form-control">
+                                    <input name="DistrictDomecile" type="text" value="Dhamtari" id="CanDistrictDomecile"  class=" form-control shadow rounded border-1 border-dark">
                                 </div>
                             </div>
                             
@@ -107,21 +108,32 @@
                                     <label>
                                        <b>Email ID / ईमेल</b>
                                     </label>
-                                    <input name="ctl00$ContentPlaceHolder1$txtEmail" type="text" value="lomashrishisinha@gmail.com" id="ContentPlaceHolder1_txtEmail" disabled="disabled" class="aspNetDisabled form-control">
+                                    <input name="Email" type="text" value="lomashrishisinha@gmail.com" id="CanEmail" class="form-control shadow rounded border-1 border-dark">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label><b>Mobile No / मोबाइल नंबर</b></label>
-                                    <input name="ctl00$ContentPlaceHolder1$txtMob" type="text" value="9977679866" id="ContentPlaceHolder1_txtMob" disabled="disabled" class="aspNetDisabled form-control">
+                                    <input name="Mobile" type="text" value="9977679866" id="CanMobile" class=" form-control shadow rounded border-1 border-dark">
                                 </div>
                             </div>
-                            
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label><b>Password / पासवर्ड </b></label>
+                                    <input name="password" type="password" value="9977679866" id="CanMobile" class=" form-control shadow rounded border-1 border-dark">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label><b>Re Enter Password / पुनः पासवर्ड</b></label>
+                                    <input name="password" type="password" value="9977679866" id="CanMobile" class=" form-control shadow rounded border-1 border-dark">
+                                </div>
+                            </div>
 
-                            
-                           
                         </div>
                     </div>
+
+
                 </div>
             </div>
             <div class="col-lg-3">
@@ -133,26 +145,27 @@
                     <div class="card-body ">
                         <div class="row">
                             <div class="col-lg-12 d-flex justify-content-center">
-                                <div class=" rounded shadow" style="width: 200px">
-                                    <img id="imgUpload" class="img-thumbnail " src="https:\\vyapamonline.cgstate.gov.in\GlobalSanPath\Vyapam\Candidate/Photo/2023/05/11/9977679866_20230511190631427_099251.jpg" style="height:220px;width:200px;">
+                                <div class=" rounded shadow mb-1 border border-1 border-dark" style="background-image: url('./../assets/register/prof-bg.jpg'); background-size: cover; background-position: center; width: 200px; height: 252px;">
+                                    <img id="imgUpload" class="img-thumbnail bg-transparent rounded"  style="height:250px;width:200px;">
                                 </div>
                             </div>
                             <hr class="brline p-0 m-0 mt-1"/>
                           <div class="col-lg-12 d-flex justify-content-center mt-1">
-                                <div class="rounded shadow" style="width: 200px">
-                                    <img id="ContentPlaceHolder1_ImgUploadSign" class="img-thumbnail" src="https:\\vyapamonline.cgstate.gov.in\GlobalSanPath\Vyapam\Candidate/Sign/2023/05/11/9977679866_20230511190708508_047882.jpg" style="height:80px;width:200px;">
+                                    <div class=" rounded shadow mb-1 border border-1 border-dark" style="background-image: url('./../assets/register/sign-bg.jpg'); background-size: cover; background-position: center; width: 200px; height:82px;">
+
+                                    <img id="imgUploadSign" class="img-thumbnail bg-transparent rounded" style="height:80px;width:200px;">
                                 </div>
                             </div>
                             <hr class="brline p-0 m-0 mt-1"/>
 
                             <div class="upload-option1 mt-1">
                                 <label for="files"><i class="fa-solid fa-user-graduate"></i> <b> Select Profile Image File</b></label>
-                                <input class="form-control form-control-sm" id="ProImgFile" type="file" title ="Please Choose User Profile Image" />
+                                <input class="form-control form-control shadow rounded border-1 border-dark bg-primary-subtle" id="ProImgFile" type="file" title ="Please Choose User Profile Image" />
                                </div>
-                               <hr class="brline p-0 m-0 mt-1"/>
+                               <hr class="brline p-0 m-0 mt-2"/>
                                <div class="upload-option2 mt-1">
                                 <label for="files"><i class="fa-solid fa-signature"></i> <b> Select Signature Image File</b></label>
-                                <input class="form-control form-control-sm" id="SignImgFile" type="file" title ="Please Choose User Signature Image"  />
+                                <input class="form-control form-control shadow rounded border-1 border-dark bg-primary-subtle" id="SignImgFile" type="file" title ="Please Choose User Signature Image"  />
                                </div>
                         </div>
                     </div>
@@ -164,8 +177,101 @@
         </div>
         <!--  Basic + Img row1 -->
  
+        <div class="row address-row mt-2 ">
+            <div class="col-lg-12 mb-1 ">
+                <div class="card">
+                    <div class="card-header bg-success p-1">
+                        <h5 class="ms-1 mt-1 text-white"><b> Permanent Address / स्थायी पता</b></h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>
+                                        <b>House No / मकान नंबर</b></label>
+                                    <input name="HouseNo" type="text" id="PHouseNo"  class=" form-control shadow rounded border-1 border-success">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>
+                                        <b>Street / स्ट्रीट</b></label>
+                                    <input name="PStreet" type="text" value="LOHASI ROAD MUJGAHAN" id="PStreet"  class="form-control shadow rounded border-1 border-success">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>
+                                        <b>City/Village / शहर / गांव</b></label>
+                                    <input name="PCity" type="text" value="MUJGAHAN DHAMTARI" id="PCity"  class="form-control shadow rounded border-1 border-success">
+                                </div>
+                            </div>
+                            <div class="col-lg-6" style="Display:None">
+                                <div class="form-group">
+                                    <label>
+                                       <b> Post Office / पोस्ट ऑफिस</b></label>
+                                    <input name="PPost" type="text" id="PPost"  class="form-control shadow rounded border-1 border-success">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>
+                                        <b>State / राज्य</b></label>
+                                    <input name="PState" type="text" value="Chhattisgarh" id="PState" class=" form-control shadow rounded border-1 border-success">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>
+                                        <b>District / जिला</b></label>
+                                    <input name="PDist" type="text" value="Dhamtari" id="PDist" class=" form-control shadow rounded border-1 border-success">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>
+                                       <b>Pin Code / पिनकोड</b></label>
+                                    <input name="PPin" type="text" value="493773" id="PPin"  class="form-control shadow rounded border-1 border-success">
+                                </div>
+                            </div>
+                            <div class="col-lg-6" style="Display:None">
+                                <div class="form-group">
+                                    <label>
+                                        <b>Region / क्षेत्र</b></label>
+                                    <input name="PRegion" type="text" id="PRegion"class="form-control rounded border-1 border-success">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
 
+                </div>
+            </div>       
+        </div>
+
+        <!-- Address Row -->
+        <div class="mt-2 d-flex justify-content-evenly pt-4 pb-3 rounded-top bg-white border border-1 border-dark">
+            <button type="submit" class="btn btn-primary btn-outline-success text-light fs-5">
+                <b>Register<i class="fa-solid fa-right-to-bracket fa-1x"></i></b>
+            </button>
+            <button type="reset"  class="btn btn-warning btn-outline-info text-light fs-5">
+                <b>Reset <i class="fa-solid fa-repeat fa-1x"></i></b>
+            </button>
+            <button type="submit" class="btn btn-danger btn-outline-dark text-light fs-5"
+                routerLink="/home">
+                <b><i class="fa-solid fa-close fa-1x"></i>Cancel</b>
+            </button>
+        </div>
+
+    </form>
+
+<div class=" rounded-bottom border border-dark border-1 p-1 text-center m-0 bg-dark text-light fw-bold">
+<a class="text-light" href="#">User Manual</a> ||
+<a class="text-light" href="#">User Instruction</a> ||
+<small class="text-primary register-text">If Already have an account !..
+</small>
+<a class="text-warning" routerLink="/login" href="#"><b>Login</b></a>
+</div>
 
 <!-- main-con maain  -->
 </div>
