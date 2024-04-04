@@ -5,7 +5,7 @@
             <strong>User Login Page</strong>
         </h3>
 
-        <div class="container pt-3 pb-5 login-con">
+        <div class="container pt-3 pb-5 login-con rounded">
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card rounded border-end-0 border-bottom-0 border-start-0 border-5 border-success">
@@ -53,11 +53,11 @@
                                             id="captcha-input" placeholder="Enter Captcha Code" required />
                                         <div type="text" class="rounded shadow p-2 me-2 border border-1 border-primary"
                                             id="captcha-text">
-                                            <b><i class="user-select-none fs-5" id="captcha-code">ABXY21CD</i></b>
+                                            <b><i class="user-select-none fs-5" id="captcha-code">{{ captchaText }}</i></b>
                                         </div>
 
                                         <span type="submit" class="btn btn-danger btn-outline-primary text-light">
-                                            <b><i class="fas fa-sync fa-2x"></i></b>
+                                            <b><i (click)="generateCaptcha()" class="fas fa-sync fa-2x"></i></b>
                                         </span>
                                     </div>
                                 </div>

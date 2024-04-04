@@ -8,12 +8,24 @@ import { ForgetidpasswordComponent } from './forgetidpassword/forgetidpassword.c
 @Component({
   selector: 'app-forget',
   standalone: true,
-  imports: [RouterLink,FormsModule,ForgetpasswordComponent,ForgetidpasswordComponent, ReactiveFormsModule],
+  imports: [RouterLink,ForgetpasswordComponent,ForgetidpasswordComponent,],
   templateUrl: './forget.component.html',
   styleUrl: './forget.component.css'
 })
 export class ForgetComponent {
 
+  //  Pass Compo load 
 
+  passvar:boolean=false;
+  Passload(){
+    this.passvar=true;
+    this.idpassvar=false;
+  }
+// IdPass Compo load
+idpassvar:boolean=false;
+Idpassload(){
+  this.idpassvar=true;
+  this.passvar=false;
+}
 }
 

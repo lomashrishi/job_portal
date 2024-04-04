@@ -16,30 +16,33 @@
                                 </p>
                             </span>
                         </div>
-                        <div class="card-body border border-dark border-bottom-0">
-                            <form class="form" >
-                                <div class="form-group mb-5">
-                                  <label for="option" class="mt-0"><b>Trouble Logging In</b></label>
-                                  <select  class="form-control shadow p-2 border border-1 border-success form-select mb-3" id="select">
-                                    <option class="text-center bg-info text-light fw-bold"  disabled value="" selected >Please Select An Forget Option</option>
-                                    <option value="forgetPassword"  formControlName="forgetPassword" id="1">Forget Login Password (Only)</option>
-                                    <option value="forgetUserIdPassword" formControlName="forgetUserIdPassword" id="2">Forgot User ID & Login Password (Both)</option>
-                                  </select>
+                        <div class="card-body border border-dark border-bottom-0 pb-5">
+                            <div class="dropdown form text-center">
+                                <button class="btn btn-secondary dropdown-toggle form-control" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <label for="option" class=""><b><u>Trouble Logging In</u></b></label>
+                                </button>
+                                <ul class="dropdown-menu form-control dropdown-menu-dark text-white">
+                                  <li><button class="dropdown-item text-center form-control" (click)="Passload()"  id="1">Forget Login Password (Only)</button>
+                                  </li>
+                                  <li ><button class="dropdown-item text-center form-control" (click)="Idpassload()" id="2">Forgot User ID & Login Password (Both)</button>
+                                  </li>
+                               
+                                </ul>
+                              </div>
+                              <!--componet load selected option   -->
 
-                                            <button type="submit" onclick="show()">OK</button>
+                              <div class="row d-flex justify-content-center mt-1 ">
 
-                                </div>                    
-                              </form>
+                                @if (passvar) {
+                                   <app-forgetpassword></app-forgetpassword>
+                                }
+                                @if (idpassvar) {
+                                   <app-forgetidpassword></app-forgetidpassword>
+                                }
+                            
+                            </div>
+                          
 
-<!--                               
-                              @if (userForm === 'forgetPassword') {
-                                <app-forgetpassword></app-forgetpassword>
-                            }                               
-                   
-                            @if (userForm === 'forgetUserIdPassword') {
-                                <app-forgetidpassword></app-forgetidpassword>
-
-                            } -->
 
                             </div>
                             

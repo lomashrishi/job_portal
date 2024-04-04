@@ -8,9 +8,9 @@
   
   <div class="container main-con mt-2 bg-white-subtle p-1  rounded">
     <form class="form">
-    <div class="row basic-row ">
+    <div class="row basic-row">
             <div class="col-lg-9 mb-2 ">
-                <div class="card">
+                <div class="card pb-3">
                     <div class="card-header bg-warning p-1">
                         <h5 class="ms-1 mt-1 text-black"><b>Basic Information / मूलभूत जानकारी</b></h5>
                     </div>
@@ -20,28 +20,28 @@
                                 <div class="form-group">
                                     <label>
                                         <b>Candidate's Name / उम्मीदवार का नाम</b></label>
-                                    <input name="name" type="text" value="LOMASH RISHI" id="CanName"  class=" form-control shadow rounded border-1 border-dark"/>
+                                    <input name="name" type="text" value="" id="CanName" placeholder="Enter Candidate Full Name" required class=" form-control shadow rounded border-1 border-dark"/>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>
                                         <b>Date of Birth / जन्म की तारीख</b></label>
-                                    <input name="dob" type="date" value="28-Feb-2001" id="ConDob"  class="form-control shadow rounded border-1 border-dark">
+                                    <input name="dob" type="text" onfocus="(this.type='date')" value="" id="ConDob" (change)="calculateAge()" required placeholder="Pickup Date of Birth " class="form-control shadow rounded border-1 border-dark">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>
                                         <b>Gender / लिंग</b></label>
-                                    <input name="gender" type="text" value="Male" id="CanGender"  class=" form-control shadow rounded border-1 border-dark">
+                                    <input name="gender" type="text" value="" id="CanGender" placeholder="Select Candidate Gender" required class=" form-control shadow rounded border-1 border-dark">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>
                                        <b>Category / वर्ग</b></label>
-                                    <input name="category" type="text" value="OBC (NON CREAMY LAYER)" id="CanCast"  class=" form-control shadow rounded border-1 border-dark">
+                                    <input name="category" type="text" value="" id="CanCast" placeholder="Select Candidate Category" required  class=" form-control shadow rounded border-1 border-dark">
                                     
                                 </div>
                             </div>
@@ -50,7 +50,7 @@
                                     <label>
                                         <b>Marital Status / वैवाहिक स्थिति </b>
                                     </label>
-                                    <input name="mstatus" type="text" value="0" id="CanMarital" class=" form-control shadow rounded border-1 border-dark">      
+                                    <input name="mstatus" type="text" value="" id="CanMarital" placeholder="Select Candidate Marital Status " required class=" form-control shadow rounded border-1 border-dark">      
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -58,48 +58,48 @@
                                     <label>
                                         <b>Age / उम्र</b>
                                     </label>
-                                    <input name="ag" type="text" value="0" id="CanAge"  class=" form-control shadow rounded border-1 border-dark">      
+                                    <input name="ag" type="text" value="" id="CanAge" required placeholder=" Enter Candidate Age" class=" form-control shadow rounded border-1 border-dark">      
                                 </div>
                             </div>            
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label><b>Relative's Type / रिश्तेदार का प्रकार</b> </label>
                                     <label class="lbl-req">
-                                        *</label>
-                                    <input name="relative" type="text" value="Father" id="CanRelativeType"  class=" form-control shadow rounded border-1 border-dark">
+                                        </label>
+                                    <input name="relative" type="text" value="" id="CanRelativeType" placeholder="Select Relative's Type" required class=" form-control shadow rounded border-1 border-dark">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label><b>Relative Name / रिश्तेदार का नाम</b></label>
-                                    <input name="RName" type="text" value="VIKAS SINHA " id="CanRelativeName"  class=" form-control shadow rounded border-1 border-dark">
+                                    <input name="RName" type="text" value="" id="CanRelativeName" placeholder="Enter Relative Name" required class=" form-control shadow rounded border-1 border-dark">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label><b>Mother's Name / माता का नाम</b></label>
-                                    <input name="mname" type="text" value="KUNTI" id="CanMother"  class=" form-control shadow rounded border-1 border-dark">
+                                    <input name="mname" type="text" value="" id="CanMother" placeholder="Enter Candidate Mother Name" required class=" form-control shadow rounded border-1 border-dark">
                                 </div>
                             </div>
 
                             <div id="ContentPlaceHolder1_divNationality" class="col-lg-6">
                                 <div class="form-group">
                                     <label><b>Nationality / नागरिकता</b></label>
-                                    <input name="Nationality" type="text" value="Indian" id="CanNationality"  class="form-control shadow rounded border-1 border-dark">
+                                    <input name="Nationality" type="text" value="" id="CanNationality" required class="form-control shadow rounded border-1 border-dark">
                                 </div>
                             </div>
  
                             <div id="ContentPlaceHolder1_divDomicileCG" class="col-lg-6">
                                 <div class="form-group">
                                     <label><b>Domicile of Chhatisgarh / छत्तीसगढ़ के निवासी</b></label>
-                                    <input name="DomisileCG" type="text" value="Yes" id="CanDomisileCG" class=" form-control shadow rounded border-1 border-dark">
+                                    <input name="DomisileCG" type="text" value="" id="CanDomisileCG" required class=" form-control shadow rounded border-1 border-dark">
                                 </div>
                             </div>
 
                             <div id="ContentPlaceHolder1_divDomicileDist" class="col-lg-6">
                                 <div class="form-group">
                                     <label><b>District Domicile</b></label>
-                                    <input name="DistrictDomecile" type="text" value="Dhamtari" id="CanDistrictDomecile"  class=" form-control shadow rounded border-1 border-dark">
+                                    <input name="DistrictDomecile" type="text" value="" id="CanDistrictDomecile" placeholder="Enter Candidate Domicile  District Name" required class=" form-control shadow rounded border-1 border-dark">
                                 </div>
                             </div>
                             
@@ -108,25 +108,26 @@
                                     <label>
                                        <b>Email ID / ईमेल</b>
                                     </label>
-                                    <input name="Email" type="text" value="lomashrishisinha@gmail.com" id="CanEmail" class="form-control shadow rounded border-1 border-dark">
+                                    <input name="Email" type="text" value="" id="CanEmail" placeholder="Enter Email ID" required class="form-control shadow rounded border-1 border-dark">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label><b>Mobile No / मोबाइल नंबर</b></label>
-                                    <input name="Mobile" type="text" value="9977679866" id="CanMobile" class=" form-control shadow rounded border-1 border-dark">
+                                    <input name="Mobile" type="text" value="" id="CanMobile" required placeholder="Enter Mobile" class=" form-control shadow rounded border-1 border-dark">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label><b>Password / पासवर्ड </b></label>
-                                    <input name="password" type="password" value="9977679866" id="CanMobile" class=" form-control shadow rounded border-1 border-dark">
+                                    <input name="password" type="password" value="" id="CanMobile" required placeholder="Enter Password" class=" form-control shadow rounded border-1 border-dark">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label><b>Re Enter Password / पुनः पासवर्ड</b></label>
-                                    <input name="password" type="password" value="9977679866" id="CanMobile" class=" form-control shadow rounded border-1 border-dark">
+                                    <label><b>Repeat Password
+                                         / पुनः पासवर्ड</b></label>
+                                    <input name="password" type="password" value="" id="CanMobile" required placeholder="Repeat Password" class=" form-control shadow rounded border-1 border-dark">
                                 </div>
                             </div>
 
@@ -137,7 +138,7 @@
                 </div>
             </div>
             <div class="col-lg-3">
-                <div class="card">
+                <div class="card pb-3">
                     <div class="card-header bg-danger p-1 ">
                         <h5 class="ms-1 mt-1 text-white">Img+Sign Uploads / अपलोड
                         </h5>
@@ -160,12 +161,12 @@
 
                             <div class="upload-option1 mt-1">
                                 <label for="files"><i class="fa-solid fa-user-graduate"></i> <b> Select Profile Image File</b></label>
-                                <input class="form-control form-control shadow rounded border-1 border-dark bg-primary-subtle" id="ProImgFile" type="file" title ="Please Choose User Profile Image" />
+                                <input required class="form-control form-control shadow rounded border-1 border-dark bg-primary-subtle" id="ProImgFile" type="file" title ="Please Choose User Profile Image" />
                                </div>
                                <hr class="brline p-0 m-0 mt-2"/>
                                <div class="upload-option2 mt-1">
                                 <label for="files"><i class="fa-solid fa-signature"></i> <b> Select Signature Image File</b></label>
-                                <input class="form-control form-control shadow rounded border-1 border-dark bg-primary-subtle" id="SignImgFile" type="file" title ="Please Choose User Signature Image"  />
+                                <input required class="form-control form-control shadow rounded border-1 border-dark bg-primary-subtle" id="SignImgFile" type="file" title ="Please Choose User Signature Image"  />
                                </div>
                         </div>
                     </div>
@@ -179,7 +180,7 @@
  
         <div class="row address-row mt-2 ">
             <div class="col-lg-12 mb-1 ">
-                <div class="card">
+                <div class="card pb-3">
                     <div class="card-header bg-success p-1">
                         <h5 class="ms-1 mt-1 text-white"><b> Permanent Address / स्थायी पता</b></h5>
                     </div>
@@ -189,56 +190,56 @@
                                 <div class="form-group">
                                     <label>
                                         <b>House No / मकान नंबर</b></label>
-                                    <input name="HouseNo" type="text" id="PHouseNo"  class=" form-control shadow rounded border-1 border-success">
+                                    <input name="HouseNo" type="text" id="PHouseNo" required placeholder="Enter House No.." class=" form-control shadow rounded border-1 border-success">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>
                                         <b>Street / स्ट्रीट</b></label>
-                                    <input name="PStreet" type="text" value="LOHASI ROAD MUJGAHAN" id="PStreet"  class="form-control shadow rounded border-1 border-success">
+                                    <input name="PStreet" type="text" value="" id="PStreet" placeholder="Enter Street Area" required class="form-control shadow rounded border-1 border-success">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>
                                         <b>City/Village / शहर / गांव</b></label>
-                                    <input name="PCity" type="text" value="MUJGAHAN DHAMTARI" id="PCity"  class="form-control shadow rounded border-1 border-success">
+                                    <input name="PCity" type="text" value="" id="PCity" placeholder="Enter City / Village" required class="form-control shadow rounded border-1 border-success">
                                 </div>
                             </div>
                             <div class="col-lg-6" style="Display:None">
                                 <div class="form-group">
                                     <label>
                                        <b> Post Office / पोस्ट ऑफिस</b></label>
-                                    <input name="PPost" type="text" id="PPost"  class="form-control shadow rounded border-1 border-success">
+                                    <input name="PPost" type="text" id="PPost" placeholder="Enter Post Office" required class="form-control shadow rounded border-1 border-success">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>
                                         <b>State / राज्य</b></label>
-                                    <input name="PState" type="text" value="Chhattisgarh" id="PState" class=" form-control shadow rounded border-1 border-success">
+                                    <input name="PState" type="text" value="" id="PState" placeholder="Enter State Name" required class=" form-control shadow rounded border-1 border-success">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>
                                         <b>District / जिला</b></label>
-                                    <input name="PDist" type="text" value="Dhamtari" id="PDist" class=" form-control shadow rounded border-1 border-success">
+                                    <input name="PDist" type="text" value="" id="PDist" placeholder="Enter District Name" required class=" form-control shadow rounded border-1 border-success">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>
                                        <b>Pin Code / पिनकोड</b></label>
-                                    <input name="PPin" type="text" value="493773" id="PPin"  class="form-control shadow rounded border-1 border-success">
+                                    <input name="PPin" type="text" value="" id="PPin" placeholder="Enter Pin Code " required class="form-control shadow rounded border-1 border-success">
                                 </div>
                             </div>
                             <div class="col-lg-6" style="Display:None">
                                 <div class="form-group">
                                     <label>
                                         <b>Region / क्षेत्र</b></label>
-                                    <input name="PRegion" type="text" id="PRegion"class="form-control rounded border-1 border-success">
+                                    <input name="PRegion" type="text" id="PRegion" placeholder="Enter Region " class="form-control rounded border-1 border-success" required>
                                 </div>
                             </div>
                         </div>
@@ -250,11 +251,103 @@
         </div>
 
         <!-- Address Row -->
+
+<!--declaration -->
+
+<div class="row declaration-row mt-2">
+    <div class="col-lg-12">
+    <div class="card">
+           <div class="card-header bg-primary  p-1">     <label class="">
+             <h5 class="ms-1 mt-1 text-white"><b> Declaration / घोषणा</b></h5>
+        </label></div>
+        <div class="card-body">
+            <textarea name="Declaration" rows="6" cols="20" id="CanDeclaration" class="form-control bg-primary-subtle text-justify" disabled>मैं यह घोषणा करता/करती हॅू कि, मेरे द्वारा ऑनलाइन आवेदन पत्र में स्वयं के नाम, श्रेणी, वर्ग, जन्मतिथि, डाक पता एवं अन्य दी गई सूचना मेरी जानकारी एवं विश्वास में सही है, जिसके सत्यतापूर्वक और सही होने की मैं घोषणा करता/करती हॅू । मैंने 'कांकेर भर्ती पोर्टल' द्वारा जारी प्रवेश नियमों एवं व्यापम के नियमों को पढ़ा है एवं समझा है । यदि ऊपर दी गई कोई भी जानकारी असत्य पायी जाती है तो चयन प्रक्रिया के किसी भी स्तर पर मुझे पूर्व सूचना दिये बिना मेरी अभ्यर्थिता समाप्त की जा सकती है।
+I do hereby declare that the information given above related to my Name, Category, Gender, Date of Birth, Address, and all other information given above are correct, and I truthfully declare it to be correct. I have gone through the rules and other information related to the entrance exam notified by the department and 'कांकेर भर्ती पोर्टल' (Kanker Recruitment Portal) and understood the same. If any information given above is found to be incorrect at any stage, my candidature may summarily be terminated without any prior notice or information to me.
+            </textarea>
+ 
+        
+
+<div class="form-group mt-2 ms-2">
+    <input class="form-check-input"  id="Agreed" type="checkbox" name="Agreed" required><label for="CanAgreed"> <b class="ms-1"> I Agree (मैं सहमत हूँ)</b></label>
+</div>
+
+</div>
+           
+    </div>
+     </div>
+
+    </div> 
+
+<!-- Captcha Otp Verify -->
+<div class="row Verify-row mt-2">
+     <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header  p-1" style="background-color: lightseagreen;">
+          <h5 class="ms-1 mt-1 text-white"><b>Verify Captcha & OTP</b></h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                
+       <div class="col-lg-6">
+        <div class="form-group  mb-3">
+            <label for="captcha" class=""><b><i class="fa-solid fa-code-compare"></i>
+                Captcha / कृपया कैप्चा को दर्ज करें ! :</b></label>
+            <div class="d-flex justify-content-between">
+                <input type="text"
+                    class="me-2 form-control shadow p-2 border border-1 border-success"
+                    id="captcha-input" placeholder="Enter Captcha Code" required />
+                <div type="text" class="rounded shadow p-2 me-2 border border-1 border-danger bg-success-subtle"
+                    id="captcha-text">
+                    <b><i class="user-select-none fs-5" id="captcha-code">{{ captchaText }}</i></b>
+                </div>
+
+                <span type="reset" class="btn btn-danger btn-outline-dark text-light">
+                    <b><i  (click)="generateCaptcha()" class="fas fa-sync fa-2x"></i></b>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6" >
+        <div class="form-group  mb-3">
+            <label for="captcha" class=""><b><i class="fa-solid fa-code-compare"></i>
+                Verify OTP :</b></label>
+            <div class="d-flex justify-content-between">
+                <input type="text"
+                    class="me-2 form-control shadow p-2 border border-1 border-success"
+                    id="captcha-input" placeholder="Enter one time password" required  disabled />
+               
+                <button type="reset" class="btn btn-primary btn-outline-success "  disabled>
+                    <b><i class="fas fa-paper-plane"></i></b>
+                </button>
+                <button type="submit" class="btn btn-success btn-outline-warning  ms-1"  disabled>
+                    <b>Verify</b>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+            </div>
+        </div>
+     </div>
+
+
+</div>
+
+<!-- otp row -->
+
+
+
+
+       
         <div class="mt-2 d-flex justify-content-evenly pt-4 pb-3 rounded-top bg-white border border-1 border-dark">
             <button type="submit" class="btn btn-primary btn-outline-success text-light fs-5">
                 <b>Register<i class="fa-solid fa-right-to-bracket fa-1x"></i></b>
             </button>
-            <button type="reset"  class="btn btn-warning btn-outline-info text-light fs-5">
+            <button type="reset" (click)="generateCaptcha()" class="btn btn-warning btn-outline-info text-light fs-5">
                 <b>Reset <i class="fa-solid fa-repeat fa-1x"></i></b>
             </button>
             <button type="submit" class="btn btn-danger btn-outline-dark text-light fs-5"
@@ -277,8 +370,6 @@
 </div>
 </div>
   <!-- close -->
-
-
 
 
 

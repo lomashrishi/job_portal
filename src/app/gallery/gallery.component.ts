@@ -12,4 +12,19 @@ import { VideoComponent } from './video/video.component';
 })
 export class GalleryComponent {
 
+  //  img load 
+
+  imgvar:boolean=true;
+  Imgload(){
+    this.imgvar=true;
+    this.vidvar=false;
+  }
+// vid load
+vidvar:boolean=false;
+Vidload(){
+  this.vidvar=true;
+  this.imgvar=false;
+}
+
+
 }

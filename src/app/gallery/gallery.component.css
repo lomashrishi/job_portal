@@ -1,5 +1,8 @@
 .imvibtn{
     cursor: pointer;
 }
-
+.btn{
+    border-radius:0%;
+    border: 0%;
+}
 
