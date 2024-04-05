@@ -1,15 +1,15 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { AboutusComponent } from './pages/aboutus/aboutus.component';
-import { ContactusComponent } from './pages/contactus/contactus.component';
-import { RegisterComponent } from './pages/register/register.component';
-import { LoginComponent } from './pages/login/login.component';
-import { ForgetComponent } from './pages/forget/forget.component';
-import { NotificationsComponent } from './pages/notifications/notifications.component';
-import { GalleryComponent } from './pages/gallery/gallery.component';
-import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { HomeComponent } from './Pages/home/home.component';
+import { AboutusComponent } from './Pages/aboutus/aboutus.component';
+import { ContactusComponent } from './Pages/contactus/contactus.component';
+import { RegisterComponent } from './Pages/register/register.component';
+import { LoginComponent } from './Pages/login/login.component';
+import { ForgetComponent } from './Pages/forget/forget.component';
+import { NotificationsComponent } from './Pages/notifications/notifications.component';
+import { GalleryComponent } from './Pages/gallery/gallery.component';
+import { PageNotFoundComponent } from './Pages/page-not-found/page-not-found.component';
 //User Componetns
-import { HomeuserComponent } from './user/homeuser/homeuser.component';
+import { HomeuserComponent } from './User/homeuser/homeuser.component';
 
 
 export const routes: Routes = [
