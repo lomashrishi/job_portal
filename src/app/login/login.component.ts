@@ -6,7 +6,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [LoginComponent, NgClass, FontAwesomeModule,RouterLink],
+  imports: [NgClass, FontAwesomeModule,RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

@@ -6,7 +6,7 @@ import { VideoComponent } from './video/video.component';
 @Component({
   selector: 'app-gallery',
   standalone: true,
-  imports: [GalleryComponent,RouterLink,ImageComponent,VideoComponent],
+  imports: [RouterLink,ImageComponent,VideoComponent],
   templateUrl: './gallery.component.html',
   styleUrl: './gallery.component.css'
 })

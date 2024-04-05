@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-video',
   standalone: true,
-  imports: [VideoComponent],
+  imports: [],
   templateUrl: './video.component.html',
   styleUrl: './video.component.css'
 })

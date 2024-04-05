@@ -5,7 +5,7 @@ import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-topnav',
   standalone: true,
-  imports: [TopnavComponent,RouterLink],
+  imports: [RouterLink],
   templateUrl: './topnav.component.html',
   styleUrl: './topnav.component.css'
 })

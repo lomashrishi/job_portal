@@ -8,8 +8,12 @@ import { ForgetComponent } from './forget/forget.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+//User Componetns
+import { HomeuserComponent } from './user/homeuser/homeuser.component';
+
 
 export const routes: Routes = [
+    // Public pages
     {'path': 'home', redirectTo: '', pathMatch: 'full' },
     {'path':'','title':'Home-Page | Kanker Recruitment Portal',component:HomeComponent},
     {'path': 'about', redirectTo: 'about-us', pathMatch: 'full' },
@@ -24,8 +28,16 @@ export const routes: Routes = [
     {'path':'notification',redirectTo:'notifications',pathMatch:'full'},
     {'path':'notifications','title':'Recruitment Notifications | Kanker Recruitment Portal', component:NotificationsComponent},
     {'path':'gallery','title':'Gallery | Kanker Recruitment Portal', component:GalleryComponent},
-    { path: '**',title:'Erorr 404 | Page Not Found !..', pathMatch: 'full', component: PageNotFoundComponent}
 
+    // User Routing
+    {'path': 'user/home', redirectTo: 'user', pathMatch: 'full'},
+    {'path':'user','title':' User Home-Page | Kanker Recruitment Portal',component:HomeuserComponent},
+
+
+
+    { path: '**',title:'Erorr 404 | Page Not Found !..', component: PageNotFoundComponent},
+
+  
 
 
 ];

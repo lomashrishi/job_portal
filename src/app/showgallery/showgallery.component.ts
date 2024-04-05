@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-showgallery',
   standalone: true,
-  imports: [ShowgalleryComponent],
+  imports: [],
   templateUrl: './showgallery.component.html',
   styleUrl: './showgallery.component.css'
 })
