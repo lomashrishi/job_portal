@@ -1,13 +1,13 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { AboutusComponent } from './aboutus/aboutus.component';
-import { ContactusComponent } from './contactus/contactus.component';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
-import { ForgetComponent } from './forget/forget.component';
-import { NotificationsComponent } from './notifications/notifications.component';
-import { GalleryComponent } from './gallery/gallery.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HomeComponent } from './pages/home/home.component';
+import { AboutusComponent } from './pages/aboutus/aboutus.component';
+import { ContactusComponent } from './pages/contactus/contactus.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { LoginComponent } from './pages/login/login.component';
+import { ForgetComponent } from './pages/forget/forget.component';
+import { NotificationsComponent } from './pages/notifications/notifications.component';
+import { GalleryComponent } from './pages/gallery/gallery.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 //User Componetns
 import { HomeuserComponent } from './user/homeuser/homeuser.component';
 
