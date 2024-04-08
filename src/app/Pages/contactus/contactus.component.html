@@ -1,3 +1,10 @@
+<!-- top navbar -->
+<app-topnav></app-topnav>
+<!-- header topimg name logo  -->
+<app-header></app-header>
+<!-- navbar liks  -->
+<app-navbar></app-navbar>
+<!-- All contant show hear  -->
 <div class="container-flude mt-2 p-1 mb-3">
   <div class="container page-heading text-center p-0 bg-white rounded shadow">
     <h3 style="background-color: #ea5a0c"
@@ -14,27 +21,38 @@
                   :</b></label>
               <input type="text" formControlName="name" class="form-control rounded border-1 border-dark" id="name"
                 placeholder="Enter your name" required />
-            </div>
+                @if (contactForm.get('name')?.invalid && contactForm.get('name')?.touched) {
+                  <small class="text-danger ms-1"><b>Name is required.</b></small>
+                }</div>
             <div class="mb-3">
               <label for="formGroupExampleInput2" class="form-label ms-3"> <b><i
                     class="fa-solid fa-envelope-open-text"></i> Email :</b> </label>
               <input type="email" formControlName="email" class="form-control rounded border-1 border-dark" id="email"
-                placeholder="Enter your email" required />
+                placeholder="Enter your email" required />                
+                @if (contactForm.get('email')?.invalid && contactForm.get('email')?.touched) {
+                  <small class="text-danger ms-1"><b> Valid email is required.</b></small>
+                }
             </div>
             <div class="mb-3">
               <label for="formGroupExampleInput2" class="form-label ms-3"><b><i class="fa-solid fa-tty"></i> Phone :
                 </b></label>
               <input type="text" formControlName="phone" class="form-control rounded border-1 border-dark" id="phone"
-                placeholder="Enter your number" required />
+                placeholder="Enter your number" required />                
+                @if (contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched) {
+                  <small class="text-danger ms-1"><b> Phone is required.</b></small>
+                }
             </div>
             <div class="mb-3">
               <label for="formGroupExampleInput2" class="form-label ms-3"> <b> <i class="fa-regular fa-message"></i>
                   Message : </b></label>
-              <textarea formControlName="message" class="col-12 textarea rounded p-3 border-1 border-danger"
+              <textarea formControlName="message" class="col-12 textarea rounded p-3 border-1 border-warning"
                 id="message" placeholder=" Write Your Query ?.." rows="5" required></textarea>
+                @if (contactForm.get('message')?.invalid && contactForm.get('message')?.touched) {
+                  <small class="text-danger ms-1"><b> Message is required.</b></small>
+                }
             </div>
             <div class="mb-3 text-center">
-              <button type="submit" class="btn btn-primary "><b class="fs-5">Send<i class="bi bi-send"></i></b></button>
+              <button title="Send-Message" [disabled]="contactForm.invalid" type="submit" class="btn btn-primary "><b class="fs-5">Send<i class="bi bi-send"></i></b></button>
             </div>
           </form>
         </div>
@@ -78,3 +96,8 @@
     </div>
   </div>
 </div>
+
+  <!-- Footer Slider -->
+  <app-footslide></app-footslide>
+  <!-- Footer Component -->
+  <app-footer></app-footer>

@@ -10,6 +10,7 @@ import { GalleryComponent } from './Pages/gallery/gallery.component';
 import { PageNotFoundComponent } from './Pages/page-not-found/page-not-found.component';
 //User Componetns
 import { HomeuserComponent } from './User/homeuser/homeuser.component';
+import { FeedbackComponent } from './User/homeuser/feedback/feedback.component';
 
 
 export const routes: Routes = [
@@ -31,13 +32,14 @@ export const routes: Routes = [
 
     // User Routing
     {'path': 'user/home', redirectTo: 'user', pathMatch: 'full'},
-    {'path':'user','title':' User Home-Page | Kanker Recruitment Portal',component:HomeuserComponent},
 
-
+    { // Parent route
+        'path':'user','title':' User Home-Page | Kanker Recruitment Portal',component:HomeuserComponent,
+    children: [ // Child routes
+        {path :'user/feedback',component:FeedbackComponent}, 
+        ]
+    },
 
     { path: '**',title:'Erorr 404 | Page Not Found !..', component: PageNotFoundComponent},
-
-  
-
 
 ];

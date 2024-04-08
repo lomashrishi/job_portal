@@ -3,27 +3,48 @@
 background-color: #f88c26;
 color: azure;
 font-weight: bold;
+border-radius:5px;
+border:solid 2px #1C1678;
 }
 #regbtn{
     background-color: #059fff;
     color: azure;
     font-weight: bold;
+    border-radius:5px;
+    border:solid 2px #1C1678;
 }
 
-.nav-link {
-font-weight: bold;
-margin-left:15px;   
+
+.nav-item{
+    font-weight: bold;
+    /* margin-left:15px;  */
+    color: black;
+    border-radius:5px;
+    border:solid 2px #1C1678;
+  /* background-color: #f88c26; */
+
 }
+.nav-item a{
+    color: #1C1678;
+    }
 .nav-item a:hover{
+color:white;
+}
+.nav-item:hover{
     background-color: #44bd9e;
-    border-radius: 5px;
-    border:solid 2px azure;
-    padding: 5px;
-    color: azure; 
+    border-radius:5px;
+    border:solid 2px black;
+    color:white;
 }
 
 .dropdown-item {
     font-weight: bold;
+    color: black;
+}
+.dropdown-item:hover {
+    background-color: #44bd9e;
+    border-radius:5px;
+    border:solid 2px white;
 }
 
 @media (max-width: 395px) {
