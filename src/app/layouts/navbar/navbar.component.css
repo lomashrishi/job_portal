@@ -17,13 +17,18 @@ border:solid 2px #1C1678;
 
 .nav-item{
     font-weight: bold;
-    /* margin-left:15px;  */
+    margin-left:15px; 
     color: black;
     border-radius:5px;
-    border:solid 2px #1C1678;
+    border:solid 2px #65646c;
   /* background-color: #f88c26; */
-
 }
+.Home-Icon{
+    font-weight: bold;
+    border-radius:5px;
+    border:solid 2px #000000;
+}
+
 .nav-item a{
     color: #1C1678;
     }
@@ -31,10 +36,11 @@ border:solid 2px #1C1678;
 color:white;
 }
 .nav-item:hover{
+    color:white;
     background-color: #44bd9e;
     border-radius:5px;
     border:solid 2px black;
-    color:white;
+
 }
 
 .dropdown-item {
@@ -56,6 +62,7 @@ color:white;
         padding: 0%;
         margin-top: 11px;
     }
+
 }
 @media (max-width: 770px) {
     .nav-manu .btn {

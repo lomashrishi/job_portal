@@ -8,9 +8,6 @@ import { ForgetComponent } from './Pages/forget/forget.component';
 import { NotificationsComponent } from './Pages/notifications/notifications.component';
 import { GalleryComponent } from './Pages/gallery/gallery.component';
 import { PageNotFoundComponent } from './Pages/page-not-found/page-not-found.component';
-//User Componetns
-import { HomeuserComponent } from './User/homeuser/homeuser.component';
-import { FeedbackComponent } from './User/homeuser/feedback/feedback.component';
 
 
 export const routes: Routes = [
@@ -30,16 +27,10 @@ export const routes: Routes = [
     {'path':'notifications','title':'Recruitment Notifications | Kanker Recruitment Portal', component:NotificationsComponent},
     {'path':'gallery','title':'Gallery | Kanker Recruitment Portal', component:GalleryComponent},
 
-    // User Routing
-    {'path': 'user/home', redirectTo: 'user', pathMatch: 'full'},
-
-    { // Parent route
-        'path':'user','title':' User Home-Page | Kanker Recruitment Portal',component:HomeuserComponent,
-    children: [ // Child routes
-        {path :'user/feedback',component:FeedbackComponent}, 
-        ]
-    },
-
-    { path: '**',title:'Erorr 404 | Page Not Found !..', component: PageNotFoundComponent},
+    //Lazy Routing For User Module
+    {'path':'user', 'title':'User-Routing-Page', loadChildren:()=>import('./Modules/User/user.module').then(mod=> mod.UserModule)},    
+  
+// This is For 404 Page  Error Handling
+    { 'path': '**','title':'Erorr 404 | Page Not Found !..', component:PageNotFoundComponent}
 
 ];

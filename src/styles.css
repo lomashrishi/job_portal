@@ -12,19 +12,41 @@
 @import "@fortawesome/fontawesome-free/css/all.min.css";
 
 
-.mainbody{
-    background-image: url("/assets/body/bodyimg.jpg");
 
+
+body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+/* Baground Img */
+    background-image: url("/assets/body/bodyimg.jpg");
     /* Add the blur effect */
     filter: blur(0.1);
-     -webkit-filter: blur(0.1);
-  
-    /* Full height */
-    height: 100%;
-  
+     -webkit-filter: blur(0.5);
     /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    backdrop-filter: brightness(99%);
-}
+    backdrop-filter: brightness(90%);
+  }
+
+  /* For WebKit browsers */
+/* Track */
+::-webkit-scrollbar {
+    width:11px; /* Set the width of the scrollbar */
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background:#44bd9e; /* Set the color of the scrollbar handle */
+    border:solid  #ffffff;
+    border-radius: 11px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #f5731c; /* Set the color of the scrollbar handle on hover */
+    border:solid  #ffffff;
+    border-radius: 11px;
+  }

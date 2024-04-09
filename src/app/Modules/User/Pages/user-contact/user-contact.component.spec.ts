@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FeedbackComponent } from './feedback.component';
+import { UserContactComponent } from './user-contact.component';
 
-describe('FeedbackComponent', () => {
-  let component: FeedbackComponent;
-  let fixture: ComponentFixture<FeedbackComponent>;
+describe('UserContactComponent', () => {
+  let component: UserContactComponent;
+  let fixture: ComponentFixture<UserContactComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FeedbackComponent]
+      imports: [UserContactComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(FeedbackComponent);
+    fixture = TestBed.createComponent(UserContactComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

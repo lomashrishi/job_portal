@@ -1,6 +1,6 @@
 
 import { Component,} from '@angular/core';
-import {  FormBuilder,Validators,FormGroup, ReactiveFormsModule,} from '@angular/forms';
+import {  FormBuilder,Validators,FormGroup, ReactiveFormsModule, EmailValidator,} from '@angular/forms';
 
 @Component({
   selector: 'app-forgetidpassword',
@@ -15,7 +15,7 @@ export class ForgetidpasswordComponent {
 
   constructor(private Fb: FormBuilder) {
     this.userForm = this.Fb.group({
-      name: ['', Validators.required],
+      email: ['',Validators.required,Validators.email],
     });
   }
   

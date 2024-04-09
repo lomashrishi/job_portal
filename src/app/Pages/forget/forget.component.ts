@@ -4,11 +4,11 @@ import { FormGroup} from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
 import { ForgetidpasswordComponent } from './forgetidpassword/forgetidpassword.component';
-import { TopnavComponent } from '../../layouts/topnav/topnav.component';
-import { HeaderComponent } from '../../layouts/header/header.component';
-import { NavbarComponent } from '../../layouts/navbar/navbar.component';
-import { FootslideComponent } from '../../layouts/footslide/footslide.component';
-import { FooterComponent } from '../../layouts/footer/footer.component';
+import { TopnavComponent } from '../../Layouts/topnav/topnav.component';
+import { HeaderComponent } from '../../Layouts/header/header.component';
+import { NavbarComponent } from '../../Layouts/navbar/navbar.component';
+import { FootslideComponent } from '../../Layouts/footslide/footslide.component';
+import { FooterComponent } from '../../Layouts/footer/footer.component';
 
 @Component({
   selector: 'app-forget',
