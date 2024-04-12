@@ -21,6 +21,10 @@ body{
     width: 100%;
 /* Baground Img */
     background-image: url("/assets/body/bodyimg.jpg");
+    /* Bg Color */
+    /* background: rgb(153,159,255);
+    background: radial-gradient(circle, rgba(153,159,255,0.9360994397759104) 0%, rgba(246,153,255,0.9080882352941176) 100%); */
+    /* Bg Blur */
     /* Add the blur effect */
     filter: blur(0.1);
      -webkit-filter: blur(0.5);
@@ -28,7 +32,7 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    backdrop-filter: brightness(90%);
+    backdrop-filter: brightness(99%);
   }
 
   /* For WebKit browsers */
