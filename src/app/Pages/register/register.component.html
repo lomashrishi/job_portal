@@ -14,7 +14,7 @@
     </div>
   
   <div class="container main-con mt-2 bg-white-subtle p-1  rounded">
-    <form class="form">
+    <form class="form"[formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div class="row basic-row">
             <div class="col-lg-9 mb-2 ">
                 <div class="card border border-2 border-black pb-3">
@@ -27,28 +27,32 @@
                                 <div class="form-group">
                                     <label>
                                         <b>Candidate's Name / उम्मीदवार का नाम</b></label>
-                                    <input name="name" type="text" value="" id="CanName" placeholder="Enter Candidate Full Name" required class=" form-control shadow rounded border-1 border-dark"/>
+                                    <input formControlName="name" name="name" type="text" value="" id="CanName" placeholder="Enter Candidate Full Name" required class=" form-control shadow rounded border-1 border-dark"/>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>
                                         <b>Date of Birth / जन्म की तारीख</b></label>
-                                    <input name="dob" type="text" onfocus="(this.type='date')" value="" id="ConDob" (change)="calculateAge()" required placeholder="Pickup Date of Birth " class="form-control shadow rounded border-1 border-dark">
+                                    <input formControlName="dob" name="dob" type="text" onfocus="(this.type='date')" value="" id="ConDob" (change)="calculateAge()" required placeholder="Pickup Date of Birth " class="form-control shadow rounded border-1 border-dark">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label>
-                                        <b>Gender / लिंग</b></label>
-                                    <input name="gender" type="text" value="" id="CanGender" placeholder="Select Candidate Gender" required class=" form-control shadow rounded border-1 border-dark">
-                                </div>
+                                    <label for="gender"><b>Gender / लिंग</b></label>
+                                    <select formControlName="gender" name="gender" id="CanGender"  class=" form-select shadow rounded border-1 border-dark">
+                                        <!-- <option value="Select Candidate Gender" selected disabled>Select Candidate Gender</option> -->
+                                        <option value="male">Male / पुरुष</option>
+                                        <option value="female">Female / महिला</option>
+                                        <option value="other">Other / अन्य</option>
+                                    </select>
+                                </div>                            
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>
                                        <b>Category / वर्ग</b></label>
-                                    <input name="category" type="text" value="" id="CanCast" placeholder="Select Candidate Category" required  class=" form-control shadow rounded border-1 border-dark">
+                                    <input formControlName="category" name="category" type="text" value="" id="CanCast" placeholder="Select Candidate Category" required  class=" form-control shadow rounded border-1 border-dark">
                                     
                                 </div>
                             </div>
@@ -144,6 +148,7 @@
 
                 </div>
             </div>
+            <!-- Images -->
             <div class="col-lg-3">
                 <div class="card pb-3  border border-2 border-black">
                     <div class="card-header bg-danger p-1 ">
@@ -164,7 +169,7 @@
                                     <img id="imgUploadSign" class="img-thumbnail bg-transparent rounded" style="height:80px;width:200px;">
                                 </div>
                             </div>
-                            <hr class="brline p-0 m-0 mt-1"/>
+                            <hr class="brline p-0 m-0 mt-1"/> 
 
                             <div class="upload-option1 mt-1">
                                 <label for="files"><i class="fa-solid fa-user-graduate"></i> <b> Select Profile Image File</b></label>
@@ -346,8 +351,8 @@ I do hereby declare that the information given above related to my Name, Categor
 
 <!-- otp row -->
  
-        <div class="mt-2 d-flex justify-content-evenly pt-4 pb-3 rounded-top bg-white border border-black border-2">
-            <button type="submit" class="btn btn-primary btn-outline-success text-light fs-5">
+        <div class="mt-2 d-flex justify-content-evenly pt-4 pb-3 rounded-top bg-light border border-black border-2">
+            <button type="submit" [disabled]="registerForm.invalid" class="btn btn-primary btn-outline-success text-light fs-5">
                 <b>Register<i class="fa-solid fa-right-to-bracket fa-1x"></i></b>
             </button>
             <button type="reset" (click)="generateCaptcha()" class="btn btn-warning btn-outline-info text-light fs-5">

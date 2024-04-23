@@ -1,36 +1,35 @@
 
 #loginbtn{
-background-color: #f88c26;
+background-color: #44bd9e;
 color: azure;
 font-weight: bold;
 border-radius:5px;
-border:solid 2px #1C1678;
+border:solid 2px #ffffff;
 }
 #regbtn{
     background-color: #059fff;
     color: azure;
     font-weight: bold;
     border-radius:5px;
-    border:solid 2px #1C1678;
+    border:solid 2px white;
 }
 
 
 .nav-item{
     font-weight: bold;
-    margin-left:15px; 
-    color: black;
+    color:white;
     border-radius:5px;
-    border:solid 2px #65646c;
-  /* background-color: #f88c26; */
+    border:solid 2px #ffffff;
+  background-color: #f88c26;
 }
 .Home-Icon{
     font-weight: bold;
     border-radius:5px;
-    border:solid 2px #000000;
+    border:solid 2px white;
 }
 
 .nav-item a{
-    color: #1C1678;
+    color:white;
     }
 .nav-item a:hover{
 color:white;
@@ -39,7 +38,7 @@ color:white;
     color:white;
     background-color: #44bd9e;
     border-radius:5px;
-    border:solid 2px black;
+    border:solid 2px #ffffff;
 
 }
 
@@ -61,6 +60,7 @@ color:white;
       .nav-ul {
         padding: 0%;
         margin-top: 11px;
+        margin-bottom: 11px;
     }
 
 }
@@ -72,6 +72,7 @@ color:white;
     .nav-ul {
         padding: 0%;
         margin-top: 11px;
+        margin-bottom: 11px;
     }
 
 }

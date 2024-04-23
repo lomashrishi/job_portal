@@ -6,6 +6,8 @@ import { HeaderComponent } from '../../Layouts/header/header.component';
 import { NavbarComponent } from '../../Layouts/navbar/navbar.component';
 import { FootslideComponent } from '../../Layouts/footslide/footslide.component';
 import { FooterComponent } from '../../Layouts/footer/footer.component';
+import { ContactService } from '../../Services/contact/contact.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -17,26 +19,33 @@ import { FooterComponent } from '../../Layouts/footer/footer.component';
 })
 export class ContactusComponent {
   contactForm:FormGroup;
-  FormData:any;
+  serverResponse:any;
 
-  constructor(private fb: FormBuilder) {
-    this.contactForm = this.fb.group({
-      name: ['', Validators.required], // Required field
-      email: ['', [Validators.required, Validators.email]], // Required, valid email format
-      phone: ['', [Validators.required, Validators.pattern(/^\d+$/),Validators.minLength(10),Validators.maxLength(10)]], // Required, phone number format (adjust pattern as needed)
-      message: ['', [Validators.required, Validators.maxLength(1000)]], // Required, minimum 10 characters
+  constructor(private Fb: FormBuilder, public contactService:ContactService ) {
+    this.contactForm = this.Fb.group({
+      name: ['', [Validators.required]], // Required field
+      email: ['', [Validators.email,Validators.required] ], // Required, valid email format
+      mobile: ['', [Validators.required, Validators.pattern(/^\d+$/),Validators.minLength(10),Validators.maxLength(10)]], // Required, phone number format (adjust pattern as needed)
+      message: ['', [Validators.required, Validators.maxLength(1000)]] // 
     });
   }
 
   
   onSubmit() {
-
     if( this.contactForm.valid ) {
-      this.FormData=this.contactForm.value;
-      console.log(" Contact Form Data",this.FormData);
-    // You can do something with the form data here if you need to send it somewhere
+    const FormData = this.contactForm.value;
+     // You can do something with the form data here if you need to send it somewhere
+     this.contactService.sendMessag(FormData).subscribe(response => {
+          this.serverResponse = response.message;
+          Swal.fire('Thank you!', this.serverResponse, 'success')
+          this.contactForm.reset(); // Reset form after successful submission my form 
+        }, error => {
+          this.serverResponse = error.message;
+          Swal.fire('Error!', this.serverResponse, 'error')    
+              
+        } );
     }
 
-    }
-
+    
+  }
 }

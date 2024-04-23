@@ -5,15 +5,36 @@ import { HeaderComponent } from '../../Layouts/header/header.component';
 import { NavbarComponent } from '../../Layouts/navbar/navbar.component';
 import { FootslideComponent } from '../../Layouts/footslide/footslide.component';
 import { FooterComponent } from '../../Layouts/footer/footer.component';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [RouterLink,TopnavComponent,HeaderComponent,NavbarComponent,FootslideComponent,FooterComponent],
+  imports: [ReactiveFormsModule,RouterLink,TopnavComponent,HeaderComponent,NavbarComponent,FootslideComponent,FooterComponent],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
+  registerForm:FormGroup;
+
+
+constructor(Fb:FormBuilder){
+  this.registerForm = Fb.group({  
+    name: [''],
+    email: [''],
+    phone: [''],
+    password: [''],   
+    confirmPassword: [''],
+    captcha: ['']
+  })
+
+}
+
+
+
+
+
+
 
 // Captcha Code 
   captchaText: string = '';
@@ -40,6 +61,16 @@ export class RegisterComponent {
     //   const age = today.getFullYear() - dob.getFullYear();
     //   this.userForm.patchValue({ age });
     // }
+  }
+
+
+
+
+
+  onSubmit(){
+    console.log(this.registerForm.value);
+
+    this.registerForm.reset();
   }
 
 

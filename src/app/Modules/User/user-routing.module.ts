@@ -5,15 +5,10 @@ import { UserAboutComponent } from './Pages/user-about/user-about.component';
 import { UserPageNotFoundComponent } from './Pages/user-page-not-found/user-page-not-found.component';
 
 const routes: Routes = [
-//user ka home page 
-
+//user ka home page
   {'path':'','title':'User-Home-Page | Kanker Recruitment Portal',component:UserHomeComponent},
-  // {'path': 'about', redirectTo: 'about-us', pathMatch: 'full' }, 
   {'path':'about-us','title':'User-Home-Page | Kanker Recruitment Portal',component:UserAboutComponent},
-
-  { 'path': '**','title':'Erorr 404 | Page Not Found !..', component:UserPageNotFoundComponent}
-
-  
+  {'path':'**', component:UserPageNotFoundComponent}
 ];
 
 @NgModule({

@@ -15,10 +15,11 @@
 
 
 body{
-    margin: 0;
+    /* margin: 0;
     padding: 0;
     height: 100%;
-    width: 100%;
+    width: 100%; */
+    overflow: visible;
 /* Baground Img */
     background-image: url("/assets/body/bodyimg.jpg");
     /* Bg Color */
@@ -29,7 +30,7 @@ body{
     filter: blur(0.1);
      -webkit-filter: blur(0.5);
     /* Center and scale the image nicely */
-    background-position: center;
+    /* background-position:center; */
     background-repeat: no-repeat;
     background-size: cover;
     backdrop-filter: brightness(99%);

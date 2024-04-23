@@ -3,8 +3,9 @@
 
 .heading {
 	color: #fff;
-	background:#44bd9e;
+	background:#ff5252;
     cursor: pointer;
+    padding: 11px;
 }
 .heading a{
 float: right;

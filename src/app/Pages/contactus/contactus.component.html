@@ -17,7 +17,7 @@
         <div class="col-md-8 con-form shadow pb-3">
           <form  [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="con-form">
             <div class="mb-3">
-              <label for="formGroupExampleInput" class="form-label ms-3"><b><i class="fa-solid fa-user-tie"></i> Name
+              <label for="Name" class="form-label ms-3"><b><i class="fa-solid fa-user-tie"></i> Name
                   :</b></label>
               <input type="text" formControlName="name" class="form-control rounded border-1 border-dark" id="name"
                 placeholder="Enter your name" required />
@@ -25,7 +25,7 @@
                   <small class="text-danger ms-1"><b>Name is required.</b></small>
                 }</div>
             <div class="mb-3">
-              <label for="formGroupExampleInput2" class="form-label ms-3"> <b><i
+              <label for="Email" class="form-label ms-3"> <b><i
                     class="fa-solid fa-envelope-open-text"></i> Email :</b> </label>
               <input type="email" formControlName="email" class="form-control rounded border-1 border-dark" id="email"
                 placeholder="Enter your email" required />                
@@ -34,18 +34,18 @@
                 }
             </div>
             <div class="mb-3">
-              <label for="formGroupExampleInput2" class="form-label ms-3"><b><i class="fa-solid fa-tty"></i> Phone :
+              <label for="mobile" class="form-label ms-3"><b><i class="fa-solid fa-tty"></i> mobile :
                 </b></label>
-              <input type="text" formControlName="phone" class="form-control rounded border-1 border-dark" id="phone"
+              <input type="text" formControlName="mobile" class="form-control rounded border-1 border-dark" id="mobile"
                 placeholder="Enter your number" required />                
-                @if (contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched) {
-                  <small class="text-danger ms-1"><b> Phone is required.</b></small>
+                @if (contactForm.get('mobile')?.invalid && contactForm.get('mobile')?.touched) {
+                  <small class="text-danger ms-1"><b> mobile is required.</b></small>
                 }
             </div>
             <div class="mb-3">
-              <label for="formGroupExampleInput2" class="form-label ms-3"> <b> <i class="fa-regular fa-message"></i>
+              <label for="Message" class="form-label ms-3"> <b> <i class="fa-regular fa-message"></i>
                   Message : </b></label>
-              <textarea formControlName="message" class="col-12 textarea rounded p-3 border-1 border-warning"
+              <textarea formControlName="message" class="col-12 textarea bg-primary-subtle rounded p-3 border-1 border-warning"
                 id="message" placeholder=" Write Your Query ?.." rows="5" required></textarea>
                 @if (contactForm.get('message')?.invalid && contactForm.get('message')?.touched) {
                   <small class="text-danger ms-1"><b> Message is required.</b></small>
@@ -66,7 +66,7 @@
             <hr>
 
 
-            <p> <i class="bi bi-telephone-fill"> </i><b> Phone:- </b> <a class="text-white "
+            <p> <i class="bi bi-telemobile-fill"> </i><b> mobile:- </b> <a class="text-white "
                 href="tel:07868-241222"><b>07868-241222</b> </a> </p>
             <hr>
 

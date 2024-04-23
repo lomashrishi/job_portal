@@ -12,7 +12,7 @@ import { PageNotFoundComponent } from './Pages/page-not-found/page-not-found.com
 
 export const routes: Routes = [
     // Public pages
-    {'path': 'home', redirectTo: '', pathMatch: 'full' },
+    {'path': 'home', redirectTo:'', pathMatch:'full'},
     {'path':'','title':'Home-Page | Kanker Recruitment Portal',component:HomeComponent},
     {'path': 'about', redirectTo: 'about-us', pathMatch: 'full' },
     {'path':'about-us','title':'About-Us | Kanker Recruitment Portal',component:AboutusComponent },
@@ -28,7 +28,7 @@ export const routes: Routes = [
     {'path':'gallery','title':'Gallery | Kanker Recruitment Portal', component:GalleryComponent},
 
     //Lazy Routing For User Module
-    {'path':'user', 'title':'User-Routing-Page', loadChildren:()=>import('./Modules/User/user.module').then(mod=> mod.UserModule)},    
+    {'path':'user',  loadChildren:()=>import('./Modules/User/user.module').then(mod=> mod.UserModule)},    
   
 // This is For 404 Page  Error Handling
     { 'path': '**','title':'Erorr 404 | Page Not Found !..', component:PageNotFoundComponent}

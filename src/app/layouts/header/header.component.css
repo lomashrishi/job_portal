@@ -1,3 +1,6 @@
+.site-title{
+    color: #059fff;
+}
 .img-icon img { 
     width: 70px;
     height: 70px;
@@ -19,13 +22,9 @@
       display: none; /* Hide right-side content below 390px */
     }
 }
-@media (max-width: 768px) {
+@media (max-width:768px) {
     .right-content {
       display: none; /* Hide right-side content below 390px */
     }
 }
 
-/* @media (max-width: 395px) {
-.gov-logo{
-    display: none; }
-} */
