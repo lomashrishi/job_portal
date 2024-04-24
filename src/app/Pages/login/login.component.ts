@@ -7,16 +7,56 @@ import { HeaderComponent } from '../../Layouts/header/header.component';
 import { NavbarComponent } from '../../Layouts/navbar/navbar.component';
 import { FootslideComponent } from '../../Layouts/footslide/footslide.component';
 import { FooterComponent } from '../../Layouts/footer/footer.component';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [NgClass, FontAwesomeModule,RouterLink,TopnavComponent,HeaderComponent,NavbarComponent,FootslideComponent,FooterComponent],
+  imports: [NgClass, ReactiveFormsModule,FontAwesomeModule,RouterLink,TopnavComponent,HeaderComponent,NavbarComponent,FootslideComponent,FooterComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
- 
+LoginForm :FormGroup;
+
+ constructor( Fb:FormBuilder){
+  this.LoginForm = Fb.group({
+
+    email:['', [Validators.email,Validators.required]],
+    mobile:['',[Validators.minLength(10),Validators.maxLength(10),Validators.required, Validators.pattern(/^\d+$/)]],
+    password:[''], 
+    captcha_input:['',[Validators.minLength(8),Validators.maxLength(8),Validators.required,]]
+  })
+
+ }
+
+
+
+
+
+
+onSubmit(){
+  if(this.LoginForm.valid){
+    if(this.captchaText===this.LoginForm.value.captcha_input){
+      console.log(this.LoginForm.value);
+    }
+    else{
+      alert("Captcha is not valid")
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+//  password toggle
 visible:boolean=true;
 changetype:boolean=true;
 

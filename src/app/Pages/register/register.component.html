@@ -41,10 +41,10 @@
                                 <div class="form-group">
                                     <label for="gender"><b>Gender / लिंग</b></label>
                                     <select formControlName="gender" name="gender" id="CanGender"  class=" form-select shadow rounded border-1 border-dark">
-                                        <!-- <option value="Select Candidate Gender" selected disabled>Select Candidate Gender</option> -->
-                                        <option value="male">Male / पुरुष</option>
-                                        <option value="female">Female / महिला</option>
-                                        <option value="other">Other / अन्य</option>
+                                        <option class="fw-bold dropdown-item" disabled selected value="">Select Candidate Gender</option>
+                                        <option value="Male">Male / पुरुष</option>
+                                        <option value="Female">Female / महिला</option>
+                                        <option value="Other">Other / अन्य</option>
                                     </select>
                                 </div>                            
                             </div>
@@ -52,8 +52,12 @@
                                 <div class="form-group">
                                     <label>
                                        <b>Category / वर्ग</b></label>
-                                    <input formControlName="category" name="category" type="text" value="" id="CanCast" placeholder="Select Candidate Category" required  class=" form-control shadow rounded border-1 border-dark">
-                                    
+                                    <select formControlName="category" name="category"  value="" id="CanCast" placeholder="Select Candidate Category" required  class=" form-control shadow rounded border-1 border-dark">
+                                        <option class="fw-bold dropdown-item" disabled selected value="">Select Candidate Gender</option>
+                                        <option value="Male">Male / पुरुष</option>
+                                        <option value="Female">Female / महिला</option>
+                                        <option value="Other">Other / अन्य</option>
+                                        </select>
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -61,8 +65,13 @@
                                     <label>
                                         <b>Marital Status / वैवाहिक स्थिति </b>
                                     </label>
-                                    <input name="mstatus" type="text" value="" id="CanMarital" placeholder="Select Candidate Marital Status " required class=" form-control shadow rounded border-1 border-dark">      
-                                </div>
+                                    <select name="mstatus" type="text" value="" id="CanMarital" placeholder="Select Candidate Marital Status " required class=" form-control shadow rounded border-1 border-dark">      
+                                        <option class="fw-bold dropdown-item" disabled selected value="">Select Candidate Gender</option>
+                                        <option value="Male">Male / पुरुष</option>
+                                        <option value="Female">Female / महिला</option>
+                                        <option value="Other">Other / अन्य</option>
+                                    </select>
+                                    </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">

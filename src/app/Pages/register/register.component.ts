@@ -22,6 +22,7 @@ constructor(Fb:FormBuilder){
   this.registerForm = Fb.group({  
     name: [''],
     email: [''],
+    gender: [''],
     phone: [''],
     password: [''],   
     confirmPassword: [''],
