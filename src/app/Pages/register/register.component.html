@@ -26,128 +26,286 @@
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>
-                                        <b>Candidate's Name / उम्मीदवार का नाम</b></label>
-                                    <input formControlName="name" name="name" type="text" value="" id="CanName" placeholder="Enter Candidate Full Name" required class=" form-control shadow rounded border-1 border-dark"/>
+                                        <b>Candidate's Name / उम्मीदवार का नाम <label class="text-danger fw-bold">*</label></b></label>
+                                    <input formControlName="Name" name="name" type="text" value="" id="CanName" placeholder="Enter Candidate Full Name" required class=" text-capitalize form-control shadow rounded border-1 border-dark"/>
+                                    @if (registerForm.get('Name')?.touched && registerForm.get('Name')?.errors?.['required']) {
+                                        <small class="text-danger ms-1"><b>Candidate Full Name Is Required.</b></small>
+                                      }
+                                      @if (registerForm.get('Name')?.hasError('pattern')) {
+                                        <small class="text-danger ms-1"><b>Invalid Name Format Alphabetical & Only 2-Spaces Allow.</b></small>
+                                      }
+                                      @if (registerForm.get('Name')?.hasError('maxlength')) {
+                                        <small class="text-danger ms-1"><b>Name Must Be Less Than Or Equal To 30 Characters.</b></small>
+                                      }
+                                  
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>
-                                        <b>Date of Birth / जन्म की तारीख</b></label>
-                                    <input formControlName="dob" name="dob" type="text" onfocus="(this.type='date')" value="" id="ConDob" (change)="calculateAge()" required placeholder="Pickup Date of Birth " class="form-control shadow rounded border-1 border-dark">
+                                        <b>Date of Birth / जन्म की तारीख <label class="text-danger fw-bold">*</label></b></label>
+                                    <input formControlName="Dob" name="Dob" type="date" value="" id="ConDob"  (change)="calculateAge()"  required placeholder="Pickup Date of Birth " class=" text-capitalize form-control shadow rounded border-1 border-dark" max="{{ todayDate() }}" >
+                                    @if (registerForm.get('Dob')?.touched && registerForm.get('Dob')?.errors?.['required']) {
+                                        <small class="text-danger ms-1"><b>Candidate Date Of Birth Is Required.</b></small>
+                                      }
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label for="gender"><b>Gender / लिंग</b></label>
-                                    <select formControlName="gender" name="gender" id="CanGender"  class=" form-select shadow rounded border-1 border-dark">
+                                    <label for="gender"><b>Gender / लिंग <label class="text-danger fw-bold">*</label></b></label>
+                                    <select formControlName="Gender" name="Gender" id="CanGender"  class=" text-capitalize form-select shadow rounded border-1 border-dark">
                                         <option class="fw-bold dropdown-item" disabled selected value="">Select Candidate Gender</option>
                                         <option value="Male">Male / पुरुष</option>
                                         <option value="Female">Female / महिला</option>
                                         <option value="Other">Other / अन्य</option>
                                     </select>
+                                    @if (registerForm.get('Gender')?.touched && registerForm.get('Gender')?.errors?.['required']) {
+                                        <small class="text-danger ms-1"><b>Candidate Gender Is Required.</b></small>
+                                      }
                                 </div>                            
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>
-                                       <b>Category / वर्ग</b></label>
-                                    <select formControlName="category" name="category"  value="" id="CanCast" placeholder="Select Candidate Category" required  class=" form-control shadow rounded border-1 border-dark">
+                                       <b>Category / वर्ग <label class="text-danger fw-bold">*</label></b></label>
+                                    <select formControlName="Category" name="Category"  value="" id="CanCast" placeholder=" text-capitalize Select Candidate Category" required  class=" form-select shadow rounded border-1 border-dark">
                                         <option class="fw-bold dropdown-item" disabled selected value="">Select Candidate Gender</option>
-                                        <option value="Male">Male / पुरुष</option>
-                                        <option value="Female">Female / महिला</option>
-                                        <option value="Other">Other / अन्य</option>
+                                        <option value="GENERAL">GENERAL</option>
+                                        <option value="GENERAL(EWS)">GENERAL(EWS)</option>
+                                        <option value="OBC (CREAMY LAYER)">OBC (CREAMY LAYER)</option>
+                                        <option value="OBC (NON CREAMY LAYER)">OBC (NON CREAMY LAYER)</option>
+                                        <option value="SC (Scheduled Caste)">SC (Scheduled Caste)</option>
+                                        <option value="ST (Scheduled Tribe)">ST (Scheduled Tribe)</option>
                                         </select>
+                                        @if (registerForm.get('Category')?.touched && registerForm.get('Category')?.errors?.['required']) {
+                                            <small class="text-danger ms-1"><b>Candidate Category Is Required.</b></small>
+                                          }
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>
-                                        <b>Marital Status / वैवाहिक स्थिति </b>
+                                        <b>Marital Status / वैवाहिक स्थिति <label class="text-danger fw-bold">*</label></b>
                                     </label>
-                                    <select name="mstatus" type="text" value="" id="CanMarital" placeholder="Select Candidate Marital Status " required class=" form-control shadow rounded border-1 border-dark">      
+                                    <select  formControlName="MaritalStatus" name="MaritalStatus" type="text" value="" id="CanMarital" placeholder="Select Candidate Marital Status " required class=" text-capitalize form-select shadow rounded border-1 border-dark">      
                                         <option class="fw-bold dropdown-item" disabled selected value="">Select Candidate Gender</option>
-                                        <option value="Male">Male / पुरुष</option>
-                                        <option value="Female">Female / महिला</option>
-                                        <option value="Other">Other / अन्य</option>
+                                        <option value="Married">Married / विवाहित</option>
+                                        <option value="UnMarried">UnMarried / अविवाहित</option>
                                     </select>
+                                    @if (registerForm.get('MaritalStatus')?.touched && registerForm.get('MaritalStatus')?.errors?.['required']) {
+                                        <small class="text-danger ms-1"><b>Candidate Marital Status Is Required.</b></small>
+                                      }
                                     </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>
-                                        <b>Age / उम्र</b>
+                                        <b>Age / उम्र <label class="text-danger fw-bold">*</label></b>
                                     </label>
-                                    <input name="ag" type="text" value="" id="CanAge" required placeholder=" Enter Candidate Age" class=" form-control shadow rounded border-1 border-dark">      
+                                    <input  formControlName="Age" name="Age" type="text" [readonly]="true"  value="" id="CanAge" required placeholder=" Enter Candidate Age" class=" text-capitalize form-control shadow rounded border-1 border-dark">      
+                                    @if (registerForm.get('Age')?.touched && registerForm.get('Age')?.errors?.['required']) {
+                                        <small class="text-danger ms-1"><b>Candidate Age Is Required.</b></small>
+                                      }
                                 </div>
                             </div>            
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label><b>Relative's Type / रिश्तेदार का प्रकार</b> </label>
+                                    <label><b>Relative's Type / रिश्तेदार का प्रकार <label class="text-danger fw-bold">*</label></b> </label>
                                     <label class="lbl-req">
                                         </label>
-                                    <input name="relative" type="text" value="" id="CanRelativeType" placeholder="Select Relative's Type" required class=" form-control shadow rounded border-1 border-dark">
+                                    <select  formControlName="RelativeType" name="RelativeType" type="text" value="" id="CanRelativeType" placeholder="Select Relative's Type" required class=" text-capitalize form-select shadow rounded border-1 border-dark">
+                                        <option class="fw-bold dropdown-item" disabled selected value="">Select Candidate Gender</option>
+                                        <option value="Father">Father / पिता</option>
+                                        <option value="Husband">Husband / पति</option>
+                                    </select>
+                                    @if (registerForm.get('RelativeType')?.touched && registerForm.get('RelativeType')?.errors?.['required']) {
+                                        <small class="text-danger ms-1"><b>Candidate Relative Type Is Required.</b></small>
+                                      }
+                                    </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label><b>Relative Name / रिश्तेदार का नाम <label class="text-danger fw-bold">*</label></b></label>
+                                    <input  formControlName="RelativeName" name="RelativeName" type="text" value="" id="CanRelativeName" placeholder="Enter Relative Name" required class=" text-capitalize form-control shadow rounded border-1 border-dark">
+                                    @if (registerForm.get('RelativeName')?.invalid && registerForm.get('RelativeName')?.touched) {
+                                        <small class="text-danger ms-1"><b>Relative Full Name Is Required.</b></small>
+                                      }
+                                      @if (registerForm.get('RelativeName')?.hasError('pattern')) {
+                                        <small class="text-danger ms-1"><b>Invalid Relative Name Format Alphabetical & Only 2-Spaces Allow.</b></small>
+                                      }
+                                      @if (registerForm.get('RelativeName')?.hasError('maxlength')) {
+                                        <small class="text-danger ms-1"><b>Relative Name Must Be Less Than Or Equal To 30 Characters.</b></small>
+                                      }
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label><b>Relative Name / रिश्तेदार का नाम</b></label>
-                                    <input name="RName" type="text" value="" id="CanRelativeName" placeholder="Enter Relative Name" required class=" form-control shadow rounded border-1 border-dark">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label><b>Mother's Name / माता का नाम</b></label>
-                                    <input name="mname" type="text" value="" id="CanMother" placeholder="Enter Candidate Mother Name" required class=" form-control shadow rounded border-1 border-dark">
+                                    <label><b>Mother's Name / माता का नाम <label class="text-danger fw-bold">*</label></b></label>
+                                    <input formControlName="MotherName" name="MotherName" type="text" value="" id="CanMother" placeholder="Enter Candidate Mother Name" required class=" text-capitalize form-control shadow rounded border-1 border-dark">
+                                    @if (registerForm.get('MotherName')?.invalid && registerForm.get('MotherName')?.touched) {
+                                        <small class="text-danger ms-1"><b>Mother`s Full Name Is Required.</b></small>
+                                      }
+                                      @if (registerForm.get('MotherName')?.hasError('pattern')) {
+                                        <small class="text-danger ms-1"><b>Invalid Mother Name Format Alphabetical & Only 2-Spaces Allow.</b></small>
+                                      }
+                                      @if (registerForm.get('MotherName')?.hasError('maxlength')) {
+                                        <small class="text-danger ms-1"><b>Mother Name Must Be Less Than Or Equal To 30 Characters.</b></small>
+                                      }
                                 </div>
                             </div>
 
-                            <div id="ContentPlaceHolder1_divNationality" class="col-lg-6">
+                            <div id="NationalityDiv" class="col-lg-6">
                                 <div class="form-group">
-                                    <label><b>Nationality / नागरिकता</b></label>
-                                    <input name="Nationality" type="text" value="" id="CanNationality" required class="form-control shadow rounded border-1 border-dark">
-                                </div>
+                                    <label><b>Nationality / नागरिकता <label class="text-danger fw-bold">*</label></b></label>
+                                    <select formControlName="Nationality" name="Nationality" type="text" value="" id="CanNationality" required class=" text-capitalize form-select shadow rounded border-1 border-dark">
+                                        <option class="fw-bold dropdown-item" disabled selected value="">Select Candidate Nationality / नागरिकता</option>
+                                        <option value="Indian"> Indian/ भारतीय</option>
+                                        <option value="Other">Other / अन्य</option>  
+                                </select>
+                                @if (registerForm.get('Nationality')?.touched && registerForm.get('Nationality')?.errors?.['required']) {
+                                    <small class="text-danger ms-1"><b>Candidate Nationality Is Required.</b></small>
+                                  }
+                                    </div>
                             </div>
  
-                            <div id="ContentPlaceHolder1_divDomicileCG" class="col-lg-6">
+                            <div id="DomicileCGDiv" class="col-lg-6">
                                 <div class="form-group">
-                                    <label><b>Domicile of Chhatisgarh / छत्तीसगढ़ के निवासी</b></label>
-                                    <input name="DomisileCG" type="text" value="" id="CanDomisileCG" required class=" form-control shadow rounded border-1 border-dark">
+                                    <label><b>Domicile of Chhatisgarh / छत्तीसगढ़ के निवासी <label class="text-danger fw-bold">*</label></b></label>
+                                    <select formControlName="DomicileCG" name="DomicileCG" type="text" value="" id="CanDomisileCG" required class=" text-capitalize form-select shadow rounded border-1 border-dark">
+                                        <option class="fw-bold dropdown-item" disabled selected value="">Select Candidate Domicile of Chhatisgarh </option>
+                                        <option value="Yes"> Yes/ हाँ </option>
+                                        <option value="No">No / नहीं </option>
+                                    </select>
+                                    @if (registerForm.get('DomicileCG')?.touched && registerForm.get('DomicileCG')?.errors?.['required']) {
+                                        <small class="text-danger ms-1"><b>Candidate Domicile CG Is Required.</b></small>
+                                      }
+                                    </div>
+                            </div>
+                            
+                            <div id="DomicileDistDiv" class="col-lg-6">
+                                <div class="form-group">
+                                    <label><b>District Of Domicile / जिला के निवासी <label class="text-danger fw-bold">*</label></b></label>
+                                @if(registerForm.get('DomicileCG')?.value === 'No'){
+                                    <input  formControlName="DomecileDistrict" name="DistrictDomecile" type="text" value="" id="CanDistrictDomecile" [disabled]="registerForm.get('DomicileCG')?.value === 'Yes' || registerForm.get('DomicileCG')?.value === ''" placeholder="Enter Candidate Domicile  District Name" required class=" text-capitalize form-control shadow rounded border-1 border-dark">
+                                }
+                              @if(registerForm.get('DomicileCG')?.value === 'Yes'|| registerForm.get('DomicileCG')?.value === '' ) {
+                                    <select formControlName="DomecileDistrict" name="DistrictDomecile" type="text" value="" id="CanDistrictDomecile" [disabled]="registerForm.get('DomicileCG')?.value === 'No' " required class="text-capitalize form-select shadow rounded border-1 border-dark">
+                                        <option class="fw-bold dropdown-item" disabled selected value="">Select Candidate Domicile  District Name</option>
+                                        <option value="Balod">Balod / बालोद</option>
+                                        <option value="Baloda Bazar-Bhatapara">Baloda Bazar-Bhatapara / बलौदाबाजार - भाटापारा</option>
+                                        <option value="Balrampur-Ramanujganj">Balrampur-Ramanujganj / बलरामपुर - रामानुजगंज</option>
+                                        <option value="Bastar">Bastar / बस्तर</option>
+                                        <option value="Bemetara">Bemetara / बेमेतरा</option>
+                                        <option value="Bijapur">Bijapur / बीजापुर</option>
+                                        <option value="Bilaspur">Bilaspur / बिलासपुर</option>
+                                        <option value="Chowki">Chowki / चौकी</option>
+                                        <option value="Dantewada">Dantewada / दंतेवाड़ा</option>
+                                        <option value="Dhamtari">Dhamtari / धमतरी</option>
+                                        <option value="Durg">Durg / दुर्ग</option>
+                                        <option value="Gariaband">Gariaband / गरियाबंद</option>
+                                        <option value="Gaurella-Pendra-Marwahi">Gaurella-Pendra-Marwahi / गौरेला-पेण्ड्रा-मरवाही</option>
+                                        <option value="Janjgir-Champa">Janjgir-Champa / जांजगीर - चांपा</option>
+                                        <option value="Jashpur">Jashpur / जशपुर</option>
+                                        <option value="Kabirdham (Kawardha)">Kabirdham (Kawardha) / कवर्धा जिला</option>
+                                        <option value="Kanker">Kanker / कांकेर</option>
+                                        <option value="Khairagarh-Chhuikhadan-Gandai">Khairagarh-Chhuikhadan-Gandai / खैरागढ़-छुईखदान-गण्डई</option>
+                                        <option value="Kondagaon">Kondagaon / कोंडागांव</option>
+                                        <option value="Korba">Korba / कोरबा</option>
+                                        <option value="Korea">Korea / कोरिया</option>
+                                        <option value="Mahasamund">Mahasamund / महासमुंद</option>
+                                        <option value="Manendragarh-Chirmiri-Bharatpur">Manendragarh-Chirmiri-Bharatpur / मानेंद्रगढ़-चिरमिरी-भरतपुर</option>
+                                        <option value="Mungeli">Mungeli / मुंगेली</option>
+                                        <option value="Narayanpur">Narayanpur / नारायणपुर</option>
+                                        <option value="Raigarh">Raigarh / रायगढ़</option>
+                                        <option value="Raipur">Raipur / रायपुर</option>
+                                        <option value="Rajnandgaon">Rajnandgaon / राजनांदगांव</option>
+                                        <option value="Sakti">Sakti / शक्ति</option>
+                                        <option value="Sarangarh-Bilaigarh">Sarangarh-Bilaigarh / सारंगढ़-बिलाईगढ़</option>
+                                        <option value="Mohla-Manpur">Mohla-Manpur / मोहला-मानपुर</option>
+                                        <option value="Sukma">Sukma / सुकमा</option>
+                                        <option value="Surajpur">Surajpur / सूरजपुर</option>
+                                      </select>
+                                    }
+                                    @if (registerForm.get('DomecileDistrict')?.touched && registerForm.get('DomecileDistrict')?.errors?.['required']) {
+                                        <small class="text-danger ms-1"><b>Candidate Domecile District Is Required.</b></small>
+                                      }
                                 </div>
                             </div>
 
-                            <div id="ContentPlaceHolder1_divDomicileDist" class="col-lg-6">
+                            <div id="DisabilitiesDiv" class="col-lg-6">
                                 <div class="form-group">
-                                    <label><b>District Domicile</b></label>
-                                    <input name="DistrictDomecile" type="text" value="" id="CanDistrictDomecile" placeholder="Enter Candidate Domicile  District Name" required class=" form-control shadow rounded border-1 border-dark">
+                                    <label><b>Person With Disabilities (क्या आप दिव्यांग है?) <label class="text-danger fw-bold">*</label></b></label>
+                                    <select  formControlName="Disabilities" name="Disabilities" type="text" value="" id="CanDisabilities" placeholder="Select Candidate Disabilities" required class=" text-capitalize form-select shadow rounded border-1 border-dark">
+                                        <option class="fw-bold dropdown-item" disabled selected value="">Select Candidate Disabilities </option>
+                                        <option value="Yes"> Yes/ हाँ </option>
+                                        <option value="No">No / नहीं </option>
+                                    </select>
+                                    @if (registerForm.get('Disabilities')?.touched && registerForm.get('Disabilities')?.errors?.['required']) {
+                                        <small class="text-danger ms-1"><b>Candidate Disabilities Status Is Required.</b></small>
+                                      }
+                                    </div>
+                            </div>
+
+                            <div id="FaimlyIncom" class="col-lg-6">
+                                <div class="form-group">
+                                    <label><b>Family Yearly Income (पारिवारिक वार्षिक आय) <label class="text-danger fw-bold">*</label></b></label>
+                                    <input formControlName="FamilyYearlyIncome" name="FamilyYearlyIncome" type="text" value="" id="CanFamilyYearlyIncome" placeholder="Enter Candidate Family Yearly Income" required class=" text-capitalize form-control shadow rounded border-1 border-dark">
+                                    @if (registerForm.get('FamilyYearlyIncome')?.touched && registerForm.get('FamilyYearlyIncome')?.errors?.['required']) {
+                                        <small class="text-danger ms-1"><b>Candidate Family Yearly Income Is Required.</b></small>
+                                      }
                                 </div>
                             </div>
                             
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>
-                                       <b>Email ID / ईमेल</b>
+                                       <b>Email ID / ईमेल <label class="text-danger fw-bold">*</label></b>
                                     </label>
-                                    <input name="Email" type="text" value="" id="CanEmail" placeholder="Enter Email ID" required class="form-control shadow rounded border-1 border-dark">
+                                    <input  formControlName="Email" name="Email" type="text" value="" id="CanEmail" placeholder="Enter Email ID" required class="text-capitalize form-control shadow rounded border-1 border-dark">
+                                    @if (registerForm.get('Email')?.touched && registerForm.get('Email')?.errors?.['required']) {
+                                        <small class="text-danger ms-1"><b> Candidate Valid Email Is Required.</b></small>
+                                      }
+                                    @if (registerForm.get('Email')?.hasError('pattern')) {
+                                        <small class="text-danger ms-1"><b>Invalid Email Format.</b></small>
+                                      }
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label><b>Mobile No / मोबाइल नंबर</b></label>
-                                    <input name="Mobile" type="text" value="" id="CanMobile" required placeholder="Enter Mobile" class=" form-control shadow rounded border-1 border-dark">
+                                    <label><b>Mobile No / मोबाइल नंबर <label class="text-danger fw-bold">*</label></b></label>
+                                    <input formControlName="Mobile" name="Mobile" type="text" value="" id="CanMobile" required placeholder="Enter Mobile" class="  form-control shadow rounded border-1 border-dark">
+                                    @if (registerForm.get('Mobile')?.touched && registerForm.get('Mobile')?.errors?.['required']) {
+                                        <small class="text-danger ms-1"><b> Candidate Valid Mobile Is Required.</b></small>
+                                      }
+                                    @if (registerForm.get('Mobile')?.hasError('pattern')) {
+                                        <small class="text-danger ms-1"><b>Invalid Mobile Number Format Only 10 Digit`s Allow.</b></small>
+                                      }
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label><b>Password / पासवर्ड </b></label>
-                                    <input name="password" type="password" value="" id="CanMobile" required placeholder="Enter Password" class=" form-control shadow rounded border-1 border-dark">
+                                    <label><b>Password / पासवर्ड <label class="text-danger fw-bold">*</label></b></label>
+                                    <input formControlName="Password" name="Password" type="password" value="" id="CanPassword" required placeholder="Enter Password Ex- Krp@2000" class=" form-control shadow rounded border-1 border-dark">
+                                    @if (registerForm.get('Password')?.touched && registerForm.get('Password')?.errors?.['required']) {
+                                        <small class="text-danger ms-1"><b>Valid Password Is Required.</b></small>
+                                      }
+                                    @if (registerForm.get('Password')?.hasError('pattern')) {
+                                        <small class="text-danger ms-1"><b>Min 8 Chars With Upper, Lower, Number, Or Special Chars.
+                                        .</b></small>
+                                      }
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label><b>Repeat Password
-                                         / पुनः पासवर्ड</b></label>
-                                    <input name="password" type="password" value="" id="CanMobile" required placeholder="Repeat Password" class=" form-control shadow rounded border-1 border-dark">
+                                         / पुनः पासवर्ड <label class="text-danger fw-bold">*</label></b></label>
+                                    <input formControlName="RepeatPassword" name="password" type="password" value="" id="RepeatPassword" required placeholder="Repeat Password Ex- Krp@2000" class=" form-control shadow rounded border-1 border-dark">
+                                    @if (registerForm.get('RepeatPassword')?.touched && registerForm.get('RepeatPassword')?.errors?.['required']) {
+                                        <small class="text-danger ms-1"><b> Valid RepeatPassword Is Required.</b></small>
+                                      }
+                                    @if (registerForm.get('RepeatPassword')?.hasError('pattern')) {
+                                        <small class="text-danger ms-1"><b>Min 8 Chars With Upper, Lower, Number, Or Special Chars.</b></small>
+                                      }
                                 </div>
                             </div>
 
@@ -159,7 +317,7 @@
             </div>
             <!-- Images -->
             <div class="col-lg-3">
-                <div class="card pb-3  border border-2 border-black">
+                <div class="card  border border-2 border-black">
                     <div class="card-header bg-danger p-1 ">
                         <h5 class="ms-1 mt-1 text-white">Img+Sign Uploads / अपलोड
                         </h5>
@@ -171,24 +329,34 @@
                                     <img id="imgUpload" class="img-thumbnail bg-transparent rounded"  style="height:250px;width:200px;">
                                 </div>
                             </div>
-                            <hr class="brline p-0 m-0 mt-1"/>
-                          <div class="col-lg-12 d-flex justify-content-center mt-1">
+                            <hr class="brline p-0 m-0 mt-3"/>
+                            <div class="upload-option1 mt-2">
+                                <label for="files"><i class="fa-solid fa-user-graduate"></i> <b> Select Profile Image File <label class="text-danger fw-bold">*</label></b></label>
+                                <input formControlName="ProfileImage" accept="image/*.,.jpg,.png,.jepg" (change)="onChangeProfileImage($event)" required class="form-control form-control shadow rounded border-1 border-dark bg-primary-subtle" id="ProImgFile" type="file" title ="Please Choose User Profile Image" />
+                               </div>
+                                      <!-- validation -->
+                                      @if (registerForm.get('ProfileImage')?.touched && registerForm.get('ProfileImage')?.errors?.['required']) {
+                                        <small class="text-danger ms-1"><b> Valid Profile Image Is Required.</b></small>
+                                      }         
+                                     <!--  -->
+                            <hr class="brline p-0 m-0 mt-4"/>
+                          <div class="col-lg-12 d-flex justify-content-center mt-3">
                                     <div class=" rounded shadow mb-1 border border-1 border-dark" style="background-image: url('./../assets/register/sign-bg.jpg'); background-size: cover; background-position: center; width: 200px; height:82px;">
 
-                                    <img id="imgUploadSign" class="img-thumbnail bg-transparent rounded" style="height:80px;width:200px;">
+                                    <img id="imgUploadSign" src="{{ ViewSignUrl }}" class="img-thumbnail bg-transparent rounded" style="height:80px;width:200px;">
                                 </div>
-                            </div>
-                            <hr class="brline p-0 m-0 mt-1"/> 
-
-                            <div class="upload-option1 mt-1">
-                                <label for="files"><i class="fa-solid fa-user-graduate"></i> <b> Select Profile Image File</b></label>
-                                <input required class="form-control form-control shadow rounded border-1 border-dark bg-primary-subtle" id="ProImgFile" type="file" title ="Please Choose User Profile Image" />
-                               </div>
+                            </div>                         
                                <hr class="brline p-0 m-0 mt-2"/>
-                               <div class="upload-option2 mt-1">
-                                <label for="files"><i class="fa-solid fa-signature"></i> <b> Select Signature Image File</b></label>
-                                <input required class="form-control form-control shadow rounded border-1 border-dark bg-primary-subtle" id="SignImgFile" type="file" title ="Please Choose User Signature Image"  />
-                               </div>
+                               <div class="upload-option2 mt-2">
+                                <label for="files"><i class="fa-solid fa-signature"></i> <b> Select Signature Image File <label class="text-danger fw-bold">*</label></b></label>
+                                <input formControlName="SignatureImage" accept="image/*.,.jpg,.png,.jepg" (change)="onChangeSignatureImage($event)"  required class="form-control form-control shadow rounded border-1 border-dark bg-primary-subtle" id="SignImgFile" type="file" title ="Please Choose User Signature Image"  />
+                            </div>
+                               <hr class="brline m-0 p-0 mt-1 mb-1"/>
+                                     <!-- validation -->
+                                     @if (registerForm.get('SignatureImage')?.touched && registerForm.get('SignatureImage')?.errors?.['required']) {
+                                        <small class="text-danger ms-1"><b> Valid Signature Image Is Required.</b></small>
+                                      }         
+                                     <!--  -->
                         </div>
                     </div>
 
@@ -203,64 +371,108 @@
             <div class="col-lg-12 mb-1 ">
                 <div class="card pb-3  border border-2 border-black">
                     <div class="card-header bg-success p-1">
-                        <h5 class="ms-1 mt-1 text-white"><b> Permanent Address / स्थायी पता</b></h5>
+                        <h5 class="ms-1 mt-1 text-white"><b> Permanent Address / स्थायी पता </b></h5>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>
-                                        <b>House No / मकान नंबर</b></label>
-                                    <input name="HouseNo" type="text" id="PHouseNo" required placeholder="Enter House No.." class=" form-control shadow rounded border-1 border-success">
+                                        <b>House No / मकान नंबर <label class="text-danger fw-bold">*</label></b></label>
+                                    <input formControlName="HouseNo" name="HouseNo" type="text" id="PHouseNo" required placeholder="Enter House No.." class=" text-capitalize form-control shadow rounded border-1 border-success">
+                                    @if (registerForm.get('HouseNo')?.touched && registerForm.get('HouseNo')?.errors?.['required']) {
+                                        <small class="text-danger ms-1"><b> Valid House No Is Required.</b></small>
+                                      }  
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>
-                                        <b>Street / स्ट्रीट</b></label>
-                                    <input name="PStreet" type="text" value="" id="PStreet" placeholder="Enter Street Area" required class="form-control shadow rounded border-1 border-success">
+                                        <b>Street / स्ट्रीट <label class="text-danger fw-bold">*</label></b></label>
+                                    <input formControlName="Street" name="Street" type="text" value="" id="PStreet" placeholder="Enter Street Area" required class=" text-capitalize form-control shadow rounded border-1 border-success">
+                                    @if (registerForm.get('Street')?.touched && registerForm.get('Street')?.errors?.['required']) {
+                                        <small class="text-danger ms-1"><b> Valid Street Is Required.</b></small>
+                                      } 
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>
-                                        <b>City/Village / शहर / गांव</b></label>
-                                    <input name="PCity" type="text" value="" id="PCity" placeholder="Enter City / Village" required class="form-control shadow rounded border-1 border-success">
+                                        <b>City/Village / शहर / गांव <label class="text-danger fw-bold">*</label></b></label>
+                                    <input formControlName="CityVillage" name="PCity" type="text" value="" id="PCity" placeholder="Enter City / Village" required class=" text-capitalize form-control shadow rounded border-1 border-success">
+                                    @if (registerForm.get('CityVillage')?.touched && registerForm.get('CityVillage')?.errors?.['required']) {
+                                        <small class="text-danger ms-1"><b> Valid City/Village Is Required.</b></small>
+                                      } 
                                 </div>
                             </div>
-                            <div class="col-lg-6" style="Display:None">
+                            <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label>
-                                       <b> Post Office / पोस्ट ऑफिस</b></label>
-                                    <input name="PPost" type="text" id="PPost" placeholder="Enter Post Office" required class="form-control shadow rounded border-1 border-success">
+                                    <label><b>State / राज्य <label class="text-danger fw-bold">*</label></b></label>
+                                        <select formControlName="State" name="State" type="text" value="" id="State" required class="text-capitalize form-select shadow rounded border-1 border-success">
+                                            <option class="fw-bold dropdown-item" disabled selected value="">Select State Name</option>
+                                            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands / अंडमान और निकोबार द्वीप समूह</option>
+    <option value="Andhra Pradesh">Andhra Pradesh / आंध्र प्रदेश</option>
+    <option value="Arunachal Pradesh">Arunachal Pradesh / अरुणाचल प्रदेश</option>
+    <option value="Assam">Assam / असम</option>
+    <option value="Bihar">Bihar / बिहार</option>
+    <option value="Chandigarh">Chandigarh / चंडीगढ़</option>
+    <option value="Chhattisgarh">Chhattisgarh / छत्तीसगढ़</option>
+    <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu / दादरा और नागर हवेली और दमन और दीव</option>
+    <option value="Delhi">Delhi / दिल्ली</option>
+    <option value="Goa">Goa / गोवा</option>
+    <option value="Gujarat">Gujarat / गुजरात</option>
+    <option value="Haryana">Haryana / हरियाणा</option>
+    <option value="Himachal Pradesh">Himachal Pradesh / हिमाचल प्रदेश</option>
+    <option value="Jammu and Kashmir">Jammu and Kashmir / जम्मू और कश्मीर</option>
+    <option value="Jharkhand">Jharkhand / झारखंड</option>
+    <option value="Karnataka">Karnataka / कर्नाटक</option>
+    <option value="Kerala">Kerala / केरल</option>
+    <option value="Ladakh">Ladakh / लद्दाख</option>
+    <option value="Lakshadweep">Lakshadweep / लक्षद्वीप</option>
+    <option value="Madhya Pradesh">Madhya Pradesh / मध्य प्रदेश</option>
+    <option value="Maharashtra">Maharashtra / महाराष्ट्र</option>
+    <option value="Manipur">Manipur / मणिपुर</option>
+    <option value="Meghalaya">Meghalaya / मेघालय</option>
+    <option value="Mizoram">Mizoram / मिजोरम</option>
+    <option value="Nagaland">Nagaland / नागालैंड</option>
+    <option value="Odisha">Odisha / उड़ीसा</option>
+    <option value="Puducherry">Puducherry / पुडुचेरी</option>
+    <option value="Punjab">Punjab / पंजाब</option>
+    <option value="Rajasthan">Rajasthan / राजस्थान</option>
+    <option value="Sikkim">Sikkim / सिक्किम</option>
+    <option value="Tamil Nadu">Tamil Nadu / तमिलनाडु</option>
+    <option value="Telangana">Telangana / तेलंगाना</option>
+    <option value="Tripura">Tripura / त्रिपुरा</option>
+    <option value="Uttar Pradesh">Uttar Pradesh / उत्तर प्रदेश</option>
+    <option value="Uttarakhand">Uttarakhand / उत्तराखंड</option>
+    <option value="West Bengal">West Bengal / पश्चिम बंगाल</option>
+                                        </select>
+                                        @if (registerForm.get('State')?.touched && registerForm.get('State')?.errors?.['required']) {
+                                            <small class="text-danger ms-1"><b> Valid State Name Is Required.</b></small>
+                                          } 
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>
-                                        <b>State / राज्य</b></label>
-                                    <input name="PState" type="text" value="" id="PState" placeholder="Enter State Name" required class=" form-control shadow rounded border-1 border-success">
+                                        <b>District / जिला <label class="text-danger fw-bold">*</label></b></label>
+                                    <input formControlName="District" name="District" type="text" value="" id="PDist" placeholder="Enter District Name" required class=" text-capitalize form-control shadow rounded border-1 border-success">
+                                    @if (registerForm.get('District')?.touched && registerForm.get('District')?.errors?.['required']) {
+                                        <small class="text-danger ms-1"><b> Valid District Name Is Required.</b></small>
+                                      }
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>
-                                        <b>District / जिला</b></label>
-                                    <input name="PDist" type="text" value="" id="PDist" placeholder="Enter District Name" required class=" form-control shadow rounded border-1 border-success">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>
-                                       <b>Pin Code / पिनकोड</b></label>
-                                    <input name="PPin" type="text" value="" id="PPin" placeholder="Enter Pin Code " required class="form-control shadow rounded border-1 border-success">
-                                </div>
-                            </div>
-                            <div class="col-lg-6" style="Display:None">
-                                <div class="form-group">
-                                    <label>
-                                        <b>Region / क्षेत्र</b></label>
-                                    <input name="PRegion" type="text" id="PRegion" placeholder="Enter Region " class="form-control rounded border-1 border-success" required>
+                                       <b>Pin Code / पिनकोड <label class="text-danger fw-bold">*</label></b></label>
+                                    <input formControlName="PinCode" name="PinCode" type="text" value="" id="PPinCode" placeholder="Enter Pin Code " required class=" form-control shadow rounded border-1 border-success">
+                               @if (registerForm.get('PinCode')?.touched && registerForm.get('PinCode')?.errors?.['required']) {
+                                    <small class="text-danger ms-1"><b> Valid Pin Code Is Required.</b></small>
+                                  }
+                                  @if (registerForm.get('PinCode')?.hasError('pattern')) {
+                                    <small class="text-danger ms-1"><b>Please Enter A Valid 6-Digit PIN Code.</b></small>
+                                  }  
                                 </div>
                             </div>
                         </div>
@@ -272,7 +484,7 @@
         </div>
 
         <!-- Address Row -->
-
+        @if (registerForm.get('PinCode')?.touched && registerForm.get('PinCode')?.errors?.['required']) {<small class="text-danger ms-1"><b>Is Required.</b></small>}
 <!--declaration -->
 
 <div class="row declaration-row mt-2">
@@ -282,16 +494,13 @@
              <h5 class="ms-1 mt-1 text-white"><b> Declaration / घोषणा</b></h5>
         </label></div>
         <div class="card-body p-2">
-            <textarea name="Declaration" rows="6" cols="20" id="CanDeclaration" class="form-control bg-primary-subtle text-justify" disabled>मैं यह घोषणा करता/करती हॅू कि, मेरे द्वारा ऑनलाइन आवेदन पत्र में स्वयं के नाम, श्रेणी, वर्ग, जन्मतिथि, डाक पता एवं अन्य दी गई सूचना मेरी जानकारी एवं विश्वास में सही है, जिसके सत्यतापूर्वक और सही होने की मैं घोषणा करता/करती हॅू । मैंने 'कांकेर भर्ती पोर्टल' द्वारा जारी प्रवेश नियमों एवं व्यापम के नियमों को पढ़ा है एवं समझा है । यदि ऊपर दी गई कोई भी जानकारी असत्य पायी जाती है तो चयन प्रक्रिया के किसी भी स्तर पर मुझे पूर्व सूचना दिये बिना मेरी अभ्यर्थिता समाप्त की जा सकती है।
+            <textarea name="Declaration" rows="6" cols="20" id="CanDeclaration" class="user-select-none form-control bg-primary-subtle text-justify" disabled>मैं यह घोषणा करता/करती हॅू कि, मेरे द्वारा ऑनलाइन आवेदन पत्र में स्वयं के नाम, श्रेणी, वर्ग, जन्मतिथि, डाक पता एवं अन्य दी गई सूचना मेरी जानकारी एवं विश्वास में सही है, जिसके सत्यतापूर्वक और सही होने की मैं घोषणा करता/करती हॅू । मैंने 'कांकेर भर्ती पोर्टल' द्वारा जारी प्रवेश नियमों एवं व्यापम के नियमों को पढ़ा है एवं समझा है । यदि ऊपर दी गई कोई भी जानकारी असत्य पायी जाती है तो चयन प्रक्रिया के किसी भी स्तर पर मुझे पूर्व सूचना दिये बिना मेरी अभ्यर्थिता समाप्त की जा सकती है।
 I do hereby declare that the information given above related to my Name, Category, Gender, Date of Birth, Address, and all other information given above are correct, and I truthfully declare it to be correct. I have gone through the rules and other information related to the entrance exam notified by the department and 'कांकेर भर्ती पोर्टल' (Kanker Recruitment Portal) and understood the same. If any information given above is found to be incorrect at any stage, my candidature may summarily be terminated without any prior notice or information to me.
             </textarea>
- 
-        
-
 <div class="form-group mt-2 ms-2">
-    <input class="form-check-input border border-2 border-black"  id="Agreed" type="checkbox" name="Agreed" required><label for="CanAgreed"> <b class="ms-1"> I Agree (मैं सहमत हूँ)</b></label>
+    <input formControlName="DeclarationCheck" name="DeclarationCheck" class="form-check-input border border-2 border-black"  id="Agreed" type="checkbox" name="Agreed" required><label for="CanAgreed"> <b class="ms-1"> I Agree (मैं सहमत हूँ)<label class="text-danger fw-bold">*</label> </b>@if (registerForm.get('DeclarationCheck')?.touched && registerForm.get('DeclarationCheck')?.errors?.['required']) {<small class="text-danger ms-1"><b>Required.</b></small>}
+</label>
 </div>
-
 </div>
            
     </div>
@@ -300,9 +509,9 @@ I do hereby declare that the information given above related to my Name, Categor
     </div> 
 
 <!-- Captcha Otp Verify -->
-<div class="row Verify-row mt-2">
+<div class="row Verify-row mt-2 ">
      <div class="col-lg-12">
-        <div class="card  border border-2 border-black">
+        <div class="card  border border-2 border-black btn-box">
             <div class="card-header  p-1" style="background-color: lightseagreen;">
           <h5 class="ms-1 mt-1 text-white"><b>Verify Captcha & OTP</b></h5>
             </div>
@@ -312,39 +521,47 @@ I do hereby declare that the information given above related to my Name, Categor
        <div class="col-lg-6">
         <div class="form-group  mb-3">
             <label for="captcha" class=""><b><i class="fa-solid fa-code-compare"></i>
-                Captcha / कृपया कैप्चा को दर्ज करें ! :</b></label>
+                Captcha / कृपया कैप्चा को दर्ज करें ! : <label class="text-danger fw-bold">*</label></b></label>
             <div class="d-flex justify-content-between">
-                <input type="text"
-                    class="me-2 form-control shadow p-2 border border-1 border-success"
+                <input formControlName="InputCaptcha" name="InputCaptcha" type="text" class="me-2 form-control shadow p-2 border border-1 border-success"
                     id="captcha-input" placeholder="Enter Captcha Code" required />
-                <div type="text" class="rounded shadow p-2 me-2 border border-1 border-danger bg-success-subtle"
+                <div type="text" class=" shadow p-2 me-2 border "
                     id="captcha-text">
-                    <b><i class="user-select-none fs-5" id="captcha-code">{{ captchaText }}</i></b>
+                    <b><i class="user-select-none fs-5 " id="captcha-code">{{ captchaText }}</i></b>
                 </div>
 
-                <span type="reset" class="btn btn-danger btn-outline-dark text-light">
+                <button type="submit" class="btn btn-danger btn-outline-dark text-light">
                     <b><i  (click)="generateCaptcha()" class="fas fa-sync fa-2x"></i></b>
-                </span>
+                </button>
             </div>
+            @if (registerForm.get('InputCaptcha')?.touched && registerForm.get('InputCaptcha')?.errors?.['required']) {
+                <small class="text-danger ms-1"><b> Input Captcha Code Is Required.</b></small>
+              }
+         
         </div>
     </div>
 
     <div class="col-lg-6" >
         <div class="form-group  mb-3">
-            <label for="captcha" class=""><b><i class="fa-solid fa-code-compare"></i>
-                Verify OTP :</b></label>
+            <label for="OTP" class=""><b><i class="fa-solid fa-code-compare"></i>
+                Verify OTP : <label class="text-danger fw-bold">*</label></b></label>
             <div class="d-flex justify-content-between">
-                <input type="text"
-                    class="me-2 form-control shadow p-2 border border-1 border-success"
-                    id="captcha-input" placeholder="Enter one time password" required  disabled />
+                <input formControlName="InputOtp" name="InputOtp" type="text" class="me-2 form-control shadow p-2 border border-1 border-success"
+                    id="InputOtp" placeholder="Enter One Time Password" required />
                
-                <button type="reset" class="btn btn-primary btn-outline-success "  disabled>
-                    <b><i class="fas fa-paper-plane"></i></b>
+                <button type="submit" class="btn btn-success d-flex " ><b><i class="fas fa-paper-plane  fa-2x"></i></b><b> Resend</b>
                 </button>
-                <button type="submit" class="btn btn-success btn-outline-warning  ms-1"  disabled>
+                <!-- <button type="submit" class="btn btn-success  ms-1">
                     <b>Verify</b>
-                </button>
+                </button> -->
+            
             </div>
+            @if (registerForm.get('InputOtp')?.touched && registerForm.get('InputOtp')?.errors?.['required']) {
+                <small class="text-danger ms-1"><b> Input OTP Is Required.</b></small>
+              }
+            @if (registerForm.get('InputOtp')?.hasError('pattern')) {
+                <small class="text-danger ms-1"><b>Enter Valid OTP Format.</b></small>
+              }
         </div>
     </div>
 
@@ -360,8 +577,8 @@ I do hereby declare that the information given above related to my Name, Categor
 
 <!-- otp row -->
  
-        <div class="mt-2 d-flex justify-content-evenly pt-4 pb-3 rounded-top bg-light border border-black border-2">
-            <button type="submit" [disabled]="registerForm.invalid" class="btn btn-primary btn-outline-success text-light fs-5">
+        <div class="mt-2 d-flex justify-content-evenly pt-4 pb-3 rounded-top  border border-black border-2 btn-box">
+            <button type="submit" [disabled]="registerForm.invalid" class="btn btn-primary text-light fs-5">
                 <b>Register<i class="fa-solid fa-right-to-bracket fa-1x"></i></b>
             </button>
             <button type="reset" (click)="generateCaptcha()" class="btn btn-warning btn-outline-info text-light fs-5">
@@ -376,8 +593,8 @@ I do hereby declare that the information given above related to my Name, Categor
     </form>
 
 <div class=" rounded-bottom border border-black border-2 p-1 text-center m-0 bg-dark text-light fw-bold">
-<a class="text-light" href="#">User Manual</a> ||
-<a class="text-light" href="#">User Instruction</a> ||
+<a title="User Manual - Documentation" class="text-light" href="#">User Manual</a> ||
+<a title="User Instruction - Documentation" class="text-light" href="#">User Instruction</a> ||
 <small class="text-primary register-text">If Already have an account !..
 </small>
 <a class="text-warning" routerLink="/login" href="#"><b>Login</b></a>

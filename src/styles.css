@@ -19,7 +19,7 @@ body{
     padding: 0;
     height: 100%;
     width: 100%; */
-    overflow: visible;
+    /* overflow:hidden; */
 /* Baground Img */
     background-image: url("/assets/body/bodyimg.jpg");
     /* Bg Color */
@@ -39,19 +39,19 @@ body{
   /* For WebKit browsers */
 /* Track */
 ::-webkit-scrollbar {
-    width:11px; /* Set the width of the scrollbar */
+    width:9px; /* Set the width of the scrollbar */
   }
   
   /* Handle */
   ::-webkit-scrollbar-thumb {
     background:#44bd9e; /* Set the color of the scrollbar handle */
     border:solid  #ffffff;
-    border-radius: 11px;
+    border-radius:9px;
   }
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: #f5731c; /* Set the color of the scrollbar handle on hover */
     border:solid  #ffffff;
-    border-radius: 11px;
+    border-radius:9px;
   }

@@ -41,7 +41,7 @@ onSubmit(){
       console.log(this.LoginForm.value);
     }
     else{
-      alert("Captcha is not valid")
+      alert("Captcha Is Not Valid !..")
     }
   }
 }

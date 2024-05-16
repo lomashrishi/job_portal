@@ -8,7 +8,7 @@ const routes: Routes = [
 //user ka home page
   {'path':'','title':'User-Home-Page | Kanker Recruitment Portal',component:UserHomeComponent},
   {'path':'about-us','title':'User-Home-Page | Kanker Recruitment Portal',component:UserAboutComponent},
-  {'path':'**', component:UserPageNotFoundComponent}
+  {'path':'**','title':'Erorr 404 | Page Not Found !..', component:UserPageNotFoundComponent}
 ];
 
 @NgModule({

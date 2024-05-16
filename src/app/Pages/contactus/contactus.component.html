@@ -22,24 +22,36 @@
               <input type="text" formControlName="name" class="form-control rounded border-1 border-dark" id="name"
                 placeholder="Enter your name" required />
                 @if (contactForm.get('name')?.invalid && contactForm.get('name')?.touched) {
-                  <small class="text-danger ms-1"><b>Name is required.</b></small>
-                }</div>
+                  <small class="text-danger ms-1"><b>Valid Name Is Required.</b></small>
+                }
+                @if (contactForm.get('name')?.hasError('pattern')) {
+                  <small class="text-danger ms-1"><b>Invalid Name Format Alphabetical & Only 2-Spaces Allow.</b></small>
+                }
+                @if (contactForm.get('name')?.hasError('maxlength')) {
+                  <small class="text-danger ms-1"><b>Name Must Be Less Than Or Equal To 30 Characters.</b></small>
+                }
+              
+              </div>
             <div class="mb-3">
               <label for="Email" class="form-label ms-3"> <b><i
                     class="fa-solid fa-envelope-open-text"></i> Email :</b> </label>
               <input type="email" formControlName="email" class="form-control rounded border-1 border-dark" id="email"
                 placeholder="Enter your email" required />                
                 @if (contactForm.get('email')?.invalid && contactForm.get('email')?.touched) {
-                  <small class="text-danger ms-1"><b> Valid email is required.</b></small>
+                  <small class="text-danger ms-1"><b> Valid Email Is Required.</b></small>
                 }
+                @if (contactForm.get('email')?.hasError('pattern')) {
+                  <small class="text-danger ms-1"><b>Invalid Email Format.</b></small>
+                }
+         
             </div>
             <div class="mb-3">
-              <label for="mobile" class="form-label ms-3"><b><i class="fa-solid fa-tty"></i> mobile :
+              <label for="mobile" class="form-label ms-3"><b><i class="fa-solid fa-tty"></i> Mobile :
                 </b></label>
               <input type="text" formControlName="mobile" class="form-control rounded border-1 border-dark" id="mobile"
                 placeholder="Enter your number" required />                
                 @if (contactForm.get('mobile')?.invalid && contactForm.get('mobile')?.touched) {
-                  <small class="text-danger ms-1"><b> mobile is required.</b></small>
+                  <small class="text-danger ms-1"><b>Valid Mobile Is Required.</b></small>
                 }
             </div>
             <div class="mb-3">

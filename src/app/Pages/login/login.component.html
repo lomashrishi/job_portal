@@ -59,7 +59,7 @@
                                         <input type="text" formControlName="captcha_input" name="captcha_input"
                                             class="me-2 form-control shadow p-2 border border-1 border-success"
                                             id="captcha-input" placeholder="Enter Captcha Code" required />
-                                        <div type="text" class="rounded shadow p-2 me-2 border border-1 border-primary"
+                                        <div type="text" class=" shadow p-2 me-2 border"
                                             id="captcha-text">
                                             <b><i class="user-select-none fs-5" id="captcha-code">{{ captchaText }}</i></b>
                                         </div>
@@ -71,7 +71,7 @@
                                 </div>
                                 <hr />
                                 <div class="mt-3 d-flex justify-content-evenly">
-                                    <button  type="submit" [disabled]="LoginForm.invalid"  class="btn btn-primary btn-outline-success text-light fs-5">
+                                    <button  type="submit" [disabled]="LoginForm.invalid"  class="btn btn-success text-light fs-5">
                                         <b>Login <i class="fa-solid fa-right-to-bracket fa-1x"></i></b>
                                     </button>
                                     <button type="reset" (click)="generateCaptcha()" class="btn btn-danger btn-outline-info text-light fs-5">

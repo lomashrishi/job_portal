@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-contactus',
   standalone:true,
-  imports:[TopnavComponent,HeaderComponent,NavbarComponent,FootslideComponent,FooterComponent,ReactiveFormsModule],
+  imports:[TopnavComponent,HeaderComponent,NavbarComponent,FootslideComponent,FooterComponent,ReactiveFormsModule,],
   templateUrl: './contactus.component.html',
   styleUrl: './contactus.component.css'
 })
@@ -23,8 +23,8 @@ export class ContactusComponent {
 
   constructor(private Fb: FormBuilder, public contactService:ContactService ) {
     this.contactForm = this.Fb.group({
-      name: ['', [Validators.required]], // Required field
-      email: ['', [Validators.email,Validators.required] ], // Required, valid email format
+      name: ['', [Validators.required,Validators.pattern('^[a-zA-Z]+(?:\\s[a-zA-Z]+){0,3}$'),Validators.maxLength(30)]], // Required field
+      email: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')]], // Required, valid email format
       mobile: ['', [Validators.required, Validators.pattern(/^\d+$/),Validators.minLength(10),Validators.maxLength(10)]], // Required, phone number format (adjust pattern as needed)
       message: ['', [Validators.required, Validators.maxLength(1000)]] // 
     });
@@ -41,7 +41,8 @@ export class ContactusComponent {
           this.contactForm.reset(); // Reset form after successful submission my form 
         }, error => {
           this.serverResponse = error.message;
-          Swal.fire('Error!', this.serverResponse, 'error')    
+          Swal.fire('Error!',   this.serverResponse, 'error')   
+     
               
         } );
     }

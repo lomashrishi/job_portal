@@ -44,7 +44,10 @@ color:white;
 
 .dropdown-item {
     font-weight: bold;
-    color: black;
+    color:white;
+    border-radius:5px;
+    border:solid 2px #ffffff;
+  background-color: #f88c26;
 }
 .dropdown-item:hover {
     background-color: #44bd9e;
