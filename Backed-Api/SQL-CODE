@@ -1,0 +1,42 @@
+
+-- Register Table 
+
+CREATE TABLE users (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Registration_No VARCHAR(15) UNIQUE NOT NULL,
+    Name VARCHAR(100) NOT NULL,
+    Dob DATE NOT NULL,
+    Gender VARCHAR(10) NOT NULL,
+    Category VARCHAR(50) NOT NULL,
+    Marital_Status VARCHAR(20) NOT NULL,
+    Age INT NOT NULL,
+    Relative_Type VARCHAR(50) NOT NULL,
+    Relative_Name VARCHAR(100) NOT NULL,
+    Mother_Name VARCHAR(100) NOT NULL,
+    Nationality VARCHAR(50) NOT NULL,
+    Domicile_CG VARCHAR(50) NOT NULL,
+    Domecile_District VARCHAR(100) NOT NULL,
+    Disabilities VARCHAR(100) NOT NULL,
+    Family_Yearly_Income DECIMAL(15,2) NOT NULL,
+    Email VARCHAR(100) NOT NULL,
+    Mobile VARCHAR(15) NOT NULL,
+    Password VARCHAR(100) NOT NULL,
+    Profile_Image_URL VARCHAR(255),
+    Signature_Image_URL VARCHAR(255),
+    HouseNo VARCHAR(50) NOT NULL,
+    Street VARCHAR(100) NOT NULL,
+    City_Village VARCHAR(100) NOT NULL,
+    State VARCHAR(50) NOT NULL,
+    District VARCHAR(100) NOT NULL,
+    PinCode VARCHAR(10) NOT NULL
+);
+
+DELIMITER $$
+CREATE TRIGGER before_insert_users
+BEFORE INSERT ON users
+FOR EACH ROW
+BEGIN
+    SET NEW.RegistrationNo = CONCAT('KRP', LPAD(NEW.ID, 10, '0'));
+END;
+$$
+DELIMITER ;

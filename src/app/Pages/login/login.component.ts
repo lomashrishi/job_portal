@@ -8,6 +8,10 @@ import { NavbarComponent } from '../../Layouts/navbar/navbar.component';
 import { FootslideComponent } from '../../Layouts/footslide/footslide.component';
 import { FooterComponent } from '../../Layouts/footer/footer.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { LoginService } from '../../Services/login/login.service';
+import Swal from 'sweetalert2';
+import { NgToastService } from 'ng-angular-popup';
+
 
 @Component({
   selector: 'app-login',
@@ -18,30 +22,37 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 })
 export class LoginComponent {
 LoginForm :FormGroup;
+serverResponse:any;
 
- constructor( Fb:FormBuilder){
+ constructor( Fb:FormBuilder, public LoginService:LoginService,private toast:NgToastService ){
   this.LoginForm = Fb.group({
-
-    email:['', [Validators.email,Validators.required]],
-    mobile:['',[Validators.minLength(10),Validators.maxLength(10),Validators.required, Validators.pattern(/^\d+$/)]],
-    password:[''], 
+    email:['', [Validators.email,Validators.required,Validators.email, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')]],
+    mobile:['',[Validators.minLength(10),Validators.maxLength(10),Validators.required, Validators.pattern(/^\d+$/),Validators.minLength(10),Validators.maxLength(10) ]],
+    password:['',[Validators.required,Validators.maxLength(16),Validators.minLength(8),Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()_+\\-\\[\\]{};:\'",.<>/?])[A-Za-z\\d!@#$%^&*()_+\\-\\[\\]{};:\'",.<>/?]{8,}$')]], 
     captcha_input:['',[Validators.minLength(8),Validators.maxLength(8),Validators.required,]]
   })
-
  }
-
-
-
-
-
+// Submmit If That is Form Valid
 
 onSubmit(){
   if(this.LoginForm.valid){
     if(this.captchaText===this.LoginForm.value.captcha_input){
-      console.log(this.LoginForm.value);
+
+      this.LoginService.sendLogin(FormData).subscribe(response => {
+        this.LoginService = response.messages;
+        // Response MsG
+        const Toast = Swal.mixin({toast: true,position: "top-end",showConfirmButton: false,timer: 3000,timerProgressBar: true,
+          didOpen: (toast) => {toast.onmouseenter = Swal.stopTimer;toast.onmouseleave = Swal.resumeTimer;}});
+        Toast.fire({icon: "success",title: "User Login Successfully..." });
+        this.LoginForm.reset(); // Reset form after successful submission my form 
+      }, error => {
+        this.serverResponse = error.status;    
+        Swal.fire({icon: "error",title: "Oops...",text:"Failed:-"+this.serverResponse,timer:3000, footer: '<a routerLink="/register"><small><b>New Users Must Registered Before Login.</b></small></a>'});
+      } );
+  
     }
     else{
-      alert("Captcha Is Not Valid !..")
+      this.toast.error({detail:"Error Message",summary:"Failed:-"+"Captcha Code Is Not Valid !..",duration:5000, position:'topRight'});     
     }
   }
 }

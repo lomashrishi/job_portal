@@ -5,13 +5,14 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ContactService {
+export class LoginService {
+
+  private ApiUrl='http://localhost:3000/api/post/login'; // Post Link API 
+
   constructor(private http: HttpClient) {}
-  sendMessage(FormData: any): Observable<any> {
-    const ApiUrl='http://localhost:3000/api/post'; // Post Link API 
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });// Set appropriate headers if needed
-    // Post the data to the API
-    return this.http.post(ApiUrl, FormData, { headers });
-  }
   
+  sendLogin(FormData: any): Observable<any> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });// Set appropriate headers if needed
+    return this.http.post(this.ApiUrl, FormData, { headers });     // Post the data to the API
+  }
 }

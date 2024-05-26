@@ -5,5 +5,8 @@
     }
 }
 
-
+.img-man-div{
+  background: rgb(153,159,255);
+  background: radial-gradient(circle, rgba(153,159,255,0.9360994397759104) 0%, rgba(153,249,255,0.9080882352941176) 100%);
+}
 

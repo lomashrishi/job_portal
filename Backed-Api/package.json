@@ -1,7 +1,7 @@
 {
   "name": "backed-api",
   "version": "1.0.0",
-  "description": "District North Bastar Kanker Recruitment Portal Provieded Api For job_portal Project",
+  "description": "District North Bastar Kanker Recruitment Portal Provieded Api For job_portal Project Devloped By @LomashRishi",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
@@ -9,5 +9,17 @@
   },
   "keywords": [],
   "author": "LomashRishi",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.9.7",
+    "nodemon": "^3.1.0"
+  }
 }

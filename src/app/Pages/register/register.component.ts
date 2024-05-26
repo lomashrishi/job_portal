@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TopnavComponent } from '../../Layouts/topnav/topnav.component';
 import { HeaderComponent } from '../../Layouts/header/header.component';
@@ -7,7 +7,7 @@ import { FootslideComponent } from '../../Layouts/footslide/footslide.component'
 import { FooterComponent } from '../../Layouts/footer/footer.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RegisterService } from '../../Services/register/register.service';
-import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-register',
@@ -16,7 +16,7 @@ import Swal from 'sweetalert2';
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit{
   // for form data
   registerForm: FormGroup;
   // for server response message 
@@ -69,19 +69,40 @@ ViewSignUrl: string | null = null;
 
       // Value Transfer Another Variable 
       const RegisterFormData = this.registerForm.value;
-      this.RegisterService.sendMessag(RegisterFormData).subscribe(response => {
+      this.RegisterService.sendRegister(RegisterFormData).subscribe(response => {
         this.serverResponse = response.message;
-        Swal.fire('Thank you!', this.serverResponse, 'success')
+      // lib msg
         this.registerForm.reset(); // Reset form after successful submission my form 
       }, error => {
         this.serverResponse = error.message;
-        Swal.fire('Error!', this.serverResponse, 'error')
+  // lib msg
       });
 
 
 
     }
   }
+
+// PinCode To Distict Name 
+OnInit(): void {
+  this.registerForm.get('PinCode')?.valueChanges.subscribe(value => {
+    if (this.registerForm.get('PinCode')?.valid) {
+      this.RegisterService.getPinCode(value).subscribe(response => {
+        if (response[0].Status === 'Success') {
+          const postOffice = response[0].PostOffice[0];
+          this.registerForm.patchValue({
+            District: postOffice.District
+          });
+        }
+      });
+    }
+  });
+}
+
+
+
+
+
 
 
   // Select Image ProfileImage
@@ -104,10 +125,14 @@ ViewSignUrl: string | null = null;
 
 
 
-  // Max Dob Date
-  todayDate(): string {
-    return new Date().toISOString().split('T')[0];
-  }
+
+// Max Dob Date
+todayDate(): string {
+  const today = new Date();
+  const eighteenYearsAgo = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate()); //18 check
+  return eighteenYearsAgo.toISOString().split('T')[0];
+}
+
 
   // // Age Uapdate 
   calculateAge() {

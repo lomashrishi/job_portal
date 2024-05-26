@@ -29,6 +29,8 @@
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
     "express": "^4.18.2",
+    "install": "^0.13.0",
+    "ng-angular-popup": "^0.5.2",
     "rxjs": "~7.8.0",
     "sweetalert2": "^11.11.0",
     "tslib": "^2.3.0",

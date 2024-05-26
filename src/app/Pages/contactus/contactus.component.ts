@@ -7,7 +7,8 @@ import { NavbarComponent } from '../../Layouts/navbar/navbar.component';
 import { FootslideComponent } from '../../Layouts/footslide/footslide.component';
 import { FooterComponent } from '../../Layouts/footer/footer.component';
 import { ContactService } from '../../Services/contact/contact.service';
-import Swal from 'sweetalert2';
+import { NgToastService } from 'ng-angular-popup';
+
 
 
 @Component({
@@ -21,7 +22,7 @@ export class ContactusComponent {
   contactForm:FormGroup;
   serverResponse:any;
 
-  constructor(private Fb: FormBuilder, public contactService:ContactService ) {
+  constructor(private Fb: FormBuilder, public contactService:ContactService, private toast: NgToastService) {
     this.contactForm = this.Fb.group({
       name: ['', [Validators.required,Validators.pattern('^[a-zA-Z]+(?:\\s[a-zA-Z]+){0,3}$'),Validators.maxLength(30)]], // Required field
       email: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')]], // Required, valid email format
@@ -35,14 +36,13 @@ export class ContactusComponent {
     if( this.contactForm.valid ) {
     const FormData = this.contactForm.value;
      // You can do something with the form data here if you need to send it somewhere
-     this.contactService.sendMessag(FormData).subscribe(response => {
-          this.serverResponse = response.message;
-          Swal.fire('Thank you!', this.serverResponse, 'success')
+     this.contactService.sendMessage(FormData).subscribe(response => {
+          this.serverResponse = response.messages;
+          this.toast.success({detail:"Success Message",summary:'Your Message Send Successfully...',duration:5000, position:'topRight'});
           this.contactForm.reset(); // Reset form after successful submission my form 
         }, error => {
-          this.serverResponse = error.message;
-          Swal.fire('Error!',   this.serverResponse, 'error')   
-     
+          this.serverResponse = error.status;
+          this.toast.error({detail:"Error Message",summary:"Failed:-"+this.serverResponse,duration:5000, position:'topRight'});     
               
         } );
     }

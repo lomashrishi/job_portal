@@ -15,43 +15,28 @@
 
 
 body{
-    /* margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%; */
-    /* overflow:hidden; */
-/* Baground Img */
-    background-image: url("/assets/body/bodyimg.jpg");
     /* Bg Color */
-    /* background: rgb(153,159,255);
-    background: radial-gradient(circle, rgba(153,159,255,0.9360994397759104) 0%, rgba(246,153,255,0.9080882352941176) 100%); */
+    background: rgb(153,159,255);
+    background: radial-gradient(circle, rgba(153,159,255,0.9360994397759104) 0%, rgba(246,153,255,0.9080882352941176) 100%);
     /* Bg Blur */
-    /* Add the blur effect */
-    filter: blur(0.1);
-     -webkit-filter: blur(0.5);
-    /* Center and scale the image nicely */
-    /* background-position:center; */
-    background-repeat: no-repeat;
-    background-size: cover;
-    backdrop-filter: brightness(99%);
-  }
+    filter: blur(0.5);
 
-  /* For WebKit browsers */
-/* Track */
+}
+
 ::-webkit-scrollbar {
-    width:9px; /* Set the width of the scrollbar */
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background:#44bd9e; /* Set the color of the scrollbar handle */
-    border:solid  #ffffff;
-    border-radius:9px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #f5731c; /* Set the color of the scrollbar handle on hover */
-    border:solid  #ffffff;
-    border-radius:9px;
-  }
+  width:9px; /* Set the width of the scrollbar */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background:#44bd9e; /* Set the color of the scrollbar handle */
+  border:solid  #ffffff;
+  border-radius:9px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #f5731c; /* Set the color of the scrollbar handle on hover */
+  border:solid  #ffffff;
+  border-radius:9px;
+}

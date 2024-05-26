@@ -10,7 +10,7 @@
     <div
         class="container page-heading text-center p-0 bg-white rounded shadow">
         <h3 style="background-color: #44bd9e" class="card-header p-2 text-light  rounded border border-end-0 border-bottom-0 border-start-0 border-5 border-danger">
-            <strong>Forget User ID Password</strong>
+            <strong>Forgot User ID Password</strong>
         </h3>
 
         <div class="container mt-3 pb-5">
@@ -24,22 +24,25 @@
                                 </p>
                             </span>
                         </div>
-                        <div class="card-body border border-dark border-bottom-0 pb-5 ">
+                        <div class="card-body border border-dark border-bottom-0 pb-3">
                             <div class="dropdown form text-center">
-                                <button class="btn btn-secondary dropdown-toggle form-control" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button class="btn btn-dark dropdown-toggle form-control" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <label for="option" class=""><b><u>Trouble Logging In</u></b></label>
                                 </button>
                                 <ul class="dropdown-menu form-control dropdown-menu-dark text-white">
-                                  <li><button class="dropdown-item text-center form-control" (click)="Passload()"  id="1">Forget Login Password (Only)</button>
+                                  <li><button class="dropdown-item text-center form-control" (click)="Passload()"  id="1">Forgot Login Password (Only)</button>
                                   </li>
                                   <li ><button class="dropdown-item text-center form-control" (click)="Idpassload()" id="2">Forgot User ID & Login Password (Both)</button>
                                   </li>
-                               
                                 </ul>
-                              </div>
+                                @if (img) {
+                                    <div class="container-fluid user-select-none border border-3 border-white rounded mt-3 img-man-div">
+                                             <img  class=" img-fluid" src="../../../assets/forgot/man.png" alt="Forget User ID Password Img">
+                                </div>
+                                }
+                            </div>
                               <!--componet load selected option   -->
                               <div class="row d-flex justify-content-center text-left mt-1 ">
-
                                 @if (passvar) {
                                    <app-forgetpassword></app-forgetpassword>
                                 }

@@ -19,18 +19,22 @@ import { FooterComponent } from '../../Layouts/footer/footer.component';
 })
 export class ForgetComponent {
 
+  img:boolean=true;
   //  Pass Compo load 
-
   passvar:boolean=false;
   Passload(){
     this.passvar=true;
     this.idpassvar=false;
+// img
+this.img=false;
   }
 // IdPass Compo load
 idpassvar:boolean=false;
 Idpassload(){
   this.idpassvar=true;
   this.passvar=false;
+  // img
+this.img=false;
 }
 }
 
