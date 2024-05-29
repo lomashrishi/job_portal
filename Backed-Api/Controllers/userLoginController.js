@@ -3,21 +3,17 @@ const jwt = require('jsonwebtoken');
 const conn = require('../Configs/db');
 
 const userLogin = async (req, res) => {
-  const { email, mobile, password } = req.body;
-
-  console.log("Data For Login =>", email, mobile, password);
-
-  // Validate email, mobile, and password
-  if (!email || !mobile || !password) {
-    return res.status(400).send('Email, mobile, and password are required.');
-  }
-
+ // Access the request body
+ const { email, mobile,password} = req.body;
+ // Validate required fields
+ if (!email || !mobile || !password) {
+   return res.status(400).json({ error: 'All Fields Are Required' });
+ }
   // Query the database for the user by email and mobile
   conn.query('SELECT * FROM auth WHERE email = ? AND mobile = ?', [email, mobile], async (err, results) => {
     if (err) {
-      return res.status(500).send('Server error');
+      return res.status(500).send('Internal Server Error..');
     }
-
     if (results.length > 0) {
       const user = results[0];
 
@@ -30,7 +26,7 @@ const userLogin = async (req, res) => {
         return res.status(400).send('Invalid password');
       }
     } else {
-      return res.status(400).send('Invalid email or mobile number');
+      return res.status(400).send('Invalid Email Or Mobile');
     }
   });
 };

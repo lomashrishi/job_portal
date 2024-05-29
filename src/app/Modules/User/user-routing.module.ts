@@ -6,8 +6,11 @@ import { UserPageNotFoundComponent } from './Pages/user-page-not-found/user-page
 
 const routes: Routes = [
 //user ka home page
-  {'path':'','title':'User-Home-Page | Kanker Recruitment Portal',component:UserHomeComponent},
+  {'path': '', redirectTo:'user', pathMatch:'full', title:'User-Home-Page | Kanker Recruitment Portal'},
+  {'path':'user','title':'User-Home-Page | Kanker Recruitment Portal',component:UserHomeComponent},
   {'path':'about-us','title':'User-Home-Page | Kanker Recruitment Portal',component:UserAboutComponent},
+
+  
   {'path':'**','title':'Erorr 404 | Page Not Found !..', component:UserPageNotFoundComponent}
 ];
 

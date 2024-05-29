@@ -22,7 +22,14 @@ export class RegisterComponent implements OnInit{
   // for server response message 
   serverResponse: any;
 // image uploads
-ViewSignUrl: string | null = null;
+ViewSignUrl: any | null = null;
+ViewProfileUrl:any | null =null;
+
+
+// Define the allowed file types and size range
+ allowedTypes = ['image/png', 'image/jpeg', 'image/jpg'];
+
+
 
   constructor(private FBuilder: FormBuilder, public RegisterService: RegisterService) {
     this.registerForm = this.FBuilder.group({
@@ -122,7 +129,8 @@ OnInit(): void {
 
   }
 
-
+  
+  
 
 
 

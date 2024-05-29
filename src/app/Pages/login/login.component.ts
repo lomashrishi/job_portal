@@ -11,6 +11,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { LoginService } from '../../Services/login/login.service';
 import Swal from 'sweetalert2';
 import { NgToastService } from 'ng-angular-popup';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class LoginComponent {
 LoginForm :FormGroup;
 serverResponse:any;
 
- constructor( Fb:FormBuilder, public LoginService:LoginService,private toast:NgToastService ){
+ constructor( Fb:FormBuilder, public LoginService:LoginService,private toast:NgToastService,private router: Router ){
   this.LoginForm = Fb.group({
     email:['', [Validators.email,Validators.required,Validators.email, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')]],
     mobile:['',[Validators.minLength(10),Validators.maxLength(10),Validators.required, Validators.pattern(/^\d+$/),Validators.minLength(10),Validators.maxLength(10) ]],
@@ -37,16 +38,19 @@ serverResponse:any;
 onSubmit(){
   if(this.LoginForm.valid){
     if(this.captchaText===this.LoginForm.value.captcha_input){
-
-      this.LoginService.sendLogin(FormData).subscribe(response => {
-        this.LoginService = response.messages;
+      const LoginFormData = this.LoginForm.value;
+      this.LoginService.sendLogin(LoginFormData).subscribe(response => {
+        this.serverResponse = response.message;
         // Response MsG
         const Toast = Swal.mixin({toast: true,position: "top-end",showConfirmButton: false,timer: 3000,timerProgressBar: true,
           didOpen: (toast) => {toast.onmouseenter = Swal.stopTimer;toast.onmouseleave = Swal.resumeTimer;}});
-        Toast.fire({icon: "success",title: "User Login Successfully..." });
+        Toast.fire({icon: "success",title: "Successfully...",text:this.serverResponse});
         this.LoginForm.reset(); // Reset form after successful submission my form 
+            // Redirect to /user route after successful login
+            this.router.navigate(['/user']);
+        
       }, error => {
-        this.serverResponse = error.status;    
+        this.serverResponse = error.message;    
         Swal.fire({icon: "error",title: "Oops...",text:"Failed:-"+this.serverResponse,timer:3000, footer: '<a routerLink="/register"><small><b>New Users Must Registered Before Login.</b></small></a>'});
       } );
   
@@ -56,14 +60,6 @@ onSubmit(){
     }
   }
 }
-
-
-
-
-
-
-
-
 
 
 

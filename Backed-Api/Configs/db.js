@@ -15,8 +15,10 @@ conn.connect((err) => {
     if (err) {
         console.error(`Error Connecting To MySQL: ${err.stack}`);
         return;
-    }
+    }  else {
+
     console.log('Connected To MySQL successfully...');
+    }
 });
 
 // Export the connection object to be used in other modules
