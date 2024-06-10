@@ -306,6 +306,9 @@
                                     @if (registerForm.get('RepeatPassword')?.hasError('pattern')) {
                                         <small class="text-danger ms-1"><b>Min 8 Chars With Upper, Lower, Number, Or Special Chars.</b></small>
                                       }
+                                      @if (registerForm.get('RepeatPassword')?.touched &&registerForm.get('Password')?.value !==registerForm.get('RepeatPassword')?.value) {
+                                        <small class="text-danger ms-1"><b>Passwords Do Not Match.</b></small>
+                                      }
                                 </div>
                             </div>
 
@@ -525,7 +528,7 @@ I do hereby declare that the information given above related to my Name, Categor
                     id="captcha-input" placeholder="Enter Captcha Code" required />
                 <div type="text" class=" shadow p-2 me-2 border "
                     id="captcha-text">
-                    <b><i class="user-select-none fs-5 " id="captcha-code">{{ captchaText }}</i></b>
+                    <b><i class="user-select-none fs-5 fw-bold" id="captcha-code">{{ captchaText }}</i></b>
                 </div>
 
                 <button type="submit" class="btn btn-danger btn-outline-dark text-light">

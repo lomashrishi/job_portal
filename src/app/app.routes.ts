@@ -29,6 +29,10 @@ export const routes: Routes = [
 
     //Lazy Routing For User Module
     {'path':'user',  loadChildren:()=>import('./Modules/User/user.module').then(mod=> mod.UserModule)},    
+
+
+    //Lazy Routing For User Module
+    {'path':'admin',  loadChildren:()=>import('./Modules/Admin/admin.module').then(mod=> mod.AdminModule)},  
   
 // This is For 404 Page  Error Handling
     { 'path': '**','title':'Erorr 404 | Page Not Found !..', component:PageNotFoundComponent}

@@ -16,7 +16,7 @@ import { RegisterService } from '../../Services/register/register.service';
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
-export class RegisterComponent implements OnInit{
+export class RegisterComponent {
   // for form data
   registerForm: FormGroup;
   // for server response message 
@@ -85,8 +85,6 @@ ViewProfileUrl:any | null =null;
   // lib msg
       });
 
-
-
     }
   }
 
@@ -105,6 +103,7 @@ OnInit(): void {
     }
   });
 }
+
 
 
 
@@ -157,9 +156,6 @@ todayDate(): string {
     }
   }
 
-
-
-
   // Captcha Code 
   captchaText: string = '';
   generateCaptcha(): void {
@@ -170,7 +166,7 @@ todayDate(): string {
     }
     this.captchaText = captcha;
   }
-  ngOnInit() {
+ngOnInit() {
     this.generateCaptcha(); // Generate captcha on component initialization
   }
   // Captcha Close 

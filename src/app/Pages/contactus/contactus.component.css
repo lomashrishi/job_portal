@@ -27,7 +27,6 @@ textarea{
 
 .map{
     position:relative;
-    overflow: hidden;
     display: flex;
     justify-content: center;
     justify-items: center;
