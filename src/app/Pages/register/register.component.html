@@ -14,7 +14,7 @@
     </div>
   
   <div class="container main-con mt-2 bg-white-subtle p-1  rounded">
-    <form class="form"[formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <form class="form"[formGroup]="registerForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
     <div class="row basic-row">
             <div class="col-lg-9 mb-2 ">
                 <div class="card border border-2 border-black pb-3">
@@ -352,7 +352,7 @@
                                <hr class="brline p-0 m-0 mt-2"/>
                                <div class="upload-option2 mt-2">
                                 <label for="files"><i class="fa-solid fa-signature"></i> <b> Select Signature Image File <label class="text-danger fw-bold">*</label></b></label>
-                                <input formControlName="SignatureImage" accept="image/*.,.jpg,.png,.jepg" (change)="onChangeSignatureImage($event)"  required class="form-control form-control shadow rounded border-1 border-dark bg-primary-subtle" id="SignImgFile" type="file" title ="Please Choose User Signature Image"  />
+                                <input  formControlName="SignatureImage" accept="image/*.,.jpg,.png,.jepg" (change)="onChangeSignatureImage($event)"  required class="form-control form-control shadow rounded border-1 border-dark bg-primary-subtle" id="SignImgFile" type="file" title ="Please Choose User Signature Image"  />
                             </div>
                                <hr class="brline m-0 p-0 mt-1 mb-1"/>
                                      <!-- validation -->

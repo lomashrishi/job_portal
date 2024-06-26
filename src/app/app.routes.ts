@@ -8,6 +8,10 @@ import { ForgetComponent } from './Pages/forget/forget.component';
 import { NotificationsComponent } from './Pages/notifications/notifications.component';
 import { GalleryComponent } from './Pages/gallery/gallery.component';
 import { PageNotFoundComponent } from './Pages/page-not-found/page-not-found.component';
+import { AdminHomeComponent } from './Modules/Admin/Pages/admin-home/admin-home.component';
+import { AdminProfileComponent } from './Modules/Admin/Pages/admin-profile/admin-profile.component';
+import { AdminPageNotFoundComponent } from './Modules/Admin/Pages/admin-page-not-found/admin-page-not-found.component';
+import { ForgetidpasswordComponent } from './Pages/forget/forgetidpassword/forgetidpassword.component';
 
 
 export const routes: Routes = [
@@ -28,11 +32,38 @@ export const routes: Routes = [
     {'path':'gallery','title':'Gallery | Kanker Recruitment Portal', component:GalleryComponent},
 
     //Lazy Routing For User Module
-    {'path':'user',  loadChildren:()=>import('./Modules/User/user.module').then(mod=> mod.UserModule)},    
+    // {'path':'user',  loadChildren:()=>import('./Modules/User/user.module').then(mod=> mod.UserModule)},    
 
 
-    //Lazy Routing For User Module
-    {'path':'admin',  loadChildren:()=>import('./Modules/Admin/admin.module').then(mod=> mod.AdminModule)},  
+
+
+
+
+
+
+
+    //Lazy Routing For Admin Module
+    // {'path':'admin',  loadChildren:()=>import('./Modules/Admin/admin.module').then(mod=> mod.AdminModule)},  
+
+    {'path':'adm',title:'Admin-Home-Page | Kanker Recruitment Portal',component:AdminHomeComponent},
+ 
+    { 'path':'adm',
+      children:[  
+        {'path':'profile',title:'Admin-Profile-Page | Kanker Recruitment Portal',component:AdminProfileComponent},
+        {'path' : 'ab','title':'abt', component: ContactusComponent },
+
+        {'path':'**',title:'Erorr 404 | Admin Page Not Found !..', component:AdminPageNotFoundComponent}
+  
+        ]
+    },
+  
+
+
+
+
+
+
+
   
 // This is For 404 Page  Error Handling
     { 'path': '**','title':'Erorr 404 | Page Not Found !..', component:PageNotFoundComponent}

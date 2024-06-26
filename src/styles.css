@@ -2,16 +2,16 @@
 /* styles.css */
 
 
-/* Bootstrap 5 Css Framework */
-@import "bootstrap/dist/css/bootstrap.min.css";
+/* Local Storage  */
 
-/* Bootstrap Icon  Css Framework */
-@import "bootstrap-icons/font/bootstrap-icons.min.css";
+/* Bootstrap 5 CSS Framework */
+@import 'bootstrap/dist/css/bootstrap.min.css';
 
-/* Font awesome Free Icon Css Link */
-@import "@fortawesome/fontawesome-free/css/all.min.css";
+/* Bootstrap Icons CSS Framework */
+@import 'bootstrap-icons/font/bootstrap-icons.min.css';
 
-
+/* Font Awesome Free Icon CSS Link */
+@import '@fortawesome/fontawesome-free/css/all.min.css';
 
 
 body{

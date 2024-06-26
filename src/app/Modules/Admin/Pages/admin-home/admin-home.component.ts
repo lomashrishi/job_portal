@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AdminProfileComponent } from '../admin-profile/admin-profile.component';
+import { RouterOutlet } from '@angular/router';
 
 
 @Component({
