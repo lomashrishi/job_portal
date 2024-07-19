@@ -13,4 +13,6 @@ import { UserSideNavComponent } from '../../Layouts/user-side-nav/user-side-nav.
 })
 export class UserProfileComponent {
 
+  userData:any;
 }
+

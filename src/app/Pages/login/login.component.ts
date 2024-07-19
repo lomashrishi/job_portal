@@ -17,13 +17,14 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [NgClass, ReactiveFormsModule,FontAwesomeModule,RouterLink,TopnavComponent,HeaderComponent,NavbarComponent,FootslideComponent,FooterComponent],
+  imports: [NgClass, ReactiveFormsModule,RouterLink,TopnavComponent,HeaderComponent,NavbarComponent,FootslideComponent,FooterComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
 LoginForm :FormGroup;
 serverResponse:any;
+Token:any;
 
  constructor( Fb:FormBuilder, public LoginService:LoginService,private toast:NgToastService,private router: Router ){
   this.LoginForm = Fb.group({
@@ -34,24 +35,30 @@ serverResponse:any;
   })
  }
 // Submmit If That is Form Valid
-
 onSubmit(){
   if(this.LoginForm.valid){
     if(this.captchaText===this.LoginForm.value.captcha_input){
       const LoginFormData = this.LoginForm.value;
+      // debugger
       this.LoginService.sendLogin(LoginFormData).subscribe(response => {
         this.serverResponse = response.message;
+        if(response.token){
+          this.Token = response.token; //Token Recived From Bakend
+                  // alert(this.Token);
+        localStorage.setItem("token",response.token); //store in local storage in browser 
+        }
+
         // Response MsG
         const Toast = Swal.mixin({toast: true,position: "top-end",showConfirmButton: false,timer: 3000,timerProgressBar: true,
           didOpen: (toast) => {toast.onmouseenter = Swal.stopTimer;toast.onmouseleave = Swal.resumeTimer;}});
-        Toast.fire({icon: "success",title: "Successfully...",text:this.serverResponse});
-        this.LoginForm.reset(); // Reset form after successful submission my form 
+        Toast.fire({icon: "success",title: "Successfully...",text:this.serverResponse.message});
+        // this.LoginForm.reset(); // Reset form after successful submission my form 
             // Redirect to /user route after successful login
-            this.router.navigate(['/user']);
-        
+          
+            this.router.navigate(['/user-dashboard']);
       }, error => {
         this.serverResponse = error.message;    
-        Swal.fire({icon: "error",title: "Oops...",text:"Failed:-"+this.serverResponse,timer:3000, footer: '<a routerLink="/register"><small><b>New Users Must Registered Before Login.</b></small></a>'});
+        Swal.fire({icon: "error",title: "Oops...",text:"Failed:-"+this.serverResponse.message,timer:3000, footer: '<a routerLink="/register"><small><b>New Users Must Registered Before Login.</b></small></a>'});
       } );
   
     }
@@ -60,8 +67,6 @@ onSubmit(){
     }
   }
 }
-
-
 
 //  password toggle
 visible:boolean=true;

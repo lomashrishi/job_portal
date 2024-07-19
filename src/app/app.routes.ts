@@ -8,10 +8,12 @@ import { ForgetComponent } from './Pages/forget/forget.component';
 import { NotificationsComponent } from './Pages/notifications/notifications.component';
 import { GalleryComponent } from './Pages/gallery/gallery.component';
 import { PageNotFoundComponent } from './Pages/page-not-found/page-not-found.component';
-import { AdminHomeComponent } from './Modules/Admin/Pages/admin-home/admin-home.component';
-import { AdminProfileComponent } from './Modules/Admin/Pages/admin-profile/admin-profile.component';
 import { AdminPageNotFoundComponent } from './Modules/Admin/Pages/admin-page-not-found/admin-page-not-found.component';
-import { ForgetidpasswordComponent } from './Pages/forget/forgetidpassword/forgetidpassword.component';
+import { BhomepageComponent } from './Modules/Boss/bhomepage/bhomepage.component';
+import { ContactbComponent } from './Modules/Boss/contactb/contactb.component';
+import { UserProfileComponent } from './Modules/User/Pages/user-profile/user-profile.component';
+import { UserDashComponent } from './Modules/User/Pages/user-dash/user-dash.component';
+import { UserPageNotFoundComponent } from './Modules/User/Pages/user-page-not-found/user-page-not-found.component';
 
 
 export const routes: Routes = [
@@ -31,29 +33,17 @@ export const routes: Routes = [
     {'path':'notifications','title':'Recruitment Notifications | Kanker Recruitment Portal', component:NotificationsComponent},
     {'path':'gallery','title':'Gallery | Kanker Recruitment Portal', component:GalleryComponent},
 
-    //Lazy Routing For User Module
-    // {'path':'user',  loadChildren:()=>import('./Modules/User/user.module').then(mod=> mod.UserModule)},    
-
-
-
-
-
-
-
-
-
-    //Lazy Routing For Admin Module
-    // {'path':'admin',  loadChildren:()=>import('./Modules/Admin/admin.module').then(mod=> mod.AdminModule)},  
-
-    {'path':'adm',title:'Admin-Home-Page | Kanker Recruitment Portal',component:AdminHomeComponent},
- 
-    { 'path':'adm',
-      children:[  
-        {'path':'profile',title:'Admin-Profile-Page | Kanker Recruitment Portal',component:AdminProfileComponent},
-        {'path' : 'ab','title':'abt', component: ContactusComponent },
-
-        {'path':'**',title:'Erorr 404 | Admin Page Not Found !..', component:AdminPageNotFoundComponent}
   
+    {'path':'user-dashboard','title':'User Dashboard Page | Kanker Recruitment Portal',component:UserDashComponent},
+    {'path':'user-profile','title':'User Profile Page | Kanker Recruitment Portal',component:UserProfileComponent},
+
+    {'path':'boss','title':'Admin-Home-Page | Kanker Recruitment Portal',component:BhomepageComponent},
+ 
+    { 'path':'boss',children:[  
+        {'path':'ab','title':'Admin-Profile-Page | Kanker Recruitment Portal',component:AboutusComponent},
+        {'path' : 'cb','title':'abt', component: ContactbComponent },
+
+        {'path':'**','title':'Erorr 404 | Admin Page Not Found !..', component:UserPageNotFoundComponent}
         ]
     },
   

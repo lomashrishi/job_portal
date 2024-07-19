@@ -1,262 +1,184 @@
-// const conn = require('../Configs/db');
-// const multer = require('multer');
-// const path = require('path');
-
-// // Configure Multer for file uploads
-// const storage = multer.diskStorage({
-//   destination: function (req, file, cb) {
-//     cb(null, path.join(__dirname, '..', 'Uploads/Profile-Sign'));
-//   },
-//   filename: function (req, file, cb) {
-//     const mobile = req.body.Mobile;
-//     cb(null, `${file.fieldname}-${mobile}-${Date.now()}${path.extname(file.originalname)}`);
-//   }
-// });
-// const upload = multer({ storage: storage });
-
-// // Middleware to handle file uploads
-// const uploadFields = upload.fields([
-//   { name: 'ProfileImage', maxCount: 1 },
-//   { name: 'SignatureImage', maxCount: 1 }
-// ]);
-
-// // Main Function For Register Route
-// const registerData = async (req, res) => {
-//   uploadFields(req, res, async (err) => {
-//     if (err instanceof multer.MulterError) {
-//       return res.status(400).json({ message: 'Multer error', error: err });
-//     } else if (err) {
-//       return res.status(500).json({ message: 'Unknown error', error: err });
-//     }
-
-//     const {DataInput} = req.body;
-//     console.log(DataInput)
-//     const profileImage = req.files['ProfileImage'] ? req.files['ProfileImage'][0] : null;
-//     const signatureImage = req.files['SignatureImage'] ? req.files['SignatureImage'][0] : null;
-
-
-//     // Validate required Fields
-//     const requiredFields = [
-//       'Name', 'Dob', 'Gender', 'Category', 'MaritalStatus', 'Age', 'RelativeType', 'RelativeName',
-//       'MotherName', 'Nationality', 'DomicileCG', 'DomecileDistrict', 'Disabilities', 'FamilyYearlyIncome',
-//       'Email', 'Mobile', 'Password', 'RepeatPassword', 'HouseNo', 'Street', 'CityVillage', 'State', 'District',
-//       'PinCode', 'DeclarationCheck', 'InputCaptcha', 'InputOtp'
-//     ];
-
-//     for (const field of requiredFields) {
-//       if (!DataInput[field]) {
-//         return res.status(400).json({ message: `All Field ${field} Is Required.` });
-//       }
-//     }
-
-//     if (!profileImage || !signatureImage) {
-//       return res.status(400).json({ message: 'ProfileImage And SignatureImage Are Required.' });
-//     }
-
-//     // Check if the email or mobile already exists
-//     const checkSql = 'SELECT * FROM users WHERE Email = ? OR Mobile = ?';
-//     conn.query(checkSql, [DataInput.Email, DataInput.Mobile], (checkError, checkResults) => {
-//       if (checkError) {
-//         console.error('Error Checking Data In The Database:', checkError);
-//         return res.status(500).json({ message: 'Database Error.', error: checkError });
-//       }
-
-//       if (checkResults.length > 0) {
-//         return res.status(400).json({ message: 'Email or Mobile Already Registered.' });
-//       }
-
-//       // Define the SQL query to insert the user data into the database
-//       const sql = `INSERT INTO users (Name, Dob, Gender, Category, Marital_Status, Age, Relative_Type, Relative_Name,
-//         Mother_Name, Nationality, Domicile_CG, Domecile_District, Disabilities, Family_Yearly_Income, Email, Mobile,
-//         Password, Profile_Image_URL, Signature_Image_URL, HouseNo, Street, City_Village, State, District, PinCode)
-//         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
-
-//       const values = [
-//         DataInput.Name, DataInput.Dob, DataInput.Gender, DataInput.Category, DataInput.MaritalStatus, DataInput.Age,
-//         DataInput.RelativeType, DataInput.RelativeName, DataInput.MotherName, DataInput.Nationality, DataInput.DomicileCG,
-//         DataInput.DomecileDistrict, DataInput.Disabilities, DataInput.FamilyYearlyIncome, DataInput.Email, DataInput.Mobile,
-//         DataInput.Password, profileImage.path, signatureImage.path, DataInput.HouseNo, DataInput.Street, DataInput.CityVillage,
-//         DataInput.State, DataInput.District, DataInput.PinCode
-//       ];
-
-//       // Execute the SQL query
-//       conn.query(sql, values, (error, results) => {
-//         if (error) {
-//           console.error('Error Inserting Data Into The Database:', error);
-//           return res.status(500).json({ message: 'Database Error.', error });
-//         }
-
-//         // Fetch the last inserted ID to generate the RegistrationNo
-//         const insertedId = results.insertId;
-//         const registrationNo = `KRP${String(insertedId).padStart(10, '0')}`;
-
-//         // Update the record with the generated RegistrationNo
-//         const updateSql = 'UPDATE users SET Registration_No = ? WHERE ID = ?';
-//         conn.query(updateSql, [registrationNo, insertedId], (updateError, updateResults) => {
-//           if (updateError) {
-//             console.error('Error Updating RegistrationNo:', updateError);
-//             return res.status(500).json({ message: 'Database error', updateError });
-//           }
-
-//           // Send A Success Response
-//           res.json({
-//             message: 'User Registered Successfully...',
-//             registrationNo: registrationNo,
-//             files: { profileImage, signatureImage },
-//             data: DataInput
-//           });
-//         });
-//       });
-//     });
-//   });
-// };
-
-// // Export
-// module.exports = {
-//   registerData
-// };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const conn = require('../Configs/db');
-const multer = require('multer');
-const path = require('path');
+const conn = require("../Configs/db");
+const bcrypt = require("bcrypt");
+const multer = require("multer");
+const path = require("path");
+const fs = require("fs");
 
 // Configure Multer for file uploads
-const storage = multer.diskStorage({
+const tempStorage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, '..', 'Uploads/Profile-Sign'));
+    const uploadPath = path.join(__dirname, "../Uploads/Profile-Sign");
+    cb(null, uploadPath);
   },
   filename: function (req, file, cb) {
-    const mobile = req.body.Mobile;
-    cb(null, `${file.fieldname}-${mobile}-${Date.now()}${path.extname(file.originalname)}`);
-  }
+    // Temporarily store the filename, we will update it later
+    cb(null, `${file.fieldname}_temp${path.extname(file.originalname)}`);
+  },
 });
-const upload = multer({ storage: storage });
 
-// Middleware to handle file uploads
-const uploadFields = upload.fields([
-  { name: 'ProfileImage', maxCount: 1 },
-  { name: 'SignatureImage', maxCount: 1 }
+const fileFilter = (req, file, cb) => {
+  const allowedTypes = ["image/jpeg", "image/png", "image/jpg"];
+  if (!allowedTypes.includes(file.mimetype)) {
+    return cb(new Error("Invalid file type. Only JPEG and PNG are allowed."));
+  }
+  cb(null, true);
+};
+
+// Multer middleware setup
+const upload = multer({
+  storage: tempStorage,
+  fileFilter: fileFilter,
+  limits: { fileSize: 150 * 1024 },
+}).fields([
+  { name: "ProfileImage", maxCount: 1 },
+  { name: "SignatureImage", maxCount: 1 },
 ]);
 
-// Main Function For Register Route
-const registerData = async (req, res) => {
-  uploadFields(req, res, async (err) => {
-    if (err instanceof multer.MulterError) {
-      return res.status(400).json({ message: 'Multer error', error: err });
-    } else if (err) {
-      return res.status(500).json({ message: 'Unknown error', error: err });
-    }
+const generateRegistrationNumber = () => {
+  return new Promise((resolve, reject) => {
+    const prefix = "KJP";
+    const query = "SELECT COUNT(*) AS count FROM users";
 
-    console.log('req.files:', req.files);
-    console.log('req.body:', req.body);
+    conn.query(query, (err, result) => {
+      if (err) return reject(err);
 
-    const profileImage = req.files['ProfileImage'] ? req.files['ProfileImage'][0] : null;
-    const signatureImage = req.files['SignatureImage'] ? req.files['SignatureImage'][0] : null;
-
-    // Extract form fields
-    const {
-      Name, Dob, Gender, Category, MaritalStatus, Age, RelativeType, RelativeName, MotherName, Nationality,
-      DomicileCG, DomecileDistrict, Disabilities, FamilyYearlyIncome, Email, Mobile, Password, RepeatPassword,
-      HouseNo, Street, CityVillage, State, District, PinCode, DeclarationCheck, InputCaptcha, InputOtp
-    } = req.body;
-
-    // Validate required Fields
-    const requiredFields = [
-      'Name', 'Dob', 'Gender', 'Category', 'MaritalStatus', 'Age', 'RelativeType', 'RelativeName',
-      'MotherName', 'Nationality', 'DomicileCG', 'DomecileDistrict', 'Disabilities', 'FamilyYearlyIncome',
-      'Email', 'Mobile', 'Password', 'RepeatPassword', 'HouseNo', 'Street', 'CityVillage', 'State', 'District',
-      'PinCode', 'DeclarationCheck', 'InputCaptcha', 'InputOtp'
-    ];
-
-    for (const field of requiredFields) {
-      if (!req.body[field]) {
-        return res.status(400).json({ message: `All Field ${field} Is Required.` });
-      }
-    }
-
-    if (!profileImage || !signatureImage) {
-      return res.status(400).json({ message: 'ProfileImage And SignatureImage Are Required.' });
-    }
-
-    // Check if the email or mobile already exists
-    const checkSql = 'SELECT * FROM users WHERE Email = ? OR Mobile = ?';
-    conn.query(checkSql, [Email, Mobile], (checkError, checkResults) => {
-      if (checkError) {
-        console.error('Error Checking Data In The Database:', checkError);
-        return res.status(500).json({ message: 'Database Error.', error: checkError });
-      }
-
-      if (checkResults.length > 0) {
-        return res.status(400).json({ message: 'Email or Mobile Already Registered.' });
-      }
-
-      // Define the SQL query to insert the user data into the database
-      const sql = `INSERT INTO users (Name, Dob, Gender, Category, Marital_Status, Age, Relative_Type, Relative_Name,
-        Mother_Name, Nationality, Domicile_CG, Domecile_District, Disabilities, Family_Yearly_Income, Email, Mobile,
-        Password, Profile_Image_URL, Signature_Image_URL, HouseNo, Street, City_Village, State, District, PinCode)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
-
-      const values = [
-        Name, Dob, Gender, Category, MaritalStatus, Age, RelativeType, RelativeName, MotherName, Nationality, DomicileCG,
-        DomecileDistrict, Disabilities, FamilyYearlyIncome, Email, Mobile, Password, profileImage.path, signatureImage.path,
-        HouseNo, Street, CityVillage, State, District, PinCode
-      ];
-
-      // Execute the SQL query
-      conn.query(sql, values, (error, results) => {
-        if (error) {
-          console.error('Error Inserting Data Into The Database:', error);
-          return res.status(500).json({ message: 'Database Error.', error });
-        }
-
-        // Fetch the last inserted ID to generate the RegistrationNo
-        const insertedId = results.insertId;
-        const registrationNo = `KRP${String(insertedId).padStart(10, '0')}`;
-
-        // Update the record with the generated RegistrationNo
-        const updateSql = 'UPDATE users SET Registration_No = ? WHERE ID = ?';
-        conn.query(updateSql, [registrationNo, insertedId], (updateError, updateResults) => {
-          if (updateError) {
-            console.error('Error Updating RegistrationNo:', updateError);
-            return res.status(500).json({ message: 'Database error', updateError });
-          }
-
-          // Send A Success Response
-          res.json({
-            message: 'User Registered Successfully...',
-            registrationNo: registrationNo,
-            files: { profileImage, signatureImage },
-            data: req.body
-          });
-        });
-      });
+      const count = result[0].count + 1;
+      const registrationNumber = `${prefix}${String(count).padStart(7, "0")}`;
+      resolve(registrationNumber);
     });
   });
 };
 
-// Export
-module.exports = {
-  registerData
+const validateRequiredFields = (data) => {
+  const requiredFields = [
+    "Name", "Dob", "Gender", "Category", "MaritalStatus", "Age", "RelativeType", "RelativeName",
+    "MotherName", "Nationality", "DomicileCG", "DomecileDistrict", "Disabilities", "FamilyYearlyIncome",
+    "Email", "Mobile", "Password", "RepeatPassword", "HouseNo", "Street", "CityVillage", "State",
+    "District", "PinCode", "DeclarationCheck", "InputCaptcha", "InputOtp"
+  ];
+
+  for (const field of requiredFields) {
+    if (!data[field]) {
+      return `${field} is required`;
+    }
+  }
+  return null;
 };
 
+const hashPassword = async (password) => {
+  const saltRounds = 10;
+  return await bcrypt.hash(password, saltRounds);
+};
+
+// Main Function
+const userRegister = (req, res) => {
+  upload(req, res, async (err) => {
+    if (err instanceof multer.MulterError || err) {
+      return res.status(400).json({ message: "File upload error", error: err.message });
+    }
+
+    const profileImage = req.files["ProfileImage"] ? req.files["ProfileImage"][0] : null;
+    const signatureImage = req.files["SignatureImage"] ? req.files["SignatureImage"][0] : null;
+
+    if (!profileImage || !signatureImage) {
+      return res.status(400).json({ message: "ProfileImage and SignatureImage are required" });
+    } else if (profileImage.size < 30 * 1024 || profileImage.size > 150 * 1024) {
+      return res.status(400).json({ message: "ProfileImage size should be between 30KB to 150KB" });
+    } else if (signatureImage.size < 30 * 1024 || signatureImage.size > 150 * 1024) {
+      return res.status(400).json({ message: "SignatureImage size should be between 30KB to 150KB" });
+    }
+
+    // Data From Frontend
+    const dataInput = req.body;
+    const validationError = validateRequiredFields(dataInput);
+
+    if (validationError) {
+      fs.unlink(profileImage.path, () => {});
+      fs.unlink(signatureImage.path, () => {});
+      return res.status(400).json({ message: validationError });
+    }
+
+    const checkUserQuery = "SELECT * FROM users WHERE Email = ? OR Mobile = ?";
+    conn.query(checkUserQuery, [dataInput.Email, dataInput.Mobile], async (err, results) => {
+      if (err) {
+        fs.unlink(profileImage.path, () => {});
+        fs.unlink(signatureImage.path, () => {});
+        return res.status(500).json({ message: "Database query error", error: err });
+      }
+
+      if (results.length > 0) {
+        fs.unlink(profileImage.path, () => {});
+        fs.unlink(signatureImage.path, () => {});
+        return res.status(400).json({ message: "User already registered with the given email or mobile number" });
+      }
+
+      try {
+        // Rename files with the mobile number included
+        const profileImageNewName = `${profileImage.fieldname}_${dataInput.Mobile}${path.extname(profileImage.originalname)}`;
+        const signatureImageNewName = `${signatureImage.fieldname}_${dataInput.Mobile}${path.extname(signatureImage.originalname)}`;
+
+        fs.renameSync(profileImage.path, path.join(profileImage.destination, profileImageNewName));
+        fs.renameSync(signatureImage.path, path.join(signatureImage.destination, signatureImageNewName));
+
+        const registrationNumber = await generateRegistrationNumber();
+        const hashedPassword = await hashPassword(dataInput.Password);
+        const formData = {
+          Registration_No: registrationNumber,
+          Name: dataInput.Name,
+          Dob: dataInput.Dob,
+          Gender: dataInput.Gender,
+          Category: dataInput.Category,
+          Marital_Status: dataInput.MaritalStatus,
+          Age: dataInput.Age,
+          Relative_Type: dataInput.RelativeType,
+          Relative_Name: dataInput.RelativeName,
+          Mother_Name: dataInput.MotherName,
+          Nationality: dataInput.Nationality,
+          Domicile_CG: dataInput.DomicileCG,
+          Domecile_District: dataInput.DomecileDistrict,
+          Disabilities: dataInput.Disabilities,
+          Family_Yearly_Income: dataInput.FamilyYearlyIncome,
+          Email: dataInput.Email,
+          Mobile: dataInput.Mobile,
+          Password: hashedPassword,
+          Profile_Image_URL: profileImageNewName,
+          Signature_Image_URL: signatureImageNewName,
+          HouseNo: dataInput.HouseNo,
+          Street: dataInput.Street,
+          City_Village: dataInput.CityVillage,
+          State: dataInput.State,
+          District: dataInput.District,
+          PinCode: dataInput.PinCode,
+          Time_Stamp: new Date(),
+        };
+
+        const query = "INSERT INTO users SET ?";
+        conn.query(query, formData, (err, result) => {
+          if (err) {
+            fs.unlink(path.join(profileImage.destination, profileImageNewName), () => {});
+            fs.unlink(path.join(signatureImage.destination, signatureImageNewName), () => {});
+            return res.status(500).json({ message: "Error saving data to database", error: err });
+          }
+
+          return res.status(200).json({
+            message: "User registered successfully.",
+            registrationNumber: registrationNumber,
+            name: dataInput.Name,
+            email: dataInput.Email,
+            mobile: dataInput.Mobile,
+            // profileImageURL: profileImageNewName,
+          });
+        });
+      } catch (err) {
+        fs.unlink(path.join(profileImage.destination, profileImageNewName), () => {});
+        fs.unlink(path.join(signatureImage.destination, signatureImageNewName), () => {});
+        return res.status(500).json({ message: "Error generating registration number or saving data", error: err });
+      }
+    });
+  });
+};
+
+// Exports 
+module.exports = {
+  userRegister,
+};

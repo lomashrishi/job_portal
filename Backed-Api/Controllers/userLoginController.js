@@ -20,13 +20,13 @@ const userLogin = async (req, res) => {
       // Validate password
       const validPassword = await bcrypt.compare(password, user.password);
       if (validPassword) {
-        const token = jwt.sign({ email: user.email }, 'secretkey', { expiresIn: '1h' });
+        const token = jwt.sign({ email: user.email }, 'secretkey', { expiresIn: '30m' });
         return res.status(200).json({ message: 'User Login Successfully...', token });
       } else {
-        return res.status(400).send('Invalid password');
+        return res.status(400).json({message:'Invalid password'});
       }
     } else {
-      return res.status(400).send('Invalid Email Or Mobile');
+      return res.status(400).json({message:'Invalid Email Or Mobile'});
     }
   });
 };

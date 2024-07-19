@@ -1,6 +1,6 @@
+const mysql = require('mysql2');
 // Load environment variables from .env file
 require('dotenv').config();
-const mysql = require('mysql2');
 
 // Connect to MySQL
 const conn = mysql.createConnection({
@@ -16,8 +16,7 @@ conn.connect((err) => {
         console.error(`Error Connecting To MySQL: ${err.stack}`);
         return;
     }  else {
-
-    console.log('Connected To MySQL successfully...');
+    console.log('Connected To MySQL Successfully...');
     }
 });
 

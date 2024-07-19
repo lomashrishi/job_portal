@@ -7,10 +7,11 @@ import { HeaderComponent } from '../../Layouts/header/header.component';
 import { NavbarComponent } from '../../Layouts/navbar/navbar.component';
 import { FootslideComponent } from '../../Layouts/footslide/footslide.component';
 import { FooterComponent } from '../../Layouts/footer/footer.component';
+import { JobTypeComponent } from '../../Components/job-type/job-type.component';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [SliderComponent,InfoComponent,ShowgalleryComponent,TopnavComponent,HeaderComponent,NavbarComponent,FootslideComponent,FooterComponent],
+  imports: [SliderComponent,InfoComponent,ShowgalleryComponent,TopnavComponent,HeaderComponent,NavbarComponent,FootslideComponent,FooterComponent,JobTypeComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

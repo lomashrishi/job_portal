@@ -1,0 +1,177 @@
+<app-user-header></app-user-header>
+<app-user-nav></app-user-nav>
+<app-user-side-nav></app-user-side-nav>
+ <!-- Main Contents -->
+<div class="container mt-2 mb-3 p-0  rounded" style="background-color: #e9edff;">
+     <div class="px-2 py-2 border-bottom-1 rounded d-flex align-items-center bg-light-subtle text-info fw-bolder fs-3">
+        <b>Dashboard</b><a href="https://kanker.gov.in"><strong></strong></a>
+      </div>
+      <hr class="p-1 mt-0 bg-primary ">
+<!-- row one for cards  -->
+    <div class="row p-1">
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card bi- border-left-primary  border-white shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="fs-3 fw-bolder text-primary  mb-1">
+                                Opnings</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">40,000</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Earnings (Annual) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success  border-white shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="fs-3 fw-bolder text-success mb-1">
+                                Appllyed</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tasks Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-info  border-white shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="fs-3 fw-bolder text-info mb-1">Results
+                            </div>
+                            <div class="row no-gutters align-items-center">
+                                <div class="col-auto">
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                </div>
+                                <div class="col">
+                                    <div class="progress progress-sm mr-2">
+                                        <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pending Requests Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-warning border-white shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="fs-3 fw-bolder text-warning  mb-1">
+                                Downloads</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- topics -->
+<app-job-topics></app-job-topics>
+
+<!-- Currunt Opnings -->
+<div class="container mt-2 pb-5 p-2">
+    <!-- code -->
+    <div class="container p-3 bg-light border rounded">
+        <h3 class="text-center fw-bolder text-primary">Currunt Opnings</h3>
+        <div class="table-responsive p-0 shadow rounded">
+          <table class="table table-bordered table-striped  border border-dark  ">
+            <thead class=" thead table-danger border-3 border-black rounded-top">
+              <tr class="fw-bolder fs-5 p-0 border border-dark text-center ">
+                <th class="">S.No</th>
+                <th class="">Job Title</th>
+                <th class=""> Job Description</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>PDF File</th>
+                <th>Apply Now</th>
+              </tr>
+            </thead>
+            <tbody class="tbody">
+              <!-- <tr class=" text-center ">
+                <td class="fw-bolder  text-dark">1.</td>
+                <td>Press release for the post of Lab Attendant</td>
+                <td>Press release dated 11.12 for information regarding invitation of claim objection for the post of Lab Attendant.</td>
+                <td>11/12/2023</td>
+                <td>31/12/2023</td>
+                <td><i class="fa-solid fa-file-pdf"></i><a href="#" target="_blank"><small>View (4 MB)</small></a></td>
+                <td><button class="btn btn-warning text-center"><h6 class="text-light fw-blod">Apply</h6></button></td>
+            </tr> -->
+            <tr *ngFor="let job of jobs; let i = index" class="text-center">
+                <td class="fw-bolder text-dark">{{ i + 1 }}</td>
+                <td>{{ job.jobTitle }}</td>
+                <td>{{ job.jobDescription }}</td>
+                <td>{{ job.startDate }}</td>
+                <td>{{ job.endDate }}</td>
+                <td>
+                  <a href="{{ job.pdfUrl }}" target="_blank">
+                    <i class="fa-solid fa-file-pdf"></i>
+                    <small>View (4 MB)</small>
+                  </a>
+                </td>
+                <td>
+                <a href="#"> <button class="btn btn-warning text-center" >
+                    <h6 class="text-light fw-bolder">Apply</h6>
+                  </button></a>
+                </td>
+              </tr>
+              
+<!-- 
+            @for(let job of jobs let i = $index) {
+                <tr class="text-center">
+                  <td class="fw-bolder text-dark">{{ i + 1 }}</td>
+                  <td>{{ job.jobTitle }}</td>
+                  <td>{{ job.jobDescription }}</td>
+                  <td>{{ job.startDate }}</td>
+                  <td>{{ job.endDate }}</td>
+                  <td>
+                    <a href="{{ job.pdfUrl }}" target="_blank">
+                      <i class="fa-solid fa-file-pdf"></i>
+                      <small>View (4 MB)</small>
+                    </a>
+                  </td>
+                  <td>
+                    <button class="btn btn-warning text-center" (click)="applyForJob(job.applyLink)"> <h6 class="text-light fw-bolder">Apply</h6>
+                    </button>
+                  </td>
+                </tr>
+              }
+        -->
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+</div>
+
+
+</div>
+<app-user-footer></app-user-footer>
+

@@ -181,7 +181,6 @@
                                       }
                                     </div>
                             </div>
-                            
                             <div id="DomicileDistDiv" class="col-lg-6">
                                 <div class="form-group">
                                     <label><b>District Of Domicile / जिला के निवासी <label class="text-danger fw-bold">*</label></b></label>
@@ -329,7 +328,7 @@
                         <div class="row">
                             <div class="col-lg-12 d-flex justify-content-center">
                                 <div class=" rounded shadow mb-1 border border-1 border-dark" style="background-image: url('./../assets/register/prof-bg.jpg'); background-size: cover; background-position: center; width: 200px; height: 252px;">
-                                    <img id="imgUpload" class="img-thumbnail bg-transparent rounded"  style="height:250px;width:200px;">
+                                    <img id="imgUploadProfile"  [src]="ViewProfileUrl ? ViewProfileUrl : './../assets/register/prof-bg.jpg' " class="img-thumbnail bg-transparent rounded"  style="height:250px;width:200px;">
                                 </div>
                             </div>
                             <hr class="brline p-0 m-0 mt-3"/>
@@ -346,7 +345,7 @@
                           <div class="col-lg-12 d-flex justify-content-center mt-3">
                                     <div class=" rounded shadow mb-1 border border-1 border-dark" style="background-image: url('./../assets/register/sign-bg.jpg'); background-size: cover; background-position: center; width: 200px; height:82px;">
 
-                                    <img id="imgUploadSign" src="{{ ViewSignUrl }}" class="img-thumbnail bg-transparent rounded" style="height:80px;width:200px;">
+                                    <img id="imgUploadSign"  [src]="ViewSignUrl ? ViewSignUrl : './../assets/register/sign-bg.jpg'" class="img-thumbnail bg-transparent rounded" style="height:80px;width:200px;">
                                 </div>
                             </div>                         
                                <hr class="brline p-0 m-0 mt-2"/>
@@ -410,57 +409,22 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label><b>State / राज्य <label class="text-danger fw-bold">*</label></b></label>
-                                        <select formControlName="State" name="State" type="text" value="" id="State" required class="text-capitalize form-select shadow rounded border-1 border-success">
-                                            <option class="fw-bold dropdown-item" disabled selected value="">Select State Name</option>
-                                            <option id="1" value="Andaman and Nicobar Islands">Andaman and Nicobar Islands / अंडमान और निकोबार द्वीप समूह</option>
-                                            <option id="2" value="Andhra Pradesh">Andhra Pradesh / आंध्र प्रदेश</option>
-                                            <option id="3" value="Arunachal Pradesh">Arunachal Pradesh / अरुणाचल प्रदेश</option>
-                                            <option id="4" value="Assam">Assam / असम</option>
-                                            <option id="5" value="Bihar">Bihar / बिहार</option>
-                                            <option id="6" value="Chandigarh">Chandigarh / चंडीगढ़</option>
-                                            <option id="7" value="Chhattisgarh">Chhattisgarh / छत्तीसगढ़</option>
-                                            <option id="8" value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu / दादरा और नागर हवेली और दमन और दीव</option>
-                                            <option id="9" value="Delhi">Delhi / दिल्ली</option>
-                                            <option id="10" value="Goa">Goa / गोवा</option>
-                                            <option id="11" value="Gujarat">Gujarat / गुजरात</option>
-                                            <option id="12" value="Haryana">Haryana / हरियाणा</option>
-                                            <option id="13" value="Himachal Pradesh">Himachal Pradesh / हिमाचल प्रदेश</option>
-                                            <option id="14" value="Jammu and Kashmir">Jammu and Kashmir / जम्मू और कश्मीर</option>
-                                            <option id="15" value="Jharkhand">Jharkhand / झारखंड</option>
-                                            <option id="16" value="Karnataka">Karnataka / कर्नाटक</option>
-                                            <option id="17" value="Kerala">Kerala / केरल</option>
-                                            <option id="18" value="Ladakh">Ladakh / लद्दाख</option>
-                                            <option id="19" value="Lakshadweep">Lakshadweep / लक्षद्वीप</option>
-                                            <option id="20" value="Madhya Pradesh">Madhya Pradesh / मध्य प्रदेश</option>
-                                            <option id="21" value="Maharashtra">Maharashtra / महाराष्ट्र</option>
-                                            <option id="22" value="Manipur">Manipur / मणिपुर</option>
-                                            <option id="23" value="Meghalaya">Meghalaya / मेघालय</option>
-                                            <option id="24" value="Mizoram">Mizoram / मिजोरम</option>
-                                            <option id="25" value="Nagaland">Nagaland / नागालैंड</option>
-                                            <option id="26" value="Odisha">Odisha / उड़ीसा</option>
-                                            <option id="27" value="Puducherry">Puducherry / पुडुचेरी</option>
-                                            <option id="28" value="Punjab">Punjab / पंजाब</option>
-                                            <option id="29" value="Rajasthan">Rajasthan / राजस्थान</option>
-                                            <option id="30" value="Sikkim">Sikkim / सिक्किम</option>
-                                            <option id="31" value="Tamil Nadu">Tamil Nadu / तमिलनाडु</option>
-                                            <option id="32" value="Telangana">Telangana / तेलंगाना</option>
-                                            <option id="33" value="Tripura">Tripura / त्रिपुरा</option>
-                                            <option id="34" value="Uttar Pradesh">Uttar Pradesh / उत्तर प्रदेश</option>
-                                            <option id="35" value="Uttarakhand">Uttarakhand / उत्तराखंड</option>
-                                            <option id="36" value="West Bengal">West Bengal / पश्चिम बंगाल</option>   
-                                            <option id="37" value="Other">Other / अन्य</option>                                          
-                                        </select>
-                                        @if (registerForm.get('State')?.touched && registerForm.get('State')?.errors?.['required']) {
-                                            <small class="text-danger ms-1"><b> Valid State Name Is Required.</b></small>
-                                          } 
+                                    <label>
+                                       <b>Pin Code / पिनकोड <label class="text-danger fw-bold">*</label></b></label>
+                                    <input formControlName="PinCode" name="PinCode" type="text" value="" (change)="getMyPin()" id="PPinCode" placeholder="Enter Pin Code " required class=" form-control shadow rounded border-1 border-success">
+                               @if (registerForm.get('PinCode')?.touched && registerForm.get('PinCode')?.errors?.['required']) {
+                                    <small class="text-danger ms-1"><b> Valid Pin Code Is Required.</b></small>
+                                  }
+                                  @if (registerForm.get('PinCode')?.hasError('pattern')) {
+                                    <small class="text-danger ms-1"><b>Please Enter A Valid 6-Digit PIN Code.</b></small>
+                                  }  
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>
                                         <b>District / जिला <label class="text-danger fw-bold">*</label></b></label>
-                                    <input formControlName="District" name="District" type="text" value="" id="PDist" placeholder="Enter District Name" required class=" text-capitalize form-control shadow rounded border-1 border-success">
+                                    <input formControlName="District" name="District"  type="text" value="" id="PDist" placeholder="Enter District Name" required class=" text-capitalize form-control shadow rounded border-1 border-success">
                                     @if (registerForm.get('District')?.touched && registerForm.get('District')?.errors?.['required']) {
                                         <small class="text-danger ms-1"><b> Valid District Name Is Required.</b></small>
                                       }
@@ -468,15 +432,11 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label>
-                                       <b>Pin Code / पिनकोड <label class="text-danger fw-bold">*</label></b></label>
-                                    <input formControlName="PinCode" name="PinCode" type="text" value="" id="PPinCode" placeholder="Enter Pin Code " required class=" form-control shadow rounded border-1 border-success">
-                               @if (registerForm.get('PinCode')?.touched && registerForm.get('PinCode')?.errors?.['required']) {
-                                    <small class="text-danger ms-1"><b> Valid Pin Code Is Required.</b></small>
-                                  }
-                                  @if (registerForm.get('PinCode')?.hasError('pattern')) {
-                                    <small class="text-danger ms-1"><b>Please Enter A Valid 6-Digit PIN Code.</b></small>
-                                  }  
+                                    <label><b>State / राज्य <label class="text-danger fw-bold">*</label></b></label>
+                                        <input formControlName="State" name="State" type="text" value="" id="State" placeholder="Enter State Name" required class="text-capitalize form-control shadow rounded border-1 border-success">
+                                        @if (registerForm.get('State')?.touched && registerForm.get('State')?.errors?.['required']) {
+                                            <small class="text-danger ms-1"><b> Valid State Name Is Required.</b></small>
+                                          } 
                                 </div>
                             </div>
                         </div>
@@ -524,19 +484,22 @@ I do hereby declare that the information given above related to my Name, Categor
             <label for="captcha" class=""><b><i class="fa-solid fa-code-compare"></i>
                 Captcha / कृपया कैप्चा को दर्ज करें ! : <label class="text-danger fw-bold">*</label></b></label>
             <div class="d-flex justify-content-between">
-                <input formControlName="InputCaptcha" name="InputCaptcha" type="text" class="me-2 form-control shadow p-2 border border-1 border-success"
+                <input formControlName="InputCaptcha" name="InputCaptcha" type="text" onchange="MatchCaptcha()" class="me-2 form-control shadow p-2 border border-1 border-success"
                     id="captcha-input" placeholder="Enter Captcha Code" required />
                 <div type="text" class=" shadow p-2 me-2 border "
                     id="captcha-text">
                     <b><i class="user-select-none fs-5 fw-bold" id="captcha-code">{{ captchaText }}</i></b>
                 </div>
 
-                <button type="submit" class="btn btn-danger btn-outline-dark text-light">
+                <button type="submit" class="btn btn-primary btn-outline-dark text-light">
                     <b><i  (click)="generateCaptcha()" class="fas fa-sync fa-2x"></i></b>
                 </button>
             </div>
             @if (registerForm.get('InputCaptcha')?.touched && registerForm.get('InputCaptcha')?.errors?.['required']) {
                 <small class="text-danger ms-1"><b> Input Captcha Code Is Required.</b></small>
+              }
+              @if (registerForm.get('InputCaptcha')?.hasError('maxlength')||registerForm.get('InputCaptcha')?.hasError('minlength')) {
+                <small class="text-danger ms-1"><b> Input Captcha Code Min&Max 8 Chars.</b></small>
               }
         </div>
     </div>

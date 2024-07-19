@@ -7,7 +7,8 @@ import { FootslideComponent } from '../../Layouts/footslide/footslide.component'
 import { FooterComponent } from '../../Layouts/footer/footer.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RegisterService } from '../../Services/register/register.service';
-
+import Swal from 'sweetalert2';
+import { NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-register',
@@ -30,11 +31,10 @@ ViewProfileUrl:any | null =null;
  allowedTypes = ['image/png', 'image/jpeg', 'image/jpg'];
 
 
-
-  constructor(private FBuilder: FormBuilder, public RegisterService: RegisterService) {
+  constructor(private FBuilder: FormBuilder, public RegisterService: RegisterService,private toast:NgToastService) {
     this.registerForm = this.FBuilder.group({
       Name: ['Lomash', [Validators.required, Validators.pattern('^[a-zA-Z]+(?:\\s[a-zA-Z]+){0,2}$'), Validators.maxLength(30)]],
-      Dob: ['', [Validators.required]],
+      Dob: ['', [Validators.required,]],
       Gender: ['Male', [Validators.required]],
       Category: ['GENERAL', [Validators.required]],
       MaritalStatus: ['Married', [Validators.required]],
@@ -43,7 +43,7 @@ ViewProfileUrl:any | null =null;
       RelativeName: ['Ram', [Validators.required,Validators.pattern('^[a-zA-Z]+(?:\\s[a-zA-Z]+){0,2}$'), Validators.maxLength(30)]],
       MotherName: ['Rani', [Validators.required,Validators.pattern('^[a-zA-Z]+(?:\\s[a-zA-Z]+){0,2}$'), Validators.maxLength(30)]],
       Nationality: ['Indian', [Validators.required]],
-      DomicileCG: ['', [Validators.required]],
+      DomicileCG: ['Yes', [Validators.required]],
       DomecileDistrict: ['Dhamtari', [Validators.required]],
       Disabilities: ['No', [Validators.required]],
       FamilyYearlyIncome: ['80000', [Validators.required]],
@@ -58,131 +58,112 @@ ViewProfileUrl:any | null =null;
       HouseNo: ['900', [Validators.required]],
       Street: ['Raipur', [Validators.required]],
       CityVillage: ['Dhamtari', [Validators.required]],
-      State: ['Chhattishgarh', [Validators.required]],
-      District: ['Raipur', [Validators.required]],
-      PinCode: ['493773', [Validators.required,Validators.pattern(/^[1-9][0-9]{5}$/)]],
+      State: ['', [Validators.required]],
+      District: ['', [Validators.required]],
+      PinCode: ['', [Validators.required,Validators.pattern(/^[1-9][0-9]{5}$/)]],
       DeclarationCheck: [false, [Validators.requiredTrue]],
-      InputCaptcha: ['', [Validators.required]],
+      InputCaptcha: ['', [Validators.required,Validators.minLength(8),Validators.maxLength(8)]],
       InputOtp: ['997767', [Validators.required]]
     });
   }
 
-  // onSubmit() {
-  //   console.log(this.registerForm.value);
-  //   // Handle form submission
-  //   if (this.registerForm.valid) {
-  //     console.log(this.registerForm.value);
-  //     // You can send the form data to your backend or handle it as per your requirement
-
-  //     // Value Transfer Another Variable 
-  //     const RegisterFormData = this.registerForm.value;
-  //     this.RegisterService.sendRegister(RegisterFormData).subscribe(response => {
-  //       this.serverResponse = response.message;
-  //     // lib msg
-  //       this.registerForm.reset(); // Reset form after successful submission my form 
-  //     }, error => {
-  //       this.serverResponse = error.message;
-  // // lib msg
-  //     });
-
-  //   }
-  // }
-
-
-
-
-
-
   onSubmit() {
+    // Handle form submission
+    console.log(this.registerForm.value);
     if (this.registerForm.valid) {
-      const formData: FormData = new FormData();
-  
-      // Append regular form fields
+      const RegisterFormData = new FormData();  
+      RegisterFormData.append('ProfileImage', this.registerForm.value.ProfileImage);
+      RegisterFormData.append('SignatureImage', this.registerForm.value.SignatureImage);
+
       Object.keys(this.registerForm.value).forEach(key => {
         if (key !== 'ProfileImage' && key !== 'SignatureImage') {
-          formData.append(key, this.registerForm.value[key]);
+          RegisterFormData.append(key, this.registerForm.value[key]);
         }
       });
-  
-      // Append file inputs with null checks
-      const profileImage = (this.registerForm.get('ProfileImage')?.value as FileList)[0];
-      const signatureImage = (this.registerForm.get('SignatureImage')?.value as FileList)[0];
-  
-      if (profileImage && signatureImage) {
-        formData.append('ProfileImage', profileImage, profileImage.name);
-        formData.append('SignatureImage', signatureImage, signatureImage.name);
-  
-        this.RegisterService.sendRegister(formData).subscribe(
-          response => {
-            this.serverResponse = response.message;
-            this.registerForm.reset(); // Reset form after successful submission
-          },
-          error => {
-            this.serverResponse = error.message;
-          }
-        );
-      } else {
-        this.serverResponse = 'Profile Image and Signature Image are required';
-      }
+     // Testing Final Data
+      console.log("Final Value =>",RegisterFormData);
+      RegisterFormData.forEach((value, key) => {
+        console.log(`${key}: ${value}`);
+      });
+      this.RegisterService.UserRegister(RegisterFormData).subscribe(response => {
+        this.serverResponse = response.message;
+        // lib msg
+        this.registerForm.reset(); // Reset form after successful submission my form 
+      }, error => {
+        this.serverResponse = error.message;
+        // lib msg
+      });
     }
   }
-  
+
+// Image Pick With Validation 
+// Validate image type and size
+private validateImage(file: File): boolean {
+  const allowedTypes = ['image/jpeg', 'image/png', 'image/jpg'];
+  const maxSize = 150 * 1024; // 150 KB
+  const minSize = 30 * 1024; // 30 KB
+  if (!allowedTypes.includes(file.type)) {
+    alert('Only JPG, JPEG, and PNG Formats Are Allowed.');
+    return false;
+  }
+
+  if (file.size < minSize || file.size > maxSize) {
+    alert('Image Size Must Be Between 30 KB And 150 KB.');
+    return false;
+  }
+
+  return true;
+}
+
+// Select Profile Image
+onChangeProfileImage(event: any) {
+  const Imgfile = event.target.files?.[0];
+  if (Imgfile && this.validateImage(Imgfile)) {
+    const reader = new FileReader();
+    reader.readAsDataURL(Imgfile);
+    reader.onload = () => {
+      this.ViewProfileUrl= reader.result;
+    };
+    this.registerForm.get('ProfileImage')?.setValue(Imgfile);
+  } else {
+    this.ViewProfileUrl = null;
+    this.registerForm.get('ProfileImage')?.setValue(null);
+  }
+}
 
 
-
-
-
-
-
-
-
-
-
-
-// PinCode To Distict Name 
-OnInit(): void {
-  this.registerForm.get('PinCode')?.valueChanges.subscribe(value => {
-    if (this.registerForm.get('PinCode')?.valid) {
-      this.RegisterService.getPinCode(value).subscribe(response => {
-        if (response[0].Status === 'Success') {
-          const postOffice = response[0].PostOffice[0];
-          this.registerForm.patchValue({
-            District: postOffice.District
-          });
-        }
-      });
-    }
-  });
+// Select Signature Image
+onChangeSignatureImage(event: any) {
+  const Imgfile = event.target.files?.[0];
+  if (Imgfile && this.validateImage(Imgfile)) {
+    const reader = new FileReader();
+    reader.readAsDataURL(Imgfile);
+    reader.onload = () => {
+      this.ViewSignUrl= reader.result;
+    };
+    this.registerForm.get('SignatureImage')?.setValue(Imgfile);
+  } else {
+    this.ViewSignUrl = null;
+    this.registerForm.get('SignatureImage')?.setValue(null);
+  }
 }
 
 
 
 
-
-
-
-
-  // Select Image ProfileImage
-  onChangeProfileImage(event: any) {
-    const file = event.target.files?.[0];
-    this.registerForm.get('ProfileImage')?.setValue(file || null);
+// PinCode To Distict Name 
+getMyPin() {
+      const MyPinCode = this.registerForm.get('PinCode')?.value;
+      if(MyPinCode){
+        this.RegisterService.getPinCode(MyPinCode).subscribe(response => {
+          if (response[0].Status === 'Success') {
+            const postOffice = response[0].PostOffice[0];
+              this.registerForm.patchValue({ District:postOffice.District});
+              this.registerForm.patchValue({ State:postOffice.Circle});
+          }
+        });
+      }
   }
-  // Select Image SignatureImage
-  onChangeSignatureImage(event: any) {
-    const file = event.target.files?.[0];
-    this.registerForm.get('SignatureImage')?.setValue(file || null);
-    
-    const reader = new FileReader();
-    reader.onload = (e: any) => {
-      this.ViewSignUrl = e.target.result;
-    };
-
-  }
-
-  
-  
-
-
 
 // Max Dob Date
 todayDate(): string {
@@ -217,10 +198,28 @@ todayDate(): string {
     }
     this.captchaText = captcha;
   }
+
+// Validate Captcha 
+MatchCaptcha(){
+  if(this.captchaText===this.registerForm.value.InputCaptcha)
+    {
+      this.registerForm.patchValue({InputCaptcha:''});
+      this.registerForm.get('InputCaptcha')?.setErrors(null); // Clear any previous errors
+  } else {
+    this.registerForm.get('InputCaptcha')?.setValue(null);
+    this.registerForm.get('InputCaptcha')?.setErrors({ invalid: true });
+    alert("incorrect captcha");
+    this.generateCaptcha(); // Generate captcha on 
+  }
+}
+  // Captcha Close 
+
+  // Auto Call Function on Loads 
 ngOnInit() {
     this.generateCaptcha(); // Generate captcha on component initialization
+    this.getMyPin();// for pin code 
   }
-  // Captcha Close 
+
 
 
 

@@ -5,12 +5,15 @@ const cors = require('cors');
 const contactRoute =require('./Routes/contactRoute');
 const registerRoute =require('./Routes/registerRoute');
 const userLoginRoute =require('./Routes/userLoginRoute');
+const notificationRoute =require('./Routes/notificationRoute');
+
 
 //  object for express
 const app = express();
 
 // Middleware
 app.use(BodyParser.json());
+app.use(express.json());
 app.use(BodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
@@ -27,13 +30,35 @@ app.get("/", (req, res) => {
     res.render('index');
 });
 
+// const storage = multer.diskStorage({
+//     destination: function (req, file, cb) {
+//     //   const uploadPath = path.join(__dirname, './Uploads/Profile-Sign');
+//     //   fs.mkdirSync(uploadPath, { recursive: true }); // Ensure the directory exists
+//     //   console.log('Destination path:', uploadPath);
+//     //   cb(null, uploadPath);
+//     cb(null,'../Uploads/Profile-Sign');
+//     },
+//     filename: function (req, file, cb) {
+//       const filename = `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`;
+//       console.log('Filename:', filename);
+//       cb(null, filename);
+//     }
+//   });
+//   const upload = multer({ storage: storage });
+
+//   app.use(express.static('./Uploads'));
+
  
 // Calling Routing Apis -
 app.use('/api/post',contactRoute);
 app.use('/api/post',registerRoute);
 app.use('/api/post',userLoginRoute);
+app.use('/api/get',notificationRoute);
 
-  // Start the server
+
+// Listening to the port
 app.listen(PORT, () => {
-    console.log(`Kanker Recruitment Portal Server Is Running On => http://localhost:${PORT}`);
+    console.log('Project :- Kanker Recruitment Portal');
+    console.log(`\x1b[31mBacked Api Is Running On => http://localhost:${PORT}\x1b[0m`);
+    console.log('Developed By. Lomash Rishi');
   });

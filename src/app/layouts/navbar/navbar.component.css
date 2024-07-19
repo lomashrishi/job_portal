@@ -21,6 +21,7 @@ border:solid 2px #ffffff;
     border-radius:5px;
     border:solid 2px #ffffff;
   background-color: #f88c26;
+
 }
 .Home-Icon{
     font-weight: bold;
@@ -72,12 +73,17 @@ color:white;
      text-align:left;
     }
 
-    .nav-ul {
+    /* .nav-ul {
         padding: 0%;
         margin-top: 11px;
         margin-bottom: 11px;
-    }
+    } */
 
 }
 
+
+.nav-ul {
+display:flex;
+ gap: 11px;
+}
 

@@ -1,44 +1,27 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
 @Injectable({
   providedIn: 'root'
 })
 export class RegisterService {
+constructor(private http: HttpClient) { } //Constructor
+ 
+// User Register Function 
+UserRegister(RegisterFormData: any,): Observable<any> {
+    const ApiUrl = 'http://localhost:3000/api/post/register';  //Post Register Api For User
+    console.log("Service Data=>",RegisterFormData);
+    return this.http.post(ApiUrl, RegisterFormData); // Call Back Response With Send Data 
+  }
 
-  private pincodeApiUrl = 'https://api.postalpincode.in/pincode/';
+  // Pin Code 
+  getPinCode(PinCode:any): Observable<any> {
+    const pincodeApiUrl = 'https://api.postalpincode.in/pincode/';
+    const PinApiUrl = pincodeApiUrl + PinCode; // Post Link API
+     return this.http.get(PinApiUrl);
+   }
 
 
-  constructor(private http: HttpClient) {}
-  // sendRegister(RegisterFormData: any): Observable<any> {
-  //   const ApiUrl='http://localhost:3000/api/post/register'; // Post Link API 
-  //   const headers = new HttpHeaders({ 'Content-Type': 'application/json' });// Set appropriate headers if needed
-  //   // Post the data to the API
-  //   return this.http.post(ApiUrl,RegisterFormData, { headers });
-  // }
-
-
-
-
-  sendRegister(RegisterFormData: any): Observable<any> {
-    const ApiUrl = 'http://localhost:3000/api/post/register'; // Post Link API 
-
-    // Construct FormData
-    const formData: FormData = new FormData();
-    for (const key in RegisterFormData) {
-      if (RegisterFormData.hasOwnProperty(key)) {
-        if (key === 'ProfileImage' || key === 'SignatureImage') {
-          // Assuming RegisterFormData[key] is a File object for ProfileImage and SignatureImage
-          formData.append(key, RegisterFormData[key], RegisterFormData[key].name);
-        } else {
-          formData.append(key, RegisterFormData[key]);
-        }
-      }
-    }
-
-    // Post the data to the API
-    return this.http.post(ApiUrl, formData);
   }
 
 
@@ -46,9 +29,3 @@ export class RegisterService {
 
 
 
-  getPinCode(PinCode:any): Observable<any> {
-   const PinApiUrl = this.pincodeApiUrl + PinCode; // Post Link API
-    return this.http.get(PinApiUrl);
-  }
-
-}
