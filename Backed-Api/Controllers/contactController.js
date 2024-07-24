@@ -3,6 +3,7 @@ const conn = require('../Configs/db');
 const contactData = async(req, res) => {
       // Access the request body
       const { name,email, mobile,message} = req.body;
+      console.log(name,email, mobile,message);
       // Validate required fields
       if (!name || !email || !mobile || !message) {
         return res.status(400).json({ error: 'All Fields Are Required' });

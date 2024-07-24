@@ -41,7 +41,7 @@ function storeOTP(phoneNumber, otp) {
 }
 
 // Endpoint to handle OTP requests
-app.post('/send-otp', async (req, res) => {
+app.post('', async (req, res) => {
     const { phoneNumber } = req.body;
     const otp = generateOTP();
 
@@ -57,8 +57,4 @@ app.post('/send-otp', async (req, res) => {
     } catch (error) {
         res.json({ status: "error", message: error.message });
     }
-});
-
-app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
 });

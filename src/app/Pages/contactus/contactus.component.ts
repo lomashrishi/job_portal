@@ -8,9 +8,6 @@ import { FootslideComponent } from '../../Layouts/footslide/footslide.component'
 import { FooterComponent } from '../../Layouts/footer/footer.component';
 import { ContactService } from '../../Services/contact/contact.service';
 import { NgToastService } from 'ng-angular-popup';
-
-
-
 @Component({
   selector: 'app-contactus',
   standalone:true,

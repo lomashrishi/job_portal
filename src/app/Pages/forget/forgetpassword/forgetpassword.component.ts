@@ -17,7 +17,7 @@ export class ForgetpasswordComponent {
     this.changetype = !this.changetype; 
   }
   
-  // Captcha Code 
+  // Captcha Code
   captchaText: string = '';
     generateCaptcha(): void {
       const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&abcdefghijklmnopqrstuvwxyz';

@@ -1,7 +1,6 @@
 import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TopnavComponent } from '../../Layouts/topnav/topnav.component';
 import { HeaderComponent } from '../../Layouts/header/header.component';
 import { NavbarComponent } from '../../Layouts/navbar/navbar.component';
@@ -45,7 +44,8 @@ onSubmit(){
         if(response.token){
           this.Token = response.token; //Token Recived From Bakend
                   // alert(this.Token);
-        localStorage.setItem("token",response.token); //store in local storage in browser 
+        localStorage.setItem("token", this.Token); //store in local storage in browser 
+        sessionStorage.setItem("token", this.Token);
         }
 
         // Response MsG
@@ -54,13 +54,12 @@ onSubmit(){
         Toast.fire({icon: "success",title: "Successfully...",text:this.serverResponse.message});
         // this.LoginForm.reset(); // Reset form after successful submission my form 
             // Redirect to /user route after successful login
-          
             this.router.navigate(['/user-dashboard']);
       }, error => {
-        this.serverResponse = error.message;    
-        Swal.fire({icon: "error",title: "Oops...",text:"Failed:-"+this.serverResponse.message,timer:3000, footer: '<a routerLink="/register"><small><b>New Users Must Registered Before Login.</b></small></a>'});
+        this.serverResponse = error.error.message;    
+         // Display error message in an alert
+        Swal.fire({icon: "error",title: "Oops...",text:"Failed:-"+this.serverResponse,timer:3000, footer: '<a routerLink="/register"><small><b>New Users Must Registered Before Login.</b></small></a>'});
       } );
-  
     }
     else{
       this.toast.error({detail:"Error Message",summary:"Failed:-"+"Captcha Code Is Not Valid !..",duration:5000, position:'topRight'});     
@@ -87,8 +86,20 @@ captchaText: string = '';
     } 
     this.captchaText = captcha;
   }
+
+// check for login already login 
+  // checkIfLoggedIn(): void {
+  //   const Token = localStorage.getItem('token') || sessionStorage.getItem('token');
+  //   if (Token) {
+  //     alert('You Are Already Logged in.');
+  //     this.router.navigate(['/user-dashboard']); // Redirect to profile or another page
+  //   }
+  // }
+
+
   ngOnInit() {
     this.generateCaptcha(); // Generate captcha on component initialization
+   // this.checkIfLoggedIn();  // For Login Check 
   }
 //Captcha Code Close 
 

@@ -90,8 +90,9 @@ ViewProfileUrl:any | null =null;
         // lib msg
         this.registerForm.reset(); // Reset form after successful submission my form 
       }, error => {
-        this.serverResponse = error.message;
+        this.serverResponse = error.error.message;
         // lib msg
+        alert(this.serverResponse);
       });
     }
   }

@@ -39,13 +39,13 @@ export const routes: Routes = [
 
     {'path':'boss','title':'Admin-Home-Page | Kanker Recruitment Portal',component:BhomepageComponent},
  
-    { 'path':'boss',children:[  
-        {'path':'ab','title':'Admin-Profile-Page | Kanker Recruitment Portal',component:AboutusComponent},
-        {'path' : 'cb','title':'abt', component: ContactbComponent },
+    // { 'path':'boss',children:[  
+    //     {'path':'ab','title':'Admin-Profile-Page | Kanker Recruitment Portal',component:AboutusComponent},
+    //     {'path' : 'cb','title':'abt', component: ContactbComponent },
 
-        {'path':'**','title':'Erorr 404 | Admin Page Not Found !..', component:UserPageNotFoundComponent}
-        ]
-    },
+    //     {'path':'**','title':'Erorr 404 | Admin Page Not Found !..', component:UserPageNotFoundComponent}
+    //     ]
+    // },
   
 
 

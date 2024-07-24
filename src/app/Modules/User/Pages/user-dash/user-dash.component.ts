@@ -16,6 +16,10 @@ import { JobTopicsComponent } from '../../Components/job-topics/job-topics.compo
 })
 export class UserDashComponent {
 
+
+ token = localStorage.getItem('token');
+ 
+
   jobs:any[] = [
     {
       jobTitle: 'Press release for the post of Lab Attendant',
