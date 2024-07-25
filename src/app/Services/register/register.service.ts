@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 export class RegisterService {
 
 // private ApiUrl = environment.apiUrl; // Use the API base URL from environment files
-private ApiUrl = 'http://localhost:3000/post/register'; // Use the API base URL from
+private ApiUrl = 'http://localhost:3000/api/post/register'; // Use the API base URL from
 
 constructor(private http: HttpClient) { } //Constructor
 // User Register Function 

@@ -6,8 +6,7 @@ const contactRoute =require('./Routes/contactRoute');
 const registerRoute =require('./Routes/registerRoute');
 const userLoginRoute =require('./Routes/userLoginRoute');
 const notificationRoute =require('./Routes/notificationRoute');
-
-
+const currentJobRoute = require('./Routes/currentJobRoute');
 //  object for express
 const app = express();
 
@@ -54,6 +53,7 @@ app.use('/api/post',contactRoute);
 app.use('/api/post',registerRoute);
 app.use('/api/post',userLoginRoute);
 app.use('/api/get',notificationRoute);
+app.use('/api/get',currentJobRoute);
 
 
 // Listening to the port

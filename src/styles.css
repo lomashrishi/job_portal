@@ -19,6 +19,7 @@ body{
     background: rgb(153,159,255);
     background: radial-gradient(circle, rgba(153,159,255,0.9360994397759104) 0%, rgba(246,153,255,0.9080882352941176) 100%);
     /* Bg Blur */
+  
     filter: blur(0.5);
 
 }

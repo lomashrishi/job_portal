@@ -4,7 +4,7 @@
  <!-- Main Contents -->
 <div class="container mt-2 mb-3 p-0  rounded" style="background-color: #e9edff;">
      <div class="px-2 py-2 border-bottom-1 rounded d-flex align-items-center bg-light-subtle text-info fw-bolder fs-3">
-        <b>Dashboard {{token}}</b><a href="https://kanker.gov.in"><strong></strong></a>
+        <b>Dashboard</b><a href="https://kanker.gov.in"><strong></strong></a>
       </div>
       <hr class="p-1 mt-0 bg-primary ">
 <!-- row one for cards  -->
@@ -99,73 +99,52 @@
     <!-- code -->
     <div class="container p-3 bg-light border rounded">
         <h3 class="text-center fw-bolder text-primary">Currunt Opnings</h3>
-        <div class="table-responsive p-0 shadow rounded">
-          <table class="table table-bordered table-striped  border border-dark  ">
-            <thead class=" thead table-danger border-3 border-black rounded-top">
-              <tr class="fw-bolder fs-5 p-0 border border-dark text-center ">
-                <th class="">S.No</th>
-                <th class="">Job Title</th>
-                <th class=""> Job Description</th>
-                <th>Start Date</th>
-                <th>End Date</th>
-                <th>PDF File</th>
-                <th>Apply Now</th>
-              </tr>
-            </thead>
-            <tbody class="tbody">
-              <!-- <tr class=" text-center ">
-                <td class="fw-bolder  text-dark">1.</td>
-                <td>Press release for the post of Lab Attendant</td>
-                <td>Press release dated 11.12 for information regarding invitation of claim objection for the post of Lab Attendant.</td>
-                <td>11/12/2023</td>
-                <td>31/12/2023</td>
-                <td><i class="fa-solid fa-file-pdf"></i><a href="#" target="_blank"><small>View (4 MB)</small></a></td>
-                <td><button class="btn btn-warning text-center"><h6 class="text-light fw-blod">Apply</h6></button></td>
-            </tr> -->
-            <tr *ngFor="let job of jobs; let i = index" class="text-center">
-                <td class="fw-bolder text-dark">{{ i + 1 }}</td>
-                <td>{{ job.jobTitle }}</td>
-                <td>{{ job.jobDescription }}</td>
-                <td>{{ job.startDate }}</td>
-                <td>{{ job.endDate }}</td>
-                <td>
-                  <a href="{{ job.pdfUrl }}" target="_blank">
-                    <i class="fa-solid fa-file-pdf"></i>
-                    <small>View (4 MB)</small>
-                  </a>
-                </td>
-                <td>
-                <a href="#"> <button class="btn btn-warning text-center" >
-                    <h6 class="text-light fw-bolder">Apply</h6>
-                  </button></a>
-                </td>
-              </tr>
-              
-<!-- 
-            @for(let job of jobs let i = $index) {
-                <tr class="text-center">
-                  <td class="fw-bolder text-dark">{{ i + 1 }}</td>
-                  <td>{{ job.jobTitle }}</td>
-                  <td>{{ job.jobDescription }}</td>
-                  <td>{{ job.startDate }}</td>
-                  <td>{{ job.endDate }}</td>
+        <div class="table-responsive p-0 shadow rounded border bg-white pb-3">
+            <!-- </table> -->
+            <table class="  table table-bordered table-striped border-3 border border-dark rounded">
+              <thead class="thead table-dark p-0 border">
+                <tr class="fw-blod p-0 border border-white shadow rounded text-center">
+                  <th class="">S.No</th>
+                  <th class="">Title</th>
+                  <th class="">Description</th>
+                  <th>Start Date</th>
+                  <th>End Date</th>
+                  <th>PDF File</th>
+                  <th>Apply Now</th>
+                </tr>
+              </thead>
+              <tbody class="tbody">
+                <tr *ngFor="let CurrentJob  of getPaginatedCurrentJobs(); let i = index" class="text-center align-content-center">
+                  <td class="fw-bolder text-dark">{{ (currentPage - 1) * itemsPerPage + i + 1 }}.</td>
+                  <td>{{ CurrentJob .Title }}</td>
+                  <td>{{ CurrentJob .Description }}</td>
+                  <td>{{ CurrentJob .Start_Date | date: 'dd/MM/yy' }}</td>
+                  <td>{{ CurrentJob .End_Date | date: 'dd/MM/yy' }}</td>
                   <td>
-                    <a href="{{ job.pdfUrl }}" target="_blank">
-                      <i class="fa-solid fa-file-pdf"></i>
-                      <small>View (4 MB)</small>
+                    <a href="{{ CurrentJob .PDF_File }}" target="_blank">
+                      <i class="fa-solid fa-file-pdf text-bg-danger p-1 rounded border border-2 border-white"></i>
+                      <small class="fw-bold text-black">Open-File</small>
                     </a>
                   </td>
                   <td>
-                    <button class="btn btn-warning text-center" (click)="applyForJob(job.applyLink)"> <h6 class="text-light fw-bolder">Apply</h6>
-                    </button>
+                    <a href="{{ CurrentJob .Apply_Now }}">
+                      <button class="btn btn-warning text-center">
+                        <h6 class="text-light fw-bolder">Apply</h6>
+                      </button>
+                    </a>
                   </td>
                 </tr>
-              }
-        -->
-              
-            </tbody>
-          </table>
-        </div>
+              </tbody>
+
+            </table>
+            
+            <div class="d-flex justify-content-between mt-3 bg-white rounded fw-bold p-2">
+              <button class="btn btn-primary fw-bold" (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+              <span >Page {{ currentPage }} of {{ totalPages }}</span>
+              <button class="btn btn-primary fw-bold" (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages">Next</button>
+            </div>
+            
+          </div>
       </div>
 
 

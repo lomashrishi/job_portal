@@ -19,6 +19,5 @@ conn.connect((err) => {
     console.log('Connected To MySQL Successfully...');
     }
 });
-
 // Export the connection object to be used in other modules
 module.exports = conn;

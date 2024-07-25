@@ -14,6 +14,7 @@ import { ContactbComponent } from './Modules/Boss/contactb/contactb.component';
 import { UserProfileComponent } from './Modules/User/Pages/user-profile/user-profile.component';
 import { UserDashComponent } from './Modules/User/Pages/user-dash/user-dash.component';
 import { UserPageNotFoundComponent } from './Modules/User/Pages/user-page-not-found/user-page-not-found.component';
+import { AuthGuard } from './Guard/auth.guard';
 
 
 export const routes: Routes = [
@@ -34,9 +35,8 @@ export const routes: Routes = [
     {'path':'gallery','title':'Gallery | Kanker Recruitment Portal', component:GalleryComponent},
 
   
-    {'path':'user-dashboard','title':'User Dashboard Page | Kanker Recruitment Portal',component:UserDashComponent},
-    {'path':'user-profile','title':'User Profile Page | Kanker Recruitment Portal',component:UserProfileComponent},
-
+    {'path':'user-dashboard','title':'User Dashboard Page | Kanker Recruitment Portal',component:UserDashComponent,canActivate: [AuthGuard]},
+    {'path':'user-profile','title':'User Profile Page | Kanker Recruitment Portal',component:UserProfileComponent,canActivate: [AuthGuard]},
     {'path':'boss','title':'Admin-Home-Page | Kanker Recruitment Portal',component:BhomepageComponent},
  
     // { 'path':'boss',children:[  

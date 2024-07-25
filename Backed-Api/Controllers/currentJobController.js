@@ -1,11 +1,16 @@
 const conn = require('../Configs/db');
+const authenticateToken = require('../Middlewares/authMiddleware'); // Import the middleware
+
 // Your GET endpoint
-const Notifications = async (req, res) => {
+const currentJob = async (req, res) => {
+
   try {
-    const query = "SELECT * FROM `notifications` ORDER BY `S_No` DESC"; // Define the SQL query
+    const data=req.user.email;
+    console.log(data)
+    const query = "SELECT * FROM `notifications` WHERE End_Date >= CURDATE() ORDER BY S_No DESC;"; // Define the SQL query
     const [rows] = await conn.promise().query(query); // Execute the query and wait for the result
     
-    // console.log("Values From Notification", rows);
+    console.log("Values From Notification", rows);
     
     if (rows.length > 0) { // Check if any rows are returned
       res.status(200).json(rows); // Send the data back to the client in JSON format
@@ -20,5 +25,5 @@ const Notifications = async (req, res) => {
 
 // Export
 module.exports = {
-  Notifications
+  currentJob
 };

@@ -5,20 +5,21 @@
 <!-- navbar liks  -->
 <app-navbar></app-navbar>
 <!-- All contant show hear  -->
-<div class="container-flude mt-2 p-1 mb-3">
-    <div class="container page-heading text-center p-0 bg-white rounded shadow">
+<div class="container-flude mt-2 p-1 mb-5">
+    <div class="container page-heading text-center p-0  rounded shadow">
         <h3 style="background-color: #0061b6"
             class="card-header p-2 text-light rounded border border-end-0 border-bottom-0 border-start-0 border-5 border-warning">
-            <strong>Recruitment Notifications</strong>
+            <strong>All Notifications</strong>
         </h3>
-
-        <div class="container mt-2 pb-5 p-2">
+      </div>
+        <div class="m-0">
             <!-- code -->
-            <div class="container p-0">
-                <div class="table-responsive p-0 shadow rounded">
-                  <table class="table table-bordered table-striped border-3 border border-dark rounded ">
-                    <thead class=" thead table-dark p-0 border">
-                      <tr class="fw-blod p-0 border border-white">
+            <div class="container p-0 mt-2">
+                <div class="table-responsive p-0 shadow rounded border bg-white pb-3">
+                  <!-- </table> -->
+                  <table class="table table-bordered table-striped border-3 border border-dark rounded">
+                    <thead class="thead table-dark p-0 border">
+                      <tr class="fw-blod p-0 border border-white shadow rounded text-center">
                         <th class="">S.No</th>
                         <th class="">Title</th>
                         <th class="">Description</th>
@@ -29,44 +30,44 @@
                       </tr>
                     </thead>
                     <tbody class="tbody">
-                      <tr>
-                        <td class="fw-bold">1.</td>
-                        <td>Press release for the post of Lab Attendant</td>
-                        <td>Press release dated 11.12 for information regarding invitation of claim objection for the post of Lab Attendant.</td>
-                        <td>11/12/2023</td>
-                        <td>31/12/2023</td>
-                        <td><i class="fa-solid fa-file-pdf"></i><a href="#" target="_blank"><small>View (4 MB)</small></a></td>
-                        <td><button class="btn btn-primary">Apply</button></td>
+                      <tr *ngFor="let notification of getPaginatedNotifications(); let i = index" class="text-center align-content-center">
+                        <td class="fw-bolder text-dark">{{ (currentPage - 1) * itemsPerPage + i + 1 }}.</td>
+                        <td>{{ notification.Title }}</td>
+                        <td>{{ notification.Description }}</td>
+                        <td>{{ notification.Start_Date | date: 'dd/MM/yy' }}</td>
+                        <td>{{ notification.End_Date | date: 'dd/MM/yy' }}</td>
+                        <td>
+                          <a href="{{ notification.PDF_File }}" target="_blank">
+                            <i class="fa-solid fa-file-pdf text-bg-danger p-1 rounded border border-2 border-white"></i>
+                            <small class="fw-bold text-black">Open-File</small>
+                          </a>
+                        </td>
+                        <td>
+                          <a href="{{ notification.Apply_Now }}">
+                            <button class="btn btn-warning text-center">
+                              <h6 class="text-light fw-bolder">Apply</h6>
+                            </button>
+                          </a>
+                        </td>
                       </tr>
-                      <!-- Add more rows as needed -->
-                      <tr>
-                        <td>Hii</td>
-                        <td>Press release for the post of Lab Attendant</td>
-                        <td>Press release dated 11.12 for information regarding invitation of claim objection for the post of Lab Attendant.</td>
-                        <td>11/12/2023</td>
-                        <td>31/12/2023</td>
-                        <td><i class="fa-solid fa-file-pdf"></i><a href="#" target="_blank"><small>View (4 MB)</small></a></td>
-                        <td><button class="btn btn-warning text-light fw-blod">Apply</button></td>
-                      </tr>
-                              <!-- Add more rows as needed -->
-                              <tr>
-                                <td>Hii</td>
-                                <td>Press release for the post of Lab Attendant</td>
-                                <td>Press release dated 11.12 for information regarding invitation of claim objection for the post of Lab Attendant.</td>
-                                <td>11/12/2023</td>
-                                <td>31/12/2023</td>
-                                <td><i class="fa-solid fa-file-pdf"></i><a href="#" target="_blank"><small>View (4 MB)</small></a></td>
-                                <td><button class="btn btn-primary">Apply</button></td>
-                              </tr>
                     </tbody>
+
                   </table>
+                  
+                  <div class="d-flex justify-content-between mt-3 bg-white rounded fw-bold p-2">
+                    <button class="btn btn-primary fw-bold" (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+                    <span >Page {{ currentPage }} of {{ totalPages }}</span>
+                    <button class="btn btn-primary fw-bold" (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages">Next</button>
+                  </div>
+                  
                 </div>
               </div>
-
-
     </div>
+
 </div>
-</div>
+
+
+
   <!-- Footer Slider -->
   <app-footslide></app-footslide>
   <!-- Footer Component -->

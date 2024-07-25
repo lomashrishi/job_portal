@@ -87,19 +87,19 @@ captchaText: string = '';
     this.captchaText = captcha;
   }
 
-// check for login already login 
-  // checkIfLoggedIn(): void {
-  //   const Token = localStorage.getItem('token') || sessionStorage.getItem('token');
-  //   if (Token) {
-  //     alert('You Are Already Logged in.');
-  //     this.router.navigate(['/user-dashboard']); // Redirect to profile or another page
-  //   }
-  // }
+//check for login already login 
+  checkIfLoggedIn(): void {
+    // const Token = localStorage.getItem('token') || sessionStorage.getItem('token');
+    if (localStorage.getItem('token') || sessionStorage.getItem('token')) {
+      alert('You Are Already Logged in.');
+      this.router.navigate(['/user-dashboard']); // Redirect to profile or another page
+    }
+  }
 
 
   ngOnInit() {
     this.generateCaptcha(); // Generate captcha on component initialization
-   // this.checkIfLoggedIn();  // For Login Check 
+   this.checkIfLoggedIn();  // For Login Check 
   }
 //Captcha Code Close 
 
