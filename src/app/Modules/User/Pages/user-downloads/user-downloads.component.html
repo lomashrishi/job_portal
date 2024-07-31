@@ -1,1 +1,260 @@
-<p>user-downloads works!</p>
+<div class="container">
+    <!-- Basic Information Form -->
+    <h2>Basic Information / मूलभूत जानकारी</h2>
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="mobileNo">Mobile No (मोबाइल नंबर)</label>
+                <input type="text" class="form-control" id="mobileNo" value="">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="candidateName">Candidate's Name (उम्मीदवार का नाम)</label>
+                <input type="text" class="form-control" id="candidateName" value="">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="relativeType">Relative's Type (रिश्तेदार का प्रकार)</label>
+                <select class="form-control" id="relativeType">
+                    <option>--Select--</option>
+                    <option>Father</option>
+                    <option>Husband</option>
+                    <!-- Add other options here -->
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="relativeName">Relative Name (रिश्तेदार का नाम)</label>
+                <input type="text" class="form-control" id="relativeName" value="">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="motherName">Mother's Name (माता का नाम)</label>
+                <input type="text" class="form-control" id="motherName" value="">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="gender">Gender (लिंग)</label>
+                <select class="form-control" id="gender">
+                    <option>--Select--</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Transgender Male</option>
+                    <option>Transgender Female</option>
+                    <!-- Add other options here -->
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="dob">Date of Birth (जन्म तिथि)</label>
+                <input type="date" class="form-control" id="dob" value="">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="nationality">Nationality (राष्ट्रीयता)</label>
+                <select class="form-control" id="nationality">
+                    <option>--Select--</option>
+                    <option>Indian</option>
+                    <option>Other</option>
+                    <!-- Add other options here -->
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="domicile">Domicile of Chhattisgarh (छत्तीसगढ़ के निवासी)</label>
+                <select class="form-control" id="domicile">
+                    <option>--Select--</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                    <!-- Add other options here -->
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="districtDomicile">District Domicile (स्थानीय जिला निवासी)</label>
+                <select class="form-control" id="districtDomicile">
+                    <option value="0">--Select--</option>
+                    <option value="1">Balod</option>
+                    <option value="9">Baloda Bazar</option>
+                    <option value="11">Balrampur</option>
+                    <option value="677">Bastar</option>
+                    <option value="7">Bemetara</option>
+                    <option value="13">Bijapur</option>
+                    <option value="14">Bilaspur</option>
+                    <option value="15">Dantewada</option>
+                    <option value="4">Dhamtari</option>
+                    <option value="8">Durg</option>
+                    <option value="16">Gariaband</option>
+                    <option value="692">Gaurela-Pendra-Marwahi</option>
+                    <option value="17">Janjgir-Champa</option>
+                    <option value="18">Jashpur</option>
+                    <option value="3">Kabirdham</option>
+                    <option value="19">Kanker</option>
+                    <option value="693">Khairagarh-Chhuikhadan-Gandai</option>
+                    <option value="20">Kondagaon</option>
+                    <option value="21">Korba</option>
+                    <option value="22">Koriya</option>
+                    <option value="2">Mahasamund</option>
+                    <option value="694">Manendragarh-Chirmiri-Bharatpur</option>
+                    <option value="695">Mohla-Manpur-Ambagarh Chowki</option>
+                    <option value="23">Mungeli</option>
+                    <option value="24">Narayanpur</option>
+                    <option value="25">Raigarh</option>
+                    <option value="5">Raipur</option>
+                    <option value="6">Rajnandgaon</option>
+                    <option value="696">Sakti</option>
+                    <option value="697">Sarangarh-Bilaigarh</option>
+                    <option value="26">Sukma</option>
+                    <option value="28">Surajpur</option>
+                    <option value="27">Surguja</option>
+
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="category">Category (वर्ग)</label>
+                <select class="form-control" id="category">
+                    <option>--Select--</option>
+                    <option>GENERAL</option>
+                    <option>SC</option>
+                    <option>ST</option>
+                    <option>OBC (NON CREAMY LAYER)</option>
+                    <option>OBC (CREAMY LAYER)</option>
+                    <!-- Add other options here -->
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="income">Family Yearly Income (वार्षिक आय)</label>
+                <input type="text" class="form-control" id="income" value="">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="maritalStatus">Marital Status (वैवाहिक स्थिति)</label>
+                <select class="form-control" id="maritalStatus">
+                    <option>--Select--</option>
+                    <option>Married</option>
+                    <option>Unmarried</option>
+                    <!-- Add other options here -->
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="disability">Person With Disabilities (क्या आप दिव्यांग है?)</label>
+                <select class="form-control" id="disability">
+                    <option>--Select--</option>
+                    <option>No</option>
+                    <option>Yes</option>
+                    <!-- Add other options here -->
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="email">Email ID (ईमेल)</label>
+                <input type="text" class="form-control" id="email" value="">
+            </div>
+        </div>
+    </form>
+
+    <hr>
+
+    <!-- Educational Details Form -->
+    <h2>Educational Details</h2>
+    <form class="edu-details">
+        <div class="table-wrapper">
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Level</th>
+                        <th>Board/University</th>
+                        <th>Roll Number</th>
+                        <th>Passing Year</th>
+                        <th>Percentage</th>
+                        <th>Upload Marksheet</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>10th</td>
+                        <td>
+                            <select class="form-control" id="10thBoardOrUniversity" name="10thBoardOrUniversity"
+                                required>
+                                <option value="">Select</option>
+                                <option value="1">Central Board of Secondary Education (CBSE)</option>
+                                <option value="2">Chhattisgarh Board Of Secondary Education (CGBSE)</option>
+                                <option value="3">Other State Board</option>
+                            </select>
+                        </td>
+                        <td><input type="text" class="form-control" id="10thRollNumber" name="10thRollNumber" required>
+                        </td>
+                        <td>
+                            <select class="form-control" id="10thPassingYear" name="10thPassingYear" required>
+                                <option value="">Select Year</option>
+                                <!-- <option *ngFor="let year of years" [value]="year">{{ year }}</option> -->
+                            </select>
+                        </td>
+                        <td><input type="text" class="form-control" id="10thPercentage" name="10thPercentage" required>
+                        </td>
+                        <td><input type="file" class="form-control-file" id="marksheetUpload10" name="marksheetUpload10"
+                                accept=".pdf, .docx, .doc, .txt"></td>
+                    </tr>
+                    <tr>
+                        <td>12th</td>
+                        <td>
+                            <select class="form-control" id="12thBoardOrUniversity" name="12thBoardOrUniversity"
+                                required>
+                                <option value="">Select</option>
+                                <option value="1">Central Board of Secondary Education (CBSE)</option>
+                                <option value="2">Chhattisgarh Board Of Secondary Education (CGBSE)</option>
+                                <option value="3">Other State Board</option>
+                            </select>
+                        </td>
+                        <td><input type="text" class="form-control" id="12thRollNumber" name="12thRollNumber" required>
+                        </td>
+                        <td>
+                            <select class="form-control" id="12thPassingYear" name="12thPassingYear" required>
+                                <option value="">Select Year</option>
+                                <!-- <option *ngFor="let year of years" [value]="year">{{ year }}</option> -->
+                            </select>
+                        </td>
+                        <td><input type="text" class="form-control" id="12thPercentage" name="12thPercentage" required>
+                        </td>
+                        <td><input type="file" class="form-control-file" id="marksheetUpload12" name="marksheetUpload12"
+                                accept=".pdf, .docx, .doc, .txt"></td>
+                    </tr>
+                    <tr>
+                        <td>Graduation</td>
+                        <td>
+                            <select class="form-control" id="graduationBoardOrUniversity"
+                                name="graduationBoardOrUniversity" required>
+                                <option value="">Select</option>
+                                <option value="1">Amity University, Raipur</option>
+                                <option value="2">Atal Bihari Vajpayee Vishwavidyalaya</option>
+                                <option value="3">Shaheed Mahendra Karma Vishwavidyalaya</option>
+                                <option value="4">kamdhenu Vishwavidyalaya</option>
+                                <option value="5">Swami Vivekanand Technical University</option>
+                                <option value="6">Dr. C. V. Raman University</option>
+                                <option value="7">Indira Gandhi National Open University</option>
+                                <option value="8">Pt. Ravishankar Shukla University</option>
+                            </select>
+                        </td>
+                        <td><input type="text" class="form-control" id="graduationRollNumber"
+                                name="graduationRollNumber" required></td>
+                        <td>
+                            <select class="form-control" id="graduationPassingYear" name="graduationPassingYear"
+                                required>
+                                <option value="">Select Year</option>
+                                <!-- <option For=()"let year of years" [value]="year">{{ year }}</option> -->
+                            </select>
+                        </td>
+                        <td><input type="text" class="form-control" id="graduationPercentage"
+                                name="graduationPercentage" required></td>
+                        <td><input type="file" class="form-control-file" id="marksheetUploadGraduation"
+                                name="marksheetUploadGraduation" accept=".pdf, .docx, .doc, .txt"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <button type="submit" class="btn btn-primary">Continue & Submit</button>
+    </form>
+</div>

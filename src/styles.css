@@ -24,9 +24,6 @@ body{
 
 }
 
-::-webkit-scrollbar {
-  width:9px; /* Set the width of the scrollbar */
-}
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
@@ -42,6 +39,9 @@ body{
   border-radius:9px;
 }
 
+::-webkit-scrollbar {
+  width:9px; /* Set the width of the scrollbar */
+}
 
 
 /* cp */
@@ -241,7 +241,7 @@ body{
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 40px;
 }
 

@@ -1,1 +1,77 @@
-<p>user-feedback works!</p>
+<app-user-nav></app-user-nav>
+<app-user-side-nav></app-user-side-nav>
+
+<div class="container-flude mt-2 p-1 mb-3">
+  <div class="container page-heading  p-0 bg-white rounded shadow">
+    <h3 style="background-color: #ea5a0c"
+      class="card-header p-2 text-light text-center rounded border border-end-0 border-bottom-0 border-start-0 border-5 border-primary">
+      <strong>Feedback Page</strong>
+    </h3>
+
+    <div class="container mt-5 vh-100">
+      <div class="row d-flex  justify-content-center contact-row  pt-5  m-5 ">
+        <div class="col-lg-8 con-form  pt-5 pb-3">
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="con-form">
+            <div class="form-floating mb-3">
+              <input type="text" formControlName="name" class="form-control rounded border-1 border-dark" id="name"
+                placeholder="Enter your name" required />
+              <label for="name"><b><i class="fa-solid fa-user-tie"></i> Name :</b></label>
+              @if (contactForm.get('name')?.invalid && contactForm.get('name')?.touched) {
+              <small class="text-danger ms-1"><b>Valid Name Is Required.</b></small>
+              }
+              @if (contactForm.get('name')?.hasError('pattern')) {
+              <small class="text-danger ms-1"><b>Invalid Name Format Alphabetical & Only 2-Spaces Allow.</b></small>
+              }
+              @if (contactForm.get('name')?.hasError('maxlength')) {
+              <small class="text-danger ms-1"><b>Name Must Be Less Than Or Equal To 30 Characters.</b></small>
+              }
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="email" formControlName="email" class="form-control rounded border-1 border-dark" id="email"
+                placeholder="Enter your email" required />
+              <label for="email"><b><i class="fa-solid fa-envelope-open-text"></i> Email :</b></label>
+              @if (contactForm.get('email')?.invalid && contactForm.get('email')?.touched) {
+              <small class="text-danger ms-1"><b> Valid Email Is Required.</b></small>
+              }
+              @if (contactForm.get('email')?.hasError('pattern')) {
+              <small class="text-danger ms-1"><b>Invalid Email Format.</b></small>
+              }
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="text" formControlName="mobile" class="form-control rounded border-1 border-dark" id="mobile"
+                placeholder="Enter your number" required />
+              <label for="mobile"><b><i class="fa-solid fa-tty"></i> Mobile :</b></label>
+              @if (contactForm.get('mobile')?.invalid && contactForm.get('mobile')?.touched) {
+              <small class="text-danger ms-1"><b>Valid Mobile Is Required.</b></small>
+              }
+            </div>
+
+            <div class="form-floating mb-3">
+              <textarea formControlName="message"
+                class="form-control textarea bg-primary-subtle rounded p-5 border-1 border-warning " id="message"
+                heght="50px" placeholder="Write Your Query ?.." rows="30" required></textarea>
+              <label for="message"><b><i class="fa-regular fa-message"></i> Message :</b></label>
+              @if (contactForm.get('message')?.invalid && contactForm.get('message')?.touched) {
+              <small class="text-danger ms-1"><b>Message is required.</b></small>
+              }
+            </div>
+
+            <div class="mb-3 text-center">
+              <button title="Send-Message" [disabled]="contactForm.invalid" type="submit"
+                class="btn btn-primary btn-lg form-control border border-3 shadow border-dark "><b class="fs-5">Send<i
+                    class="bi bi-send"></i></b></button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<app-user-footer></app-user-footer>
+
+
+

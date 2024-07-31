@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { AdminProfileComponent } from '../admin-profile/admin-profile.component';
-import { RouterOutlet } from '@angular/router';
+import { AdminNavComponent } from '../../Layouts/admin-nav/admin-nav.component';
+import { AdminSideComponent } from '../../Layouts/admin-side/admin-side.component';
+import { AdminFooterComponent } from "../../Layouts/admin-footer/admin-footer.component";
 
 
 @Component({
   selector: 'app-admin-home',
   standalone: true,
-  imports: [AdminProfileComponent],
+  imports: [AdminNavComponent, AdminSideComponent,AdminFooterComponent],
   templateUrl: './admin-home.component.html',
   styleUrl: './admin-home.component.css'
 })
