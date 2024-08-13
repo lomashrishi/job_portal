@@ -1,33 +1,25 @@
 const conn = require('../Configs/db');
 
-// Get all notices
+// Your GET endpoint for fetching notices
 const noticesGet = async (req, res) => {
   try {
-    // Define the SQL query to fetch all notices
-    const query = 'SELECT * FROM notice_board ORDER BY id DESC';
+    const query = "SELECT * FROM `notice_board` ORDER BY `notice_date` DESC, `id` DESC"; // Define the SQL query
+    const [rows] = await conn.promise().query(query); // Execute the query and wait for the result
     
-    // Execute the query and wait for the result
-    const [rows] = await conn.promise().query(query);
-    
-    // Check if any rows are returned
-    if (rows.length > 0) {
-      // Send the data back to the client in JSON format
-      res.status(200).json(rows);
+    // console.log("Values From Notice Board", rows);
 
-   
+    if (rows.length > 0) { // Check if any rows are returned
+      res.status(200).json(rows); // Send the data back to the client in JSON format
     } else {
-      // Send a 404 response if no data is found
-      res.status(404).json({ message: 'No Notices Found in Notice Board' });
+      res.status(404).send({ message: "No Notices Found" }); // Send a 404 response if no data is found
     }
   } catch (error) {
-    // Log any errors that occur during the query execution
-    console.error('Error fetching notices:', error);
-    // Send a 500 error response to the client
-    res.status(500).json({ message: 'Failed to fetch notices from the database' });
+    console.error(error); // Log any errors that occur during the query execution
+    res.status(500).send({ message: "Error Fetching Notices" }); // Send a 500 error response to the client
   }
 };
 
-// Export the function for use in other modules
+// Export
 module.exports = {
   noticesGet
 };

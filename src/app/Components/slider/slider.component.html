@@ -7,7 +7,13 @@
 <div class="news-ticker border border-1 rounded border-dark d-flex justify-items-center">
 <span class=" heading-news-ticker text-light border-1 border-white border nav-link  fw-bold p-1 rounded" ><i> सूचना :-</i></span>
   <marquee class="d-flex justify-items-center pt-2" behavior="" direction="rtl" scrollamount="7" onmouseover="stop()" onmouseout="start()" >
-    <a href="#" class="text-dark fw-bold pb-1">सूचना: Hello, Hi! I'm a notice.</a>
+  <div class="d-flex m-0 p-0">
+    <span class="d-flex text-decoration-none" *ngFor="let notice of notices" class="news-item">
+      <a class="d-flex me-2 text-decoration-none p-0" [href]="notice.notice_file_url" target="_blank" rel="noopener noreferrer">
+        <h6 class="fw-bold m-0 p-0 text-danger">{{ notice.notice_title }}</h6> <b> -<i class="fa-solid fa-angles-right"></i> </b> <p class="text-decoration-none m-0 p-0">{{ notice.notice_description }}</p>
+      </a>
+    </span>
+  </div>
   </marquee>
 </div>
 <!-- news -->
@@ -70,22 +76,8 @@
         <div class="event mt-1 rounded mb-0 p-1">
           <marquee class="mrqbody  d-flex align-items-center justify-content-center" direction="up" scrollamount="7" onmouseover="stop()" onmouseout="start()">
             <ul class="ms-link">
-              <!-- <li class="info-link mb-3 rounded d-flex">
-                <span class="event-date rounded mr-2 bg-primary fw-bold text-light p-2"><i class="fa-regular fa-calendar-days"></i> 19 May Year
-                </span>
-                <span class=" Info m-2 mb-1">
-                  <a href="http://" target="_blank" rel="noopener noreferrer">
-                  <h5 class="fw-bold text-black">Event Title</h5>
-                <p class="para m-0" >
-                  <img width="30" height="30" src="https://img.icons8.com/external-flaticons-flat-flat-icons/64/external-pdf-squaricons-flaticons-flat-flat-icons.png" alt=""/> Lorem Ipsum is simply dummy text of the printing industry dummy
-                text...
-              </p>
-            </a>
-            </span>
-              </li> -->
-              <!-- 2 -->
-              
-                <li *ngFor="let notice of notices" class="info-link mb-3 rounded d-flex">
+              <!--  notice  -->
+                <!-- <li *ngFor="let notice of notices" class="info-link mb-3 rounded d-flex">
                   <span class="event-date rounded mr-2 bg-primary fw-bold text-light p-2">
                     <i class="fa-regular fa-calendar-days"></i> {{ notice.notice_date | date:'dd MMM yyyy' }}
                   </span>
@@ -98,10 +90,30 @@
                       </p>
                     </a>
                   </span>
-                </li>
-             
-              
+                </li> -->
+            
               <!--  -->
+
+              <li *ngFor="let notice of notices" class="mb-3 p-0 card border-0 ">
+                  <div class="card-body d-flex flex-column rounded p-1 shadow border-black border-1">
+                    <div class="d-flex align-items-center mb-2 border-bottom border-black d-flex p-1">
+                      <div class="event-date rounded bg-warning fw-bold text-light p-1">
+                        <i class="fa-regular fa-calendar-days"></i> {{ notice.notice_date | date:'dd MMM yyyy' }} 
+                      </div>
+                      <div>
+                        <h6 class="card-title fw-bold text-dark mb-2">{{ notice.notice_title }}</h6>
+                      </div>
+                    </div>
+                    <a [href]="notice.notice_file_url" target="_blank" rel="noopener noreferrer" class="text-decoration-none">
+                      <p class="card-text mb-0 text-justify">
+                        <img width="30" height="30" src="https://img.icons8.com/external-flaticons-flat-flat-icons/64/external-pdf-squaricons-flaticons-flat-flat-icons.png" alt="PDF Icon" class="mr-2"/>
+                        {{ notice.notice_description }}
+                      </p>
+                    </a>
+                  </div>
+              </li>
+
+
             </ul>
           </marquee>
         </div>

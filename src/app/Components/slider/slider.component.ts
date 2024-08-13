@@ -11,16 +11,15 @@ import { CommonModule } from '@angular/common';
   styleUrl: './slider.component.css'
 })
 export class SliderComponent implements OnInit{
-  notices:any;
+  notices:any =[];
 
   constructor(public NoticeBoardService: NoticeBoardService) {} // Inject the notification service
 
 // For Notices Get
   infoData(): void {
     this.NoticeBoardService.getNotices().subscribe((response: any) => {
-      this.notices = response.resp;
-      // alert(this.notice);
-      // console.log(this.notice); // Log the data to the console for debugging
+      this.notices = response;
+      //  console.log(this.notices); // Log the data to the console for debugging
     });
   }
 
