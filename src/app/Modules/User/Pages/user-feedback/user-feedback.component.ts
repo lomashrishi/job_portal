@@ -15,10 +15,14 @@ import { UserProfileService } from '../../Services/UserProfile/user-profile.serv
   styleUrls: ['./user-feedback.component.css']
 })
 export class UserFeedbackComponent implements OnInit {
+onSubmit() {
+throw new Error('Method not implemented.');
+}
 
   FeedbackForm: FormGroup;
   serverResponse: any;
   userInfo: any;
+
 
   constructor(
     private fb: FormBuilder,
