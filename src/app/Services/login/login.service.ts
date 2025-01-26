@@ -14,7 +14,7 @@ export class LoginService {
   currentTime: any;
   getToken: any;
 
-  private ApiUrl= `${environment.apiBaseUrl}/post/login`;// Use the API base URL from environment files
+  private apiUrl = `${environment.apiBaseUrl}/post/login`;  // From the Env File
 
   constructor(private http: HttpClient, private router: Router) {
     this.getToken = localStorage.getItem('token') || sessionStorage.getItem('token');
@@ -37,7 +37,7 @@ export class LoginService {
   // Login Call Back Function
   sendLogin(FormData: any): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post(this.ApiUrl, FormData, { headers });
+    return this.http.post(this.apiUrl, FormData, { headers }); // Corrected property name
   }
 
   // For Log Out With Auth
