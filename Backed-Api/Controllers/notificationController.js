@@ -4,9 +4,9 @@ const Notifications = async (req, res) => {
   try {
     const query = "SELECT * FROM `notifications` ORDER BY `S_No` DESC"; // Define the SQL query
     const [rows] = await conn.promise().query(query); // Execute the query and wait for the result
-    
+
     // console.log("Values From Notification", rows);
-    
+
     if (rows.length > 0) { // Check if any rows are returned
       res.status(200).json(rows); // Send the data back to the client in JSON format
     } else {

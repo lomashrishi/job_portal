@@ -1,10 +1,10 @@
 import { Component, NgModule, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TopnavComponent } from '../../Layouts/topnav/topnav.component';
-import { HeaderComponent } from '../../Layouts/header/header.component';
-import { NavbarComponent } from '../../Layouts/navbar/navbar.component';
-import { FootslideComponent } from '../../Layouts/footslide/footslide.component';
-import { FooterComponent } from '../../Layouts/footer/footer.component';
+import { TopnavComponent } from '../../layouts/topnav/topnav.component';
+import { HeaderComponent } from '../../layouts/header/header.component';
+import { NavbarComponent } from '../../layouts/navbar/navbar.component';
+import { FootslideComponent } from '../../layouts/footslide/footslide.component';
+import { FooterComponent } from '../../layouts/footer/footer.component';
 import { NotificationService } from '../../Services/notifications/notification.service';
 
 @Component({

@@ -1,11 +1,11 @@
 import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { TopnavComponent } from '../../Layouts/topnav/topnav.component';
-import { HeaderComponent } from '../../Layouts/header/header.component';
-import { NavbarComponent } from '../../Layouts/navbar/navbar.component';
-import { FootslideComponent } from '../../Layouts/footslide/footslide.component';
-import { FooterComponent } from '../../Layouts/footer/footer.component';
+import { TopnavComponent } from '../../layouts/topnav/topnav.component';
+import { HeaderComponent } from '../../layouts/header/header.component';
+import { NavbarComponent } from '../../layouts/navbar/navbar.component';
+import { FootslideComponent } from '../../layouts/footslide/footslide.component';
+import { FooterComponent } from '../../layouts/footer/footer.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LoginService } from '../../Services/login/login.service';
 import Swal from 'sweetalert2';
@@ -29,7 +29,7 @@ Token:any;
   this.LoginForm = Fb.group({
     email:['', [Validators.email,Validators.required,Validators.email, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')]],
     mobile:['',[Validators.minLength(10),Validators.maxLength(10),Validators.required, Validators.pattern(/^\d+$/),Validators.minLength(10),Validators.maxLength(10) ]],
-    password:['',[Validators.required,Validators.maxLength(16),Validators.minLength(8),Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()_+\\-\\[\\]{};:\'",.<>/?])[A-Za-z\\d!@#$%^&*()_+\\-\\[\\]{};:\'",.<>/?]{8,}$')]], 
+    password:['',[Validators.required,Validators.maxLength(16),Validators.minLength(8),Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()_+\\-\\[\\]{};:\'",.<>/?])[A-Za-z\\d!@#$%^&*()_+\\-\\[\\]{};:\'",.<>/?]{8,}$')]],
     captcha_input:['',[Validators.minLength(8),Validators.maxLength(8),Validators.required,]]
   })
  }
@@ -44,7 +44,7 @@ onSubmit(){
         if(response.token){
           this.Token = response.token; //Token Recived From Bakend
                   // alert(this.Token);
-        localStorage.setItem("token", this.Token); //store in local storage in browser 
+        localStorage.setItem("token", this.Token); //store in local storage in browser
         sessionStorage.setItem("token", this.Token);
         }
 
@@ -52,17 +52,17 @@ onSubmit(){
         const Toast = Swal.mixin({toast: true,position: "top-end",showConfirmButton: false,timer: 3000,timerProgressBar: true,
           didOpen: (toast) => {toast.onmouseenter = Swal.stopTimer;toast.onmouseleave = Swal.resumeTimer;}});
         Toast.fire({icon: "success",title: "Successfully...",text:this.serverResponse.message});
-        // this.LoginForm.reset(); // Reset form after successful submission my form 
+        // this.LoginForm.reset(); // Reset form after successful submission my form
             // Redirect to /user route after successful login
             this.router.navigate(['/user-dashboard']);
       }, error => {
-        this.serverResponse = error.error.message;    
+        this.serverResponse = error.error.message;
          // Display error message in an alert
         Swal.fire({icon: "error",title: "Oops...",text:"Failed:-"+this.serverResponse,timer:3000, footer: '<a routerLink="/register"><small><b>New Users Must Registered Before Login.</b></small></a>'});
       } );
     }
     else{
-      this.toast.error({detail:"Error Message",summary:"Failed:-"+"Captcha Code Is Not Valid !..",duration:5000, position:'topRight'});     
+      this.toast.error({detail:"Error Message",summary:"Failed:-"+"Captcha Code Is Not Valid !..",duration:5000, position:'topRight'});
     }
   }
 }
@@ -73,21 +73,21 @@ changetype:boolean=true;
 
 viewpass(){
   this.visible = !this.visible
-  this.changetype = !this.changetype; 
+  this.changetype = !this.changetype;
 }
 
-// Captcha Code 
+// Captcha Code
 captchaText: string = '';
   generateCaptcha(): void {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&abcdefghijklmnopqrstuvwxyz';
     let captcha = '';
     for (let i = 0; i < 8; i++) {
       captcha += characters.charAt(Math.floor(Math.random() * characters.length));
-    } 
+    }
     this.captchaText = captcha;
   }
 
-// //check for login already login 
+// //check for login already login
 //   checkIfLoggedIn(): void {
 //     // const Token = localStorage.getItem('token') || sessionStorage.getItem('token');
 //     if (localStorage.getItem('token') || sessionStorage.getItem('token')) {
@@ -99,9 +99,9 @@ captchaText: string = '';
 
   ngOnInit() {
     this.generateCaptcha(); // Generate captcha on component initialization
-  //  this.checkIfLoggedIn();  // For Login Check 
+  //  this.checkIfLoggedIn();  // For Login Check
   }
-//Captcha Code Close 
+//Captcha Code Close
 
 
 

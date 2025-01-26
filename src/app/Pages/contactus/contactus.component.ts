@@ -1,11 +1,11 @@
 
 import { Component } from '@angular/core';
 import { FormBuilder,FormGroup,ReactiveFormsModule, Validators } from '@angular/forms';
-import { TopnavComponent } from '../../Layouts/topnav/topnav.component';
-import { HeaderComponent } from '../../Layouts/header/header.component';
-import { NavbarComponent } from '../../Layouts/navbar/navbar.component';
-import { FootslideComponent } from '../../Layouts/footslide/footslide.component';
-import { FooterComponent } from '../../Layouts/footer/footer.component';
+import { TopnavComponent } from '../../layouts/topnav/topnav.component';
+import { HeaderComponent } from '../../layouts/header/header.component';
+import { NavbarComponent } from '../../layouts/navbar/navbar.component';
+import { FootslideComponent } from '../../layouts/footslide/footslide.component';
+import { FooterComponent } from '../../layouts/footer/footer.component';
 import { ContactService } from '../../Services/contact/contact.service';
 import { NgToastService } from 'ng-angular-popup';
 @Component({
@@ -24,11 +24,11 @@ export class ContactusComponent {
       name: ['', [Validators.required,Validators.pattern('^[a-zA-Z]+(?:\\s[a-zA-Z]+){0,3}$'),Validators.maxLength(30)]], // Required field
       email: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')]], // Required, valid email format
       mobile: ['', [Validators.required, Validators.pattern(/^\d+$/),Validators.minLength(10),Validators.maxLength(10)]], // Required, phone number format (adjust pattern as needed)
-      message: ['', [Validators.required, Validators.maxLength(1000)]] // 
+      message: ['', [Validators.required, Validators.maxLength(1000)]] //
     });
   }
 
-  
+
   onSubmit() {
     if( this.contactForm.valid ) {
     const FormData = this.contactForm.value;
@@ -36,14 +36,14 @@ export class ContactusComponent {
      this.contactService.sendMessage(FormData).subscribe(response => {
           this.serverResponse = response.messages;
           this.toast.success({detail:"Success Message",summary:'Your Message Send Successfully...',duration:5000, position:'topRight'});
-          this.contactForm.reset(); // Reset form after successful submission my form 
+          this.contactForm.reset(); // Reset form after successful submission my form
         }, error => {
           this.serverResponse = error.status;
-          this.toast.error({detail:"Error Message",summary:"Failed:-"+this.serverResponse,duration:5000, position:'topRight'});     
-              
+          this.toast.error({detail:"Error Message",summary:"Failed:-"+this.serverResponse,duration:5000, position:'topRight'});
+
         } );
     }
 
-    
+
   }
 }

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { TopnavComponent } from '../../Layouts/topnav/topnav.component';
-import { HeaderComponent } from '../../Layouts/header/header.component';
-import { NavbarComponent } from '../../Layouts/navbar/navbar.component';
-import { FootslideComponent } from '../../Layouts/footslide/footslide.component';
-import { FooterComponent } from '../../Layouts/footer/footer.component';
+import { TopnavComponent } from '../../layouts/topnav/topnav.component';
+import { HeaderComponent } from '../../layouts/header/header.component';
+import { NavbarComponent } from '../../layouts/navbar/navbar.component';
+import { FootslideComponent } from '../../layouts/footslide/footslide.component';
+import { FooterComponent } from '../../layouts/footer/footer.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RegisterService } from '../../Services/register/register.service';
 import Swal from 'sweetalert2';
@@ -20,7 +20,7 @@ import { NgToastService } from 'ng-angular-popup';
 export class RegisterComponent {
   // for form data
   registerForm: FormGroup;
-  // for server response message 
+  // for server response message
   serverResponse: any;
 // image uploads
 ViewSignUrl: any | null = null;
@@ -71,7 +71,7 @@ ViewProfileUrl:any | null =null;
     // Handle form submission
     console.log(this.registerForm.value);
     if (this.registerForm.valid) {
-      const RegisterFormData = new FormData();  
+      const RegisterFormData = new FormData();
       RegisterFormData.append('ProfileImage', this.registerForm.value.ProfileImage);
       RegisterFormData.append('SignatureImage', this.registerForm.value.SignatureImage);
 
@@ -90,7 +90,7 @@ ViewProfileUrl:any | null =null;
         // lib msg
         Swal.fire({icon: "success",title: "Success",text: "Success:-" + this.serverResponse,timer: 3000,footer: '<a routerLink="/login"><small><b>If You Registered Go Login...</b></small></a>'
         });
-        this.registerForm.reset(); // Reset form after successful submission my form 
+        this.registerForm.reset(); // Reset form after successful submission my form
       }, error => {
         this.serverResponse = error.error.message;
         // lib msg
@@ -101,7 +101,7 @@ ViewProfileUrl:any | null =null;
     }
   }
 
-// Image Pick With Validation 
+// Image Pick With Validation
 // Validate image type and size
 private validateImage(file: File): boolean {
   const allowedTypes = ['image/jpeg', 'image/png', 'image/jpg'];
@@ -156,7 +156,7 @@ onChangeSignatureImage(event: any) {
 
 
 
-// PinCode To Distict Name 
+// PinCode To Distict Name
 getMyPin() {
       const MyPinCode = this.registerForm.get('PinCode')?.value;
       if(MyPinCode){
@@ -178,7 +178,7 @@ todayDate(): string {
 }
 
 
-  // // Age Uapdate 
+  // // Age Uapdate
   calculateAge() {
     const DobValue = this.registerForm.get('Dob')?.value;
     if (DobValue) {
@@ -193,7 +193,7 @@ todayDate(): string {
     }
   }
 
-  // Captcha Code 
+  // Captcha Code
   captchaText: string = '';
   generateCaptcha(): void {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&abcdefghijklmnopqrstuvwxyz';
@@ -204,7 +204,7 @@ todayDate(): string {
     this.captchaText = captcha;
   }
 
-// Validate Captcha 
+// Validate Captcha
 MatchCaptcha(){
   if(this.captchaText===this.registerForm.value.InputCaptcha)
     {
@@ -214,15 +214,15 @@ MatchCaptcha(){
     this.registerForm.get('InputCaptcha')?.setValue(null);
     this.registerForm.get('InputCaptcha')?.setErrors({ invalid: true });
     alert("incorrect captcha");
-    this.generateCaptcha(); // Generate captcha on 
+    this.generateCaptcha(); // Generate captcha on
   }
 }
-  // Captcha Close 
+  // Captcha Close
 
-  // Auto Call Function on Loads 
+  // Auto Call Function on Loads
 ngOnInit() {
     this.generateCaptcha(); // Generate captcha on component initialization
-    this.getMyPin();// for pin code 
+    this.getMyPin();// for pin code
   }
 
 
