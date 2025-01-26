@@ -1,0 +1,39 @@
+
+#loginbtn{
+background-color: #f88c26;
+color: azure;
+font-weight: bold;
+}
+#regbtn{
+    background-color: #059fff;
+    color: azure;
+    font-weight: bold;
+}
+
+.nav-link {
+font-weight: bold;
+margin-left:15px;   
+}
+.nav-item a:hover{
+    background-color: #44bd9e;
+    border-radius: 5px;
+    border:solid 2px azure;
+    padding: 5px;
+    color: azure; 
+}
+
+.dropdown-item {
+    font-weight: bold;
+}
+
+@media (max-width: 395px) {
+    .nav-manu .btn {
+            text-align:left;
+      }
+}
+@media (max-width: 770px) {
+    .nav-manu .btn {
+     text-align:left;
+    }
+}
+

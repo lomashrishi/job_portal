@@ -1,210 +1,329 @@
-<app-user-header></app-user-header>
+<!-- <app-user-header></app-user-header> -->
 <app-user-nav></app-user-nav>
 <app-user-side-nav></app-user-side-nav>
- <!-- Main Contents -->
+<!-- Main Contents -->
 <div class="container-fluid Mon-Body p-1">
-    <div class=" Main-Container container mb-2">
+    <div class="Main-Container container mb-2">
         <!-- Row-1-For-Path -->
-        <div class="row border-top border-5 border-danger p-1  bg-white shadow rounded-top">
-                <h6 class="ms-1 pt-1 text-black"><a class="text-decoration-none text-black" href=""><b>Home</b></a><b> / </b><a class="text-decoration-none " href=""><b>Dashbord</b></a></h6>
+        <div class="row border-top border-5 border-danger p-1 bg-white shadow rounded-top">
+            <h6 class="ms-1 pt-1 text-black fw-bold">
+                <span   class=" text-black" href=""><b>Home</b></span>
+                <b> / </b>
+                <span class="text-success" routerLink="/user-profile" ><b>User Profile</b></span>
+            </h6>
         </div>
-         <!-- Row-1-For-Path -->
-         <div class="row boxes bg-white border-top border-1 border-dark d-flex">
-            <!--  -->
-           <!-- Start -->
-           <div class="container mt-5">
-            <div class="card shadow-lg">
-              <div class="card-header bg-primary text-white text-center">
-                <h2>User Profile</h2>
-              </div>
-              <div class="card-body bg-light">
-                <div class="row">
-                  <div class="col-md-8 profile-info">
-                    <div class="form-group row">
-                      <label class="col-sm-4 col-form-label"><strong>Name:</strong></label>
-                      <div class="col-sm-8">
-                        <input type="text" class="form-control-plaintext" [value]="userData.Name" readonly>
-                      </div>
+        <!-- Row-1-For-Path -->
+        <div class="row boxes bg-white border-top border-1 border-dark d-flex">
+            <!-- Start -->
+        <div class="container mt-3">
+          <div class="row d-flex p-2 m-1 fs-5">        
+            <!-- Info User -->
+            <div class="col-lg-5 basic-info">
+              <div class="form-group row">
+                <label class="col-md-4 col-form-label"><strong>Registration No:</strong></label>
+                <div class="col-sm-6">
+                    <p class="form-control-plaintext">{{userInfo.Registration_No}}</p>
+                </div>
+            </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label"><strong>Name:</strong></label>
+                    <div class="col-sm-8">
+                        <p class="form-control-plaintext">{{userInfo.Name}}</p>
                     </div>
-                    <div class="form-group row">
-                      <label class="col-sm-4 col-form-label"><strong>Date of Birth:</strong></label>
-                      <div class="col-sm-8">
-                        <input type="text" class="form-control-plaintext" [value]="userData.Dob" readonly>
-                      </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label"><strong>Date of Birth:</strong></label>
+                    <div class="col-sm-8">
+                        <p class="form-control-plaintext">{{userInfo.Dob | date: 'dd/MM/yyyy' }}</p>
                     </div>
-                    <div class="form-group row">
-                      <label class="col-sm-4 col-form-label"><strong>Gender:</strong></label>
-                      <div class="col-sm-8">
-                        <input type="text" class="form-control-plaintext" [value]="userData.Gender" readonly>
-                      </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label"><strong>Age:</strong></label>
+                    <div class="col-sm-8">
+                        <p class="form-control-plaintext">{{userInfo.Age}}</p>
                     </div>
-                    <div class="form-group row">
-                      <label class="col-sm-4 col-form-label"><strong>Category:</strong></label>
-                      <div class="col-sm-8">
-                        <input type="text" class="form-control-plaintext" [value]="userData.Category" readonly>
-                      </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label"><strong>Gender:</strong></label>
+                    <div class="col-sm-8">
+                        <p class="form-control-plaintext">{{userInfo.Gender}}</p>
                     </div>
-                    <div class="form-group row">
-                      <label class="col-sm-4 col-form-label"><strong>Marital Status:</strong></label>
-                      <div class="col-sm-8">
-                        <input type="text" class="form-control-plaintext" [value]="userData.MaritalStatus" readonly>
-                      </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label"><strong>Email:</strong></label>
+                    <div class="col-sm-8">
+                        <p class="form-control-plaintext">{{userInfo.Email}}</p>
                     </div>
-                    <div class="form-group row">
-                      <label class="col-sm-4 col-form-label"><strong>Age:</strong></label>
-                      <div class="col-sm-8">
-                        <input type="text" class="form-control-plaintext" [value]="userData.Age" readonly>
-                      </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label"><strong>Phone Number:</strong></label>
+                    <div class="col-sm-8">
+                        <p class="form-control-plaintext">{{userInfo.Mobile}}</p>
                     </div>
-                    <div class="form-group row">
-                      <label class="col-sm-4 col-form-label"><strong>Relative Type:</strong></label>
-                      <div class="col-sm-8">
-                        <input type="text" class="form-control-plaintext" [value]="userData.RelativeType" readonly>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label class="col-sm-4 col-form-label"><strong>Relative Name:</strong></label>
-                      <div class="col-sm-8">
-                        <input type="text" class="form-control-plaintext" [value]="userData.RelativeName" readonly>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label class="col-sm-4 col-form-label"><strong>Mother's Name:</strong></label>
-                      <div class="col-sm-8">
-                        <input type="text" class="form-control-plaintext" [value]="userData.MotherName" readonly>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label class="col-sm-4 col-form-label"><strong>Nationality:</strong></label>
-                      <div class="col-sm-8">
-                        <input type="text" class="form-control-plaintext" [value]="userData.Nationality" readonly>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label class="col-sm-4 col-form-label"><strong>Domicile CG:</strong></label>
-                      <div class="col-sm-8">
-                        <input type="text" class="form-control-plaintext" [value]="userData.DomicileCG" readonly>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label class="col-sm-4 col-form-label"><strong>Domicile District:</strong></label>
-                      <div class="col-sm-8">
-                        <input type="text" class="form-control-plaintext" [value]="userData.DomecileDistrict" readonly>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label class="col-sm-4 col-form-label"><strong>Disabilities:</strong></label>
-                      <div class="col-sm-8">
-                        <input type="text" class="form-control-plaintext" [value]="userData.Disabilities" readonly>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label class="col-sm-4 col-form-label"><strong>Family Yearly Income:</strong></label>
-                      <div class="col-sm-8">
-                        <input type="text" class="form-control-plaintext" [value]="userData.FamilyYearlyIncome" readonly>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label class="col-sm-4 col-form-label"><strong>Email:</strong></label>
-                      <div class="col-sm-8">
-                        <input type="email" class="form-control-plaintext" [value]="userData.Email" readonly>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label class="col-sm-4 col-form-label"><strong>Mobile:</strong></label>
-                      <div class="col-sm-8">
-                        <input type="text" class="form-control-plaintext" [value]="userData.Mobile" readonly>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label class="col-sm-4 col-form-label"><strong>House No:</strong></label>
-                      <div class="col-sm-8">
-                        <input type="text" class="form-control-plaintext" [value]="userData.HouseNo" readonly>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label class="col-sm-4 col-form-label"><strong>Street:</strong></label>
-                      <div class="col-sm-8">
-                        <input type="text" class="form-control-plaintext" [value]="userData.Street" readonly>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label class="col-sm-4 col-form-label"><strong>City/Village:</strong></label>
-                      <div class="col-sm-8">
-                        <input type="text" class="form-control-plaintext" [value]="userData.CityVillage" readonly>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label class="col-sm-4 col-form-label"><strong>State:</strong></label>
-                      <div class="col-sm-8">
-                        <input type="text" class="form-control-plaintext" [value]="userData.State" readonly>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label class="col-sm-4 col-form-label"><strong>District:</strong></label>
-                      <div class="col-sm-8">
-                        <input type="text" class="form-control-plaintext" [value]="userData.District" readonly>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label class="col-sm-4 col-form-label"><strong>Pin Code:</strong></label>
-                      <div class="col-sm-8">
-                        <input type="text" class="form-control-plaintext" [value]="userData.PinCode" readonly>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label class="col-sm-4 col-form-label"><strong>Declaration Check:</strong></label>
-                      <div class="col-sm-8">
-                        <input type="text" class="form-control-plaintext" [value]="userData.DeclarationCheck ? 'Yes' : 'No'" readonly>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label class="col-sm-4 col-form-label"><strong>Captcha:</strong></label>
-                      <div class="col-sm-8">
-                        <input type="text" class="form-control-plaintext" [value]="userData.InputCaptcha" readonly>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label class="col-sm-4 col-form-label"><strong>OTP:</strong></label>
-                      <div class="col-sm-8">
-                        <input type="text" class="form-control-plaintext" [value]="userData.InputOtp" readonly>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4 text-center">
-                    <div class="mb-3">
-                      <strong>Profile Image:</strong>
-                      <div class="card">
-                        <div class="card-body p-2">
-                          <img [src]="userData.ProfileImageURL" alt="Profile Image" class="img-fluid rounded">
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                      <strong>Signature Image:</strong>
-                      <div class="card">
-                        <div class="card-body p-2">
-                          <img [src]="userData.SignatureImageURL" alt="Signature Image" class="img-fluid rounded">
-                        </div>
-                      </div>
-                    </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-4 col-form-label"><strong>Category:</strong></label>
+                  <div class="col-sm-8">
+                      <p class="form-control-plaintext">{{userInfo.Category}}</p>
                   </div>
                 </div>
-              </div>
-              <div class="card-footer text-center">
-                <button class="btn btn-primary mx-2">Edit</button>
-                <button class="btn btn-success mx-2">Update</button>
-                <button class="btn btn-secondary mx-2">Print</button>
-              </div>
+
             </div>
+
+            <!-- user other info -->
+            <div class="col-lg-5 profile-info">
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label"><strong>Marital Status:</strong></label>
+                    <div class="col-sm-8">
+                        <p class="form-control-plaintext">{{userInfo.Marital_Status}}</p>
+                    </div>
+                </div>             
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label"><strong>Relative Type:</strong></label>
+                    <div class="col-sm-8">
+                        <p class="form-control-plaintext">{{userInfo.Relative_Type}}</p>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label"><strong>Relative Name:</strong></label>
+                    <div class="col-sm-8">
+                        <p class="form-control-plaintext">{{userInfo.Relative_Name}}</p>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label"><strong>Mother's Name:</strong></label>
+                    <div class="col-sm-8">
+                        <p class="form-control-plaintext">{{userInfo.Mother_Name}}</p>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label"><strong>Nationality:</strong></label>
+                    <div class="col-sm-8">
+                        <p class="form-control-plaintext">{{userInfo.Nationality}}</p>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label"><strong>Domicile CG:</strong></label>
+                    <div class="col-sm-8">
+                        <p class="form-control-plaintext">{{userInfo.Domicile_CG}}</p>
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label"><strong>Address:</strong></label>
+                    <div class="col-sm-8">
+                        <p class="form-control-plaintext">
+                            {{ userInfo.HouseNo}}, {{ userInfo.Street }}, {{ userInfo.City_Village }}, {{ userInfo.District }}, {{ userInfo.State }} - {{ userInfo.PinCode }}
+                          </p>
+                    </div>
+                </div>
+            
+            </div>
+
+            <!-- Images -->
+            <div class="col-lg-2">
+                                        <div class="row">
+                                            <div class="col-lg-12 d-flex justify-content-center">
+                                                <div class=" rounded shadow mb-1 border border-1 border-dark" style=" width: 200px; height: 250px;">
+                                                    <img id="imgUploadProfile"   [src]="imgBase + userInfo.Profile_Image_URL" alt="Profile Image"   class="img-thumbnail  rounded"  style="height:250px;width:200px;">
+                                                </div>
+                                            </div>
+                
+                                          <div class="col-lg-12 d-flex justify-content-center mt-3">
+                                                    <div class=" rounded shadow mb-1 border border-1 border-dark" style=" width: 200px; height:90px;">
+                
+                                                    <img id="imgUploadSign"  [src]="imgBase + userInfo.Signature_Image_URL" 
+                                                    alt="Signature Image"  class="img-thumbnail bg-transparent rounded" style="height:90px;width:200px;">
+                                                </div>
+                                            </div>                                       
+                                        </div>
+            </div>
+         
           </div>
-          
- 
+<!-- row2 -->
+<div class="row d-flex p-2 m-1 fs-5">  
+        <h2 class="text-center fw-bold"> Update Your Educational Details</h2>
+       
+          <div class="table-responsive shadow bg-light rounded">
+            <table class="table table-bordered table-striped-columns border border-dark rounded">
+              <thead class="text-capitalize text-center fw-bold table-dark text-white">
+                <tr class="">
+                  <th>Level</th>
+                  <th>Board/University</th>
+                  <th>SubJect/Course</th>
+                  <th>Roll Number</th>
+                  <th>Passing Year</th>
+                  <th>Percentage</th>
+                  <th>Upload Marksheet</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+            <form [formGroup]="tenth_form" (ngSubmit)="onSubmit10th()">
+                  <td>10<sup>th</sup></td>
+                  <td>
+                    <!-- Registration_No Form Join Table -->
+                    <input type="hidden" formControlName="Registration_No" id="Registration_No" name="Registration_No">
+                    <!--  -->
+                    <select formControlName ="BoardName" class="form-select" id="10thBoardOrUniversity"  name="10thBoardOrUniversity" required>
+                      <option value="">Select</option>
+                      <option value="1">Central Board of Secondary Education (CBSE)</option>
+                      <option value="2">Chhattisgarh Board Of Secondary Education (CGBSE)</option>
+                      <option value="3">Other State Board</option>
+                    </select>
+                  </td>
+                  <td><input type="text" formControlName="CourseName" class="form-control" id="Course" name="course_name" required></td>
+                  <td><input type="text" formControlName="RollNumber" class="form-control" id="10thRollNumber" name="10thRollNumber" required></td>
+                  <td>
+                    <select class="form-select" formControlName="PassingYear" id="10thPassingYear" name="10thPassingYear" required>
+                      <option value="">Select Year</option>
+                      <!-- <option *ngFor="let year of years" [value]="year">{{ year }}</option> -->
+                    </select>
+                  </td>
+                  <td><input type="text" class="form-control" formControlName="Percentage" id="10thPercentage" name="10thPercentage" required></td>
+                  <td><input type="file" formControlName="Marksheet" class="form-control" id="marksheetUpload10" name="marksheetUpload10" accept=".pdf, .docx, .doc, .txt"></td>
+                  <td class="text-center d-flex justify-content-between g-2"> 
+                    <button type="submit" title="Save & Update" class="btn btn-success fw-bold m-1"><i class="fa-solid fa-file-arrow-up"></i></button>
+                    <a  title="View & Open" class="btn btn-info fw-bold m-1"><i class="fa-solid fa-envelope-open-text text-white"></i></a>
+                    <a type="" title="Delete & Remove" class="btn btn-danger fw-bold m-1"><i class="fa-solid fa-trash-can"></i></a>
+                 </td>
+                </form>
+                </tr>
+                
+                <tr>
+                  <td>12<sup>th</sup> </td>
+                  <td>
+                    <select class="form-select" id="12thBoardOrUniversity" name="12thBoardOrUniversity" required>
+                      <option value="">Select</option>
+                      <option value="1">Central Board of Secondary Education (CBSE)</option>
+                      <option value="2">Chhattisgarh Board Of Secondary Education (CGBSE)</option>
+                      <option value="3">Other State Board</option>
+                    </select>
+                  </td>
+                  <td><input type="text" class="form-control" id="Course" name="course_name" required></td>
 
+                  <td><input type="text" class="form-control" id="12thRollNumber" name="12thRollNumber" required></td>
+                  <td>
+                    <select class="form-select" id="12thPassingYear" name="12thPassingYear" required>
+                      <option value="">Select Year</option>
+                      <!-- <option *ngFor="let year of years" [value]="year">{{ year }}</option> -->
+                    </select>
+                  </td>
+                  <td><input type="text" class="form-control" id="12thPercentage" name="12thPercentage" required></td>
+                  <td><input type="file" class="form-control" id="marksheetUpload12" name="marksheetUpload12" accept=".pdf, .docx, .doc, .txt"></td>
+                  <td class="text-center d-flex justify-content-between g-2"> 
+                    <button type="submit" title="Save & Update" class="btn btn-success fw-bold m-1"><i class="fa-solid fa-file-arrow-up"></i></button>
+                    <button type="" title="View & Open" class="btn btn-info fw-bold m-1"><i class="fa-solid fa-envelope-open-text text-white"></i></button>
+                    <button type="" title="Delete & Remove" class="btn btn-danger fw-bold m-1"><i class="fa-solid fa-trash-can"></i></button>
+                 </td>
+                </tr>
+                <tr>
+                    <td>Diploma</td>
+                    <td>
+                      <select class="form-select" id="graduationBoardOrUniversity" name="graduationBoardOrUniversity" required>
+                        <option value="">Select</option>
+                        <option value="1">Amity University, Raipur</option>
+                        <option value="2">Atal Bihari Vajpayee Vishwavidyalaya</option>
+                        <option value="3">Shaheed Mahendra Karma Vishwavidyalaya</option>
+                        <option value="4">Kamdhenu Vishwavidyalaya</option>
+                        <option value="5">Swami Vivekanand Technical University</option>
+                        <option value="6">Dr. C. V. Raman University</option>
+                        <option value="7">Indira Gandhi National Open University</option>
+                        <option value="8">Pt. Ravishankar Shukla University</option>
+                      </select>
+                    </td>
+                    <td><input type="text" class="form-control" id="Course" name="course_name" required></td>
+                    <td><input type="text" class="form-control" id="graduationRollNumber" name="graduationRollNumber" required></td>
+                    <td>
+                      <select class="form-select" id="graduationPassingYear" name="graduationPassingYear" required>
+                        <option value="">Select Year</option>
+                        <!-- <option *ngFor="let year of years" [value]="year">{{ year }}</option> -->
+                      </select>
+                    </td>
+                    <td><input type="text" class="form-control" id="graduationPercentage" name="graduationPercentage" required></td>
+                    <td><input type="file" class="form-control" id="marksheetUploadGraduation" name="marksheetUploadGraduation" accept=".pdf, .docx, .doc, .txt"></td>
+                    <td class="text-center d-flex justify-content-between g-2"> 
+                      <button type="submit" title="Save & Update" class="btn btn-success fw-bold m-1"><i class="fa-solid fa-file-arrow-up"></i></button>
+                      <button type="" title="View & Open" class="btn btn-info fw-bold m-1"><i class="fa-solid fa-envelope-open-text text-white"></i></button>
+                      <button type="" title="Delete & Remove" class="btn btn-danger fw-bold m-1"><i class="fa-solid fa-trash-can"></i></button>
+                   </td>
+                  </tr>
+                <tr>
+                  <td>Graduation</td>
+                  <td>
+                    <select class="form-select" id="graduationBoardOrUniversity" name="graduationBoardOrUniversity" required>
+                      <option value="">Select</option>
+                      <option value="1">Amity University, Raipur</option>
+                      <option value="2">Atal Bihari Vajpayee Vishwavidyalaya</option>
+                      <option value="3">Shaheed Mahendra Karma Vishwavidyalaya</option>
+                      <option value="4">Kamdhenu Vishwavidyalaya</option>
+                      <option value="5">Swami Vivekanand Technical University</option>
+                      <option value="6">Dr. C. V. Raman University</option>
+                      <option value="7">Indira Gandhi National Open University</option>
+                      <option value="8">Pt. Ravishankar Shukla University</option>
+                    </select>
+                  </td>
+                  <td><input type="text" class="form-control" id="Course" name="course_name" required></td>
+                  <td><input type="text" class="form-control" id="graduationRollNumber" name="graduationRollNumber" required></td>
+                  <td>
+                    <select class="form-select" id="graduationPassingYear" name="graduationPassingYear" required>
+                      <option value="">Select Year</option>
+                      <!-- <option *ngFor="let year of years" [value]="year">{{ year }}</option> -->
+                    </select>
+                  </td>
+                  <td><input type="text" class="form-control" id="graduationPercentage" name="graduationPercentage" required></td>
+                  <td><input type="file" class="form-control" id="marksheetUploadGraduation" name="marksheetUploadGraduation" accept=".pdf, .docx, .doc, .txt"></td>
+                <td class="text-center d-flex justify-content-between g-2"> 
+                    <button type="submit" title="Save & Update" class="btn btn-success fw-bold m-1"><i class="fa-solid fa-file-arrow-up"></i></button>
+                    <button type="submit" title="View & Open" class="btn btn-info fw-bold m-1"><i class="fa-solid fa-envelope-open-text text-white"></i></button>
+                    <button type="submit" title="Delete & Remove" class="btn btn-danger fw-bold m-1"><i class="fa-solid fa-trash-can"></i></button>
+                 </td>
+                 
+                </tr>
+                <tr>
+                    <td> Post Graduation</td>
+                    <td>
+                      <select class="form-select" id="graduationBoardOrUniversity" name="graduationBoardOrUniversity" required>
+                        <option value="">Select</option>
+                        <option value="1">Amity University, Raipur</option>
+                        <option value="2">Atal Bihari Vajpayee Vishwavidyalaya</option>
+                        <option value="3">Shaheed Mahendra Karma Vishwavidyalaya</option>
+                        <option value="4">Kamdhenu Vishwavidyalaya</option>
+                        <option value="5">Swami Vivekanand Technical University</option>
+                        <option value="6">Dr. C. V. Raman University</option>
+                        <option value="7">Indira Gandhi National Open University</option>
+                        <option value="8">Pt. Ravishankar Shukla University</option>
+                      </select>
+                    </td>
+                    <td><input type="text" class="form-control" id="Course" name="course_name" required></td>
+                    <td><input type="text" class="form-control" id="graduationRollNumber" name="graduationRollNumber" required></td>
+                    <td>
+                      <select class="form-select" id="graduationPassingYear" name="graduationPassingYear" required>
+                        <option value="">Select Year</option>
+                        <!-- <option *ngFor="let year of years" [value]="year">{{ year }}</option> -->
+                      </select>
+                    </td>
+                    <td><input type="text" class="form-control" id="graduationPercentage" name="graduationPercentage" required></td>
+                    <td><input type="file" class="form-control" id="marksheetUploadGraduation" name="marksheetUploadGraduation" accept=".pdf, .docx, .doc, .txt"></td>
+                    <td class="text-center d-flex justify-content-between g-2"> 
+                      <button type="submit" title="Save & Update" class="btn btn-success fw-bold m-1"><i class="fa-solid fa-file-arrow-up"></i></button>
+                      <button type="" title="View & Open" class="btn btn-info fw-bold m-1"><i class="fa-solid fa-envelope-open-text text-white"></i></button>
+                      <button type="" title="Delete & Remove" class="btn btn-danger fw-bold m-1"><i class="fa-solid fa-trash-can"></i></button>
+                   </td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+        
+</div>
 
+        </div>
 
-
-         <!-- Main Close -->
+<!--  -->
+        </div>          
     </div>
 </div>
+
 <app-user-footer></app-user-footer>

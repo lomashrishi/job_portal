@@ -3,7 +3,6 @@ import { RouterLink } from '@angular/router';
 import { UserNavComponent } from '../../Layouts/user-nav/user-nav.component';
 import { UserSideNavComponent } from '../../Layouts/user-side-nav/user-side-nav.component';
 import { UserFooterComponent } from '../../Layouts/user-footer/user-footer.component';
-import { UserHeaderComponent } from '../../Layouts/user-header/user-header.component';
 import { CommonModule } from '@angular/common';
 import { JobTopicsComponent } from '../../Components/job-topics/job-topics.component';
 import { CurrentJobService } from '../../Services/currentJob/current-job.service';
@@ -11,7 +10,7 @@ import { CurrentJobService } from '../../Services/currentJob/current-job.service
 @Component({
   selector: 'app-user-dash',
   standalone: true,
-  imports: [UserNavComponent, UserSideNavComponent, UserFooterComponent, UserHeaderComponent, RouterLink, CommonModule, JobTopicsComponent],
+  imports: [UserNavComponent, UserSideNavComponent, UserFooterComponent, RouterLink, CommonModule, JobTopicsComponent],
   templateUrl: './user-dash.component.html',
   styleUrls: ['./user-dash.component.css'] // Corrected styleUrls instead of styleUrl
 })
@@ -47,7 +46,7 @@ export class UserDashComponent implements OnInit {
   }
 
   // Auto Call
-  ngOnInit(): void {
+  ngOnInit():void {
     this.infoData(); // Load CurrentJob when the page loads
   }
 }

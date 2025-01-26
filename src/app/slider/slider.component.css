@@ -1,0 +1,75 @@
+
+/* That Is Foe Rigth Side News Link */
+
+.heading {
+	color: #fff;
+	background:#44bd9e;
+    cursor: pointer;
+}
+.heading a{
+float: right;
+}
+
+.heading a:hover{
+    color: darkslateblue;
+    }
+.event-date{
+    border: solid white;
+    margin-right:5px;
+}
+.info-link{
+   display: flex;
+   justify-content: center;
+   border: solid #44bd9e;
+}
+
+.news-ticker{
+    background-color:whitesmoke;
+    border: solid black;
+
+}
+.heading-news-ticker{
+    width: 100px;
+    background-color:#ff5252;
+    border-radius: 5px;
+}
+.ms-link{
+    text-decoration: none;
+    display:inline;
+    justify-content: center;
+}
+.event{
+    height:300px;
+      overflow: hidden;
+}
+.mrqbody{
+    overflow: hidden;
+    height:300px;
+
+}
+
+.carousel-item img{
+    width: 100%;
+    height: 100%;
+    height:300px;
+    object-fit:fill;
+}
+.slide{
+
+    height:300px;
+}
+
+
+
+@media (max-width: 768px) {
+    .carousel-item img{
+        width: 100%;
+        height: 100%;
+        height:200px;
+        object-fit:fill;
+    }
+    .slide{
+
+        height:200px;
+    }
+}

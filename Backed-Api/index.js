@@ -5,8 +5,12 @@ const cors = require('cors');
 const contactRoute =require('./Routes/contactRoute');
 const registerRoute =require('./Routes/registerRoute');
 const userLoginRoute =require('./Routes/userLoginRoute');
+const userLogoutRoute =require('./Routes/userLogoutRoute');
 const notificationRoute =require('./Routes/notificationRoute');
 const currentJobRoute = require('./Routes/currentJobRoute');
+const userProfileRoute = require('./Routes/userProfileRoute');
+const userFeedbackRoute = require('./Routes/userFeedbackRoute');
+const userChangePassRouters = require('./Routes/userChangePassRouters');
 //  object for express
 const app = express();
 
@@ -14,10 +18,13 @@ const app = express();
 app.use(BodyParser.json());
 app.use(express.json());
 app.use(BodyParser.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors({origin:"*"}));
 
 // Port No. For Running Api 
 const PORT = process.env.PORT || 3100;
+
+// Serve static files from the 'Uploads' directory
+app.use('/Uploads', express.static(path.join(__dirname, 'Uploads')));
 
 // Set 'views' directory for any views
 app.set('Views', path.join(__dirname, 'Views'));
@@ -52,8 +59,12 @@ app.get("/", (req, res) => {
 app.use('/api/post',contactRoute);
 app.use('/api/post',registerRoute);
 app.use('/api/post',userLoginRoute);
+app.use('/api/post',userLogoutRoute);
 app.use('/api/get',notificationRoute);
 app.use('/api/get',currentJobRoute);
+app.use('/api/get',userProfileRoute);
+app.use('/api/post',userFeedbackRoute);
+app.use('/api/post',userChangePassRouters);
 
 
 // Listening to the port

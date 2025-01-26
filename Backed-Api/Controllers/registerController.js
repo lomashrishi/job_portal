@@ -41,7 +41,6 @@ const generateRegistrationNumber = () => {
 
     conn.query(query, (err, result) => {
       if (err) return reject(err);
-
       const count = result[0].count + 1;
       const registrationNumber = `${prefix}${String(count).padStart(7, "0")}`;
       resolve(registrationNumber);
@@ -162,7 +161,7 @@ const userRegister = (req, res) => {
 
           return res.status(200).json({
             message: "User registered successfully.",
-            registrationNumber: registrationNumber,
+            Registration_No: registrationNumber,
             name: dataInput.Name,
             email: dataInput.Email,
             mobile: dataInput.Mobile,

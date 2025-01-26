@@ -88,11 +88,15 @@ ViewProfileUrl:any | null =null;
       this.RegisterService.UserRegister(RegisterFormData).subscribe(response => {
         this.serverResponse = response.message;
         // lib msg
+        Swal.fire({icon: "success",title: "Success",text: "Success:-" + this.serverResponse,timer: 3000,footer: '<a routerLink="/login"><small><b>If You Registered Go Login...</b></small></a>'
+        });
         this.registerForm.reset(); // Reset form after successful submission my form 
       }, error => {
         this.serverResponse = error.error.message;
         // lib msg
-        alert(this.serverResponse);
+        Swal.fire({icon: "error",title: "Oops...",text:"Failed:-"+this.serverResponse,timer:3000, footer:'<a routerLink="/login"><small><b>If You Already Registered Go Login.</b></small></a>'});
+
+        // alert(this.serverResponse);
       });
     }
   }

@@ -9,4 +9,17 @@ import { Component } from '@angular/core';
 })
 export class UserDownloadsComponent {
 
+  currentYear = new Date().getFullYear();
+  years: number[] = [];
+
+  constructor() {
+    this.generateYears();
+  }
+
+  generateYears() {
+    for (let i = this.currentYear; i >= 1950; i--) {
+      this.years.push(i);
+    }
+  }
+
 }
