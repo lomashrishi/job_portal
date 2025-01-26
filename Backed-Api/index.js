@@ -12,11 +12,8 @@ const currentJobRoute = require('./Routes/currentJobRoute');
 const userProfileRoute = require('./Routes/userProfileRoute');
 const userFeedbackRoute = require('./Routes/userFeedbackRoute');
 const userChangePassRouters = require('./Routes/userChangePassRouters');
-<<<<<<< HEAD
-=======
 const userResetEmailRoute = require('./Routes/userResetEmailRoute');
 const noticeGetController = require('./Routes/noticeGetRoute');
->>>>>>> dafea539bbbf52364ff3d45a644cfb2d867032c4
 //  object for express
 const app = express();
 
@@ -26,7 +23,7 @@ app.use(express.json());
 app.use(BodyParser.urlencoded({ extended: true }));
 app.use(cors({origin:"*"}));
 
-// Port No. For Running Api 
+// Port No. For Running Api
 const PORT = process.env.PORT || 3100;
 
 // Serve static files from the 'Uploads' directory
@@ -60,7 +57,7 @@ app.get("/", (req, res) => {
 
 //   app.use(express.static('./Uploads'));
 
- 
+
 // Calling Routing Apis -
 app.use('/api/post',contactRoute);
 app.use('/api/post',registerRoute);
@@ -71,11 +68,8 @@ app.use('/api/get',currentJobRoute);
 app.use('/api/get',userProfileRoute);
 app.use('/api/post',userFeedbackRoute);
 app.use('/api/post',userChangePassRouters);
-<<<<<<< HEAD
-=======
 app.use('/api/post',userResetEmailRoute);
 app.use('/api/get',noticeGetController);
->>>>>>> dafea539bbbf52364ff3d45a644cfb2d867032c4
 
 
 // Listening to the port

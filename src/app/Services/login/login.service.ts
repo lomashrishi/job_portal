@@ -7,7 +7,6 @@ import { jwtDecode } from 'jwt-decode';
   providedIn: 'root'
 })
 export class LoginService {
-<<<<<<< HEAD
   decodedToken:any;
   expirationTime:any;
   currentTime:any;
@@ -15,13 +14,6 @@ export class LoginService {
   private ApiUrl = "http://localhost:3000/api/post/login"; // Use the API base URL from environment files
   constructor(private http: HttpClient, private router: Router) { } // constructor
 
-=======
-
-
-  private ApiUrl = "http://localhost:3000/api/post/login"; // Use the API base URL from environment files
-  constructor(private http: HttpClient, private router: Router) { } // constructor
-
->>>>>>> dafea539bbbf52364ff3d45a644cfb2d867032c4
   // For Auth Guard
 
   isLoggedIn(): boolean {
@@ -31,35 +23,28 @@ export class LoginService {
       return false;
     }
   }
-<<<<<<< HEAD
 
-=======
->>>>>>> dafea539bbbf52364ff3d45a644cfb2d867032c4
-
-  // Login Call Back Function 
+  // Login Call Back Function
   sendLogin(FormData: any): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });// Set appropriate headers if needed
     return this.http.post(this.ApiUrl, FormData, { headers });     // Post the data to the API
   }
 
-<<<<<<< HEAD
   getToken :any = localStorage.getItem('token') || sessionStorage.getItem('token');
   if (getToken:any) {
     this.decodedToken  = jwtDecode('getToken');
     this.expirationTime = this.decodedToken.exp * 1000;
     this.currentTime = new Date().getTime();
-  
+
     console.log('Token:', getToken);
     console.log('Expiration Time:', this.expirationTime);
     console.log('Current Time:', this.currentTime);
   }
-  
 
 
 
 
-=======
->>>>>>> dafea539bbbf52364ff3d45a644cfb2d867032c4
+
 
   // For Log Out With Auth
   logout(): void {
@@ -67,11 +52,7 @@ export class LoginService {
     //   console.log(response);
     //   alert(response); // Display the response message in an alert
       // Remove token from local storage
-<<<<<<< HEAD
       if (localStorage.getItem('token') || sessionStorage.getItem('token') || this.currentTime > this.expirationTime) {
-=======
-      if (localStorage.getItem('token') || sessionStorage.getItem('token')) {
->>>>>>> dafea539bbbf52364ff3d45a644cfb2d867032c4
         localStorage.removeItem('token');
         sessionStorage.removeItem('token');
         this.router.navigate(['/login']); // redirect to login page

@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 // import { Injectable } from '@angular/core';
 // import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 // import { LoginService } from '../Services/login/login.service';
@@ -17,7 +15,7 @@
 
 //   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
 
-// // if Token Is Nahi mila storage par to ya setion time out ho gya to automatic logout ho jayega 
+// // if Token Is Nahi mila storage par to ya setion time out ho gya to automatic logout ho jayega
 
 //     if (!this.loginService.isLoggedIn()) {
 //       const returnUrl = state.url;
@@ -26,19 +24,19 @@
 //       return false;
 //     }
 
-//     //  get token from locan save by login 
+//     //  get token from locan save by login
 //     this.getToken  = localStorage.getItem('token') || sessionStorage.getItem('token');
 
 //     if (this.getToken) {
 //       this.decodedToken  = jwtDecode('getToken');
 //       this.expirationTime = this.decodedToken.exp * 1000;
 //       this.currentTime = new Date().getTime();
-    
+
 //       console.log('Token:', this.getToken);
 //       console.log('Expiration Time:', this.expirationTime);
 //       console.log('Current Time:', this.currentTime);
 
-//       //  agar Time Samampt Ho Jata hain Token Ka To Logout Ho Jayega 
+//       //  agar Time Samampt Ho Jata hain Token Ka To Logout Ho Jayega
 //       if (this.currentTime > this.expirationTime) {
 //         alert('Token has been Expired');
 //         this.loginService.logout();  // Assuming you have a logout method
@@ -51,7 +49,6 @@
 //     return true;
 //   }
 // }
->>>>>>> dafea539bbbf52364ff3d45a644cfb2d867032c4
 import { Injectable } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { LoginService } from '../Services/login/login.service';
@@ -72,10 +69,7 @@ export class AuthGuard implements CanActivate {
     // Check if the user is logged in
     if (!this.loginService.isLoggedIn()) {
       const returnUrl = state.url;
-<<<<<<< HEAD
-=======
       this.loginService.logout(); // Assuming you have a logout method
->>>>>>> dafea539bbbf52364ff3d45a644cfb2d867032c4
       this.router.navigate(['/login'], { queryParams: { returnUrl } });
       return false;
     }

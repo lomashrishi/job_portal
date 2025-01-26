@@ -1,108 +1,65 @@
-<<<<<<< HEAD
-import { Component } from '@angular/core';
-=======
 import { Component, OnInit } from '@angular/core';
->>>>>>> dafea539bbbf52364ff3d45a644cfb2d867032c4
 import { UserFooterComponent } from '../../Layouts/user-footer/user-footer.component';
 import { UserSideNavComponent } from '../../Layouts/user-side-nav/user-side-nav.component';
 import { UserNavComponent } from '../../Layouts/user-nav/user-nav.component';
 import { NgToastService } from 'ng-angular-popup';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UserFeedbackService } from '../../Services/UserFeedback/user-feedback.service';
-<<<<<<< HEAD
-=======
 import { UserProfileService } from '../../Services/UserProfile/user-profile.service';
->>>>>>> dafea539bbbf52364ff3d45a644cfb2d867032c4
 
 @Component({
   selector: 'app-user-feedback',
   standalone: true,
-  imports: [UserNavComponent,UserSideNavComponent,UserFooterComponent,ReactiveFormsModule],
+  imports: [UserNavComponent, UserSideNavComponent, UserFooterComponent, ReactiveFormsModule],
   templateUrl: './user-feedback.component.html',
-  styleUrl: './user-feedback.component.css'
+  styleUrls: ['./user-feedback.component.css']
 })
 export class UserFeedbackComponent implements OnInit {
 
-  FeedbackForm:FormGroup;
-  serverResponse:any;
-  userInfo:any;
+  FeedbackForm: FormGroup;
+  serverResponse: any;
+  userInfo: any;
 
-  constructor(private Fb: FormBuilder, public UserProfileService:UserProfileService, public UserFeedbackService:UserFeedbackService, private toast: NgToastService) {
-    this.FeedbackForm = this.Fb.group({
-      Registration_No: ['',[Validators.required]],
-      name: ['', [Validators.required,Validators.pattern('^[a-zA-Z]+(?:\\s[a-zA-Z]+){0,3}$'),Validators.maxLength(30)]], // Required field
-      email: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')]], // Required, valid email format
-      mobile: ['', [Validators.required, Validators.pattern(/^\d+$/),Validators.minLength(10),Validators.maxLength(10)]], // Required, phone number format (adjust pattern as needed)
-      message: ['', [Validators.required, Validators.maxLength(1000)]] // 
+  constructor(
+    private fb: FormBuilder,
+    public userProfileService: UserProfileService,
+    public userFeedbackService: UserFeedbackService,
+    private toast: NgToastService
+  ) {
+    this.FeedbackForm = this.fb.group({
+      Registration_No: ['', [Validators.required]],
+      name: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+(?:\\s[a-zA-Z]+){0,3}$'), Validators.maxLength(30)]],
+      email: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')]],
+      mobile: ['', [Validators.required, Validators.pattern(/^\d+$/), Validators.minLength(10), Validators.maxLength(10)]],
+      message: ['', [Validators.required, Validators.maxLength(1000)]]
     });
   }
 
-  
-  onSubmit() {
-    if( this.FeedbackForm.valid ) {
-    const FormData = this.FeedbackForm.value;
-     // You can do something with the form data here if you need to send it somewhere
-     this.UserFeedbackService.sendFeedback(FormData).subscribe(response => {
-      this.serverResponse = response.message;
-      // alert(this.serverResponse);
-          this.toast.success({detail:"Success Message",summary: this.serverResponse ,duration:5000, position:'topRight'});
-          this.FeedbackForm.reset(); // Reset form after successful submission my form 
-        }, error => {
+  onSubmitFeedback() {
+    if (this.FeedbackForm.valid) {
+      const formData = this.FeedbackForm.value;
+      this.userFeedbackService.sendFeedback(formData).subscribe(
+        response => {
+          this.serverResponse = response.message;
+          this.toast.success({ detail: "Success Message", summary: this.serverResponse, duration: 5000, position: 'topRight' });
+          this.FeedbackForm.reset();
+        },
+        error => {
           this.serverResponse = error.status;
-          this.toast.error({detail:"Error Message",summary:"Failed:-" + this.serverResponse ,duration:5000, position:'topRight'});     
-              
-        } );
+          this.toast.error({ detail: "Error Message", summary: "Failed: " + this.serverResponse, duration: 5000, position: 'topRight' });
+        }
+      );
     }
-
-    
   }
 
-
-// For Registration No
-getUserData(){
-  this.UserProfileService.getCurrentUserInfo().subscribe((response: any) => {
-    this.userInfo = response;
-      // Directly patch the form with user data
-    this.FeedbackForm.get('Registration_No')?.setValue(this.userInfo.Registration_No);
-    // console.log("UserInfo=>",this.userInfo); 
-})
-}
-
-
-
-ngOnInit():void {
-  this.getUserData();
-}
-
-  contactForm:FormGroup;
-  serverResponse:any;
-
-  constructor(private Fb: FormBuilder, public UserFeedbackService:UserFeedbackService, private toast: NgToastService) {
-    this.contactForm = this.Fb.group({
-      name: ['', [Validators.required,Validators.pattern('^[a-zA-Z]+(?:\\s[a-zA-Z]+){0,3}$'),Validators.maxLength(30)]], // Required field
-      email: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')]], // Required, valid email format
-      mobile: ['', [Validators.required, Validators.pattern(/^\d+$/),Validators.minLength(10),Validators.maxLength(10)]], // Required, phone number format (adjust pattern as needed)
-      message: ['', [Validators.required, Validators.maxLength(1000)]] // 
+  getUserData() {
+    this.userProfileService.getCurrentUserInfo().subscribe((response: any) => {
+      this.userInfo = response;
+      this.FeedbackForm.get('Registration_No')?.setValue(this.userInfo.Registration_No);
     });
   }
 
-  
-  onSubmit() {
-    if( this.contactForm.valid ) {
-    const FormData = this.contactForm.value;
-     // You can do something with the form data here if you need to send it somewhere
-     this.UserFeedbackService.sendFeedback(FormData).subscribe(response => {
-          this.serverResponse = response.messages;
-          this.toast.success({detail:"Success Message",summary:this.serverResponse,duration:5000, position:'topRight'});
-          this.contactForm.reset(); // Reset form after successful submission my form 
-        }, error => {
-          this.serverResponse = error.status;
-          this.toast.error({detail:"Error Message",summary:"Failed:-"+this.serverResponse,duration:5000, position:'topRight'});     
-              
-        } );
-    }
-
-    
+  ngOnInit(): void {
+    this.getUserData();
   }
-
 }

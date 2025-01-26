@@ -4,19 +4,19 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-forgetpassword',
   standalone: true,
-  imports: [NgClass],
+  imports: [],
   templateUrl: './forgetpassword.component.html',
   styleUrl: './forgetpassword.component.css'
 })
 export class ForgetpasswordComponent {
   visible:boolean=true;
   changetype:boolean=true;
-  
+
   viewpass(){
     this.visible = !this.visible
-    this.changetype = !this.changetype; 
+    this.changetype = !this.changetype;
   }
-  
+
   // Captcha Code
   captchaText: string = '';
     generateCaptcha(): void {
@@ -24,12 +24,12 @@ export class ForgetpasswordComponent {
       let captcha = '';
       for (let i = 0; i < 8; i++) {
         captcha += characters.charAt(Math.floor(Math.random() * characters.length));
-      } 
+      }
       this.captchaText = captcha;
     }
     ngOnInit() {
       this.generateCaptcha(); // Generate captcha on component initialization
     }
-  //Captcha Code Close 
-  
+  //Captcha Code Close
+
 }
