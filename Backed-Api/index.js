@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path'); // Import the 'path' module
 const BodyParser = require('body-parser');
 const cors = require('cors');
+// Routes
 const contactRoute =require('./Routes/contactRoute');
 const registerRoute =require('./Routes/registerRoute');
 const userLoginRoute =require('./Routes/userLoginRoute');
@@ -11,6 +12,11 @@ const currentJobRoute = require('./Routes/currentJobRoute');
 const userProfileRoute = require('./Routes/userProfileRoute');
 const userFeedbackRoute = require('./Routes/userFeedbackRoute');
 const userChangePassRouters = require('./Routes/userChangePassRouters');
+<<<<<<< HEAD
+=======
+const userResetEmailRoute = require('./Routes/userResetEmailRoute');
+const noticeGetController = require('./Routes/noticeGetRoute');
+>>>>>>> dafea539bbbf52364ff3d45a644cfb2d867032c4
 //  object for express
 const app = express();
 
@@ -65,6 +71,11 @@ app.use('/api/get',currentJobRoute);
 app.use('/api/get',userProfileRoute);
 app.use('/api/post',userFeedbackRoute);
 app.use('/api/post',userChangePassRouters);
+<<<<<<< HEAD
+=======
+app.use('/api/post',userResetEmailRoute);
+app.use('/api/get',noticeGetController);
+>>>>>>> dafea539bbbf52364ff3d45a644cfb2d867032c4
 
 
 // Listening to the port

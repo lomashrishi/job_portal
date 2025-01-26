@@ -36,7 +36,7 @@ const upload = multer({
 
 const generateRegistrationNumber = () => {
   return new Promise((resolve, reject) => {
-    const prefix = "KJP";
+    const prefix = "KRP";
     const query = "SELECT COUNT(*) AS count FROM users";
 
     conn.query(query, (err, result) => {

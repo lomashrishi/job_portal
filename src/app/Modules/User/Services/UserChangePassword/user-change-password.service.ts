@@ -13,7 +13,12 @@ export class UserChangePasswordService {
   constructor(private http: HttpClient) {}
 
   private getAuthHeaders(): HttpHeaders {
+<<<<<<< HEAD
     const token = localStorage.getItem('token'); // Or sessionStorage.getItem('authToken')
+=======
+      // Retrieve the token from localStorage or sessionStorage
+  const token = localStorage.getItem('token') || sessionStorage.getItem('token');
+>>>>>>> dafea539bbbf52364ff3d45a644cfb2d867032c4
     return new HttpHeaders({ 'Content-Type': 'application/json','Authorization': token ? `Bearer ${token}` : ''});
   }
 

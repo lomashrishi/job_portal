@@ -31,12 +31,4 @@ CREATE TABLE users (
     PinCode VARCHAR(10) NOT NULL
 );
 
-DELIMITER $$
-CREATE TRIGGER before_insert_users
-BEFORE INSERT ON users
-FOR EACH ROW
-BEGIN
-    SET NEW.RegistrationNo = CONCAT('KRP', LPAD(NEW.ID, 10, '0'));
-END;
-$$
-DELIMITER ;
+

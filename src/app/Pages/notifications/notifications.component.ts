@@ -17,7 +17,7 @@ import { NotificationService } from '../../Services/notifications/notification.s
 export class NotificationsComponent implements OnInit {
   notifications: any[] = []; // Variable to store the API response data
   currentPage: number = 1; // Current page number
-  itemsPerPage: number = 3; // Items per page
+  itemsPerPage: number = 7; // Items per page
   totalPages: number = 0; // Total pages
 
   constructor(public notificationService: NotificationService) {} // Inject the notification service

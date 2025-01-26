@@ -11,11 +11,19 @@
     <div class="container mt-5 vh-100">
       <div class="row d-flex  justify-content-center contact-row  pt-5  m-5 ">
         <div class="col-lg-8 con-form  pt-5 pb-3">
+<<<<<<< HEAD
           <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="con-form">
+=======
+          <form [formGroup]="FeedbackForm" (ngSubmit)="onSubmit()" class="con-form">
+                  <!-- Registration_No Form Join Table -->
+                  <input type="hidden" formControlName="Registration_No" id="Registration_No" name="Registration_No">
+                  <!--  -->
+>>>>>>> dafea539bbbf52364ff3d45a644cfb2d867032c4
             <div class="form-floating mb-3">
               <input type="text" formControlName="name" class="form-control rounded border-1 border-dark" id="name"
                 placeholder="Enter your name" required />
               <label for="name"><b><i class="fa-solid fa-user-tie"></i> Name :</b></label>
+<<<<<<< HEAD
               @if (contactForm.get('name')?.invalid && contactForm.get('name')?.touched) {
               <small class="text-danger ms-1"><b>Valid Name Is Required.</b></small>
               }
@@ -23,6 +31,15 @@
               <small class="text-danger ms-1"><b>Invalid Name Format Alphabetical & Only 2-Spaces Allow.</b></small>
               }
               @if (contactForm.get('name')?.hasError('maxlength')) {
+=======
+              @if (FeedbackForm.get('name')?.invalid && FeedbackForm.get('name')?.touched) {
+              <small class="text-danger ms-1"><b>Valid Name Is Required.</b></small>
+              }
+              @if (FeedbackForm.get('name')?.hasError('pattern')) {
+              <small class="text-danger ms-1"><b>Invalid Name Format Alphabetical & Only 2-Spaces Allow.</b></small>
+              }
+              @if (FeedbackForm.get('name')?.hasError('maxlength')) {
+>>>>>>> dafea539bbbf52364ff3d45a644cfb2d867032c4
               <small class="text-danger ms-1"><b>Name Must Be Less Than Or Equal To 30 Characters.</b></small>
               }
             </div>
@@ -31,10 +48,17 @@
               <input type="email" formControlName="email" class="form-control rounded border-1 border-dark" id="email"
                 placeholder="Enter your email" required />
               <label for="email"><b><i class="fa-solid fa-envelope-open-text"></i> Email :</b></label>
+<<<<<<< HEAD
               @if (contactForm.get('email')?.invalid && contactForm.get('email')?.touched) {
               <small class="text-danger ms-1"><b> Valid Email Is Required.</b></small>
               }
               @if (contactForm.get('email')?.hasError('pattern')) {
+=======
+              @if (FeedbackForm.get('email')?.invalid && FeedbackForm.get('email')?.touched) {
+              <small class="text-danger ms-1"><b> Valid Email Is Required.</b></small>
+              }
+              @if (FeedbackForm.get('email')?.hasError('pattern')) {
+>>>>>>> dafea539bbbf52364ff3d45a644cfb2d867032c4
               <small class="text-danger ms-1"><b>Invalid Email Format.</b></small>
               }
             </div>
@@ -43,7 +67,11 @@
               <input type="text" formControlName="mobile" class="form-control rounded border-1 border-dark" id="mobile"
                 placeholder="Enter your number" required />
               <label for="mobile"><b><i class="fa-solid fa-tty"></i> Mobile :</b></label>
+<<<<<<< HEAD
               @if (contactForm.get('mobile')?.invalid && contactForm.get('mobile')?.touched) {
+=======
+              @if (FeedbackForm.get('mobile')?.invalid && FeedbackForm.get('mobile')?.touched) {
+>>>>>>> dafea539bbbf52364ff3d45a644cfb2d867032c4
               <small class="text-danger ms-1"><b>Valid Mobile Is Required.</b></small>
               }
             </div>
@@ -53,13 +81,21 @@
                 class="form-control textarea bg-primary-subtle rounded p-5 border-1 border-warning " id="message"
                 heght="50px" placeholder="Write Your Query ?.." rows="30" required></textarea>
               <label for="message"><b><i class="fa-regular fa-message"></i> Message :</b></label>
+<<<<<<< HEAD
               @if (contactForm.get('message')?.invalid && contactForm.get('message')?.touched) {
+=======
+              @if (FeedbackForm.get('message')?.invalid && FeedbackForm.get('message')?.touched) {
+>>>>>>> dafea539bbbf52364ff3d45a644cfb2d867032c4
               <small class="text-danger ms-1"><b>Message is required.</b></small>
               }
             </div>
 
             <div class="mb-3 text-center">
+<<<<<<< HEAD
               <button title="Send-Message" [disabled]="contactForm.invalid" type="submit"
+=======
+              <button title="Send-Message" [disabled]="FeedbackForm.invalid" type="submit"
+>>>>>>> dafea539bbbf52364ff3d45a644cfb2d867032c4
                 class="btn btn-primary btn-lg form-control border border-3 shadow border-dark "><b class="fs-5">Send<i
                     class="bi bi-send"></i></b></button>
             </div>

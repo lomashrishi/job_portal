@@ -22,7 +22,11 @@ const userLogin = async (req, res) => {
       // Validate password
       const validPassword = await bcrypt.compare(password, user.Password); // Note: Ensure that `user.Password` is used as per the column name in your database
       if (validPassword) {
+<<<<<<< HEAD
         const token = jwt.sign({ email: user.Email, mobile: user.Mobile, name: user.Name }, 'secretkey', { expiresIn: '1h' });
+=======
+        const token = jwt.sign({ email: user.Email, mobile: user.Mobile, name: user.Name }, 'secretkey', { expiresIn: '45m' });
+>>>>>>> dafea539bbbf52364ff3d45a644cfb2d867032c4
         return res.status(200).json({ message: 'User Login Successfully...', token });
       } else {
         return res.status(400).json({ message: 'Invalid password' });
